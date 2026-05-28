@@ -328,11 +328,19 @@
         </ul>
       </div>
       <div class="contact-r">
-        <div class="form-field"><label for="n">Votre nom</label><input id="n" type="text" placeholder="Jean Dupont"></div>
-        <div class="form-field"><label for="e">Votre email</label><input id="e" type="email" placeholder="jean@exemple.fr"></div>
-        <div class="form-field"><label for="m">Votre projet en quelques mots</label><textarea id="m" placeholder="J'ai un restaurant et j'aimerais un site..."></textarea></div>
-        <button class="btn btn-primary" style="width:100%;justify-content:center" id="sendBtn">Envoyer ma demande
-          <svg class="ic ar" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></button>
+        <form id="contactForm">
+          <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+          <input type="hidden" name="subject" value="Nouvelle demande via studiobon.site">
+          <input type="hidden" name="from_name" value="Site Studio Bonsite">
+          <input type="checkbox" name="botcheck" style="display:none">
+          <div class="form-field"><label for="n">Votre nom</label><input id="n" name="nom" type="text" placeholder="Jean Dupont" required></div>
+          <div class="form-field"><label for="e">Votre email</label><input id="e" name="email" type="email" placeholder="jean@exemple.fr" required></div>
+          <div class="form-field"><label for="t">Votre téléphone <span style="color:var(--ink-soft);font-weight:400">(optionnel)</span></label><input id="t" name="telephone" type="tel" placeholder="06 12 34 56 78"></div>
+          <div class="form-field"><label for="m">Votre projet en quelques mots</label><textarea id="m" name="message" placeholder="J'ai un restaurant et j'aimerais un site..." required></textarea></div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center" type="submit" id="sendBtn">Envoyer ma demande
+            <svg class="ic ar" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></button>
+          <p id="formMsg" style="margin-top:16px;font-size:.92rem;text-align:center;display:none"></p>
+        </form>
       </div>
     </div>
   </div>
@@ -362,10 +370,33 @@
   navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
   const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*55);obs.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-  document.getElementById('sendBtn').addEventListener('click',()=>{
-    const n=document.getElementById('n').value,e=document.getElementById('e').value,m=document.getElementById('m').value;
-    const body=encodeURIComponent('Nom: '+n+'\nEmail: '+e+'\n\n'+m);
-    window.location.href='mailto:contact@studiobon.site?subject='+encodeURIComponent('Demande via le site — '+(n||'nouveau contact'))+'&body='+body;
+  document.getElementById('contactForm').addEventListener('submit',async(ev)=>{
+    ev.preventDefault();
+    const form=ev.target, btn=document.getElementById('sendBtn'), msg=document.getElementById('formMsg');
+    btn.disabled=true; btn.style.opacity='.6'; btn.textContent='Envoi en cours…';
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json',Accept:'application/json'},
+        body:JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      const data=await res.json();
+      msg.style.display='block';
+      if(data.success){
+        msg.style.color='#1a7f37';
+        msg.textContent='Merci ! Votre demande a bien été envoyée, je vous réponds très vite.';
+        form.reset();
+        btn.style.display='none';
+      }else{
+        msg.style.color='#b42318';
+        msg.textContent="Oups, une erreur est survenue. Écrivez-moi directement à contact@studiobon.site";
+        btn.disabled=false; btn.style.opacity='1'; btn.innerHTML='Réessayer';
+      }
+    }catch(e){
+      msg.style.display='block'; msg.style.color='#b42318';
+      msg.textContent="Connexion impossible. Écrivez-moi à contact@studiobon.site";
+      btn.disabled=false; btn.style.opacity='1'; btn.innerHTML='Réessayer';
+    }
   });
 </script>
 </body>
