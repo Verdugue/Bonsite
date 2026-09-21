@@ -4,483 +4,415 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Studio Bonsite — Création de sites web à Aix &amp; Marseille</title>
-<meta name="description" content="Studio Bonsite crée des sites internet vitrine et e-commerce pour les commerces et artisans d'Aix-en-Provence et Marseille.">
+<meta name="description" content="Studio Bonsite crée des sites internet vitrine et e-commerce pour les commerces et indépendants d'Aix-en-Provence, Marseille et toute la France.">
+<meta property="og:title" content="Studio Bonsite — Votre site doit faire venir des clients">
+<meta property="og:description" content="Sites vitrine, boutiques en ligne et refontes, conçus à la main. Devis gratuit, réponse sous 48h.">
+<meta property="og:image" content="img/easyfly.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#ffffff;--bg-alt:#f6f6f4;--ink:#111111;--ink-2:#3a3a38;--ink-soft:#6b6b67;
-    --line:#e5e5e1;--line-2:#d6d6d1;
-    --display:'Fraunces',Georgia,serif;--body:'Inter',system-ui,sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-  ::selection{background:var(--ink);color:#fff}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
-  svg.ic{width:24px;height:24px;stroke:currentColor;stroke-width:1.4;fill:none;stroke-linecap:round;stroke-linejoin:round}
+:root{
+  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#9AA39F;--green:#0E5C48;--green-2:#24463C;
+  --sand:#F2B880;--mint:#E9EFEA;--line:rgba(18,33,28,.12);--line-2:rgba(18,33,28,.2);
+  --pad:clamp(20px,5vw,80px);--sec:clamp(64px,9vw,120px);
+  --mono:'DM Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Sora,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none;transition:color .2s,background .2s,border-color .2s,transform .25s}
+a:hover{color:var(--green)}
+img{display:block;max-width:100%}
+input,textarea,button{font-family:inherit;color:inherit;font-size:16px}
+input::placeholder,textarea::placeholder{color:var(--muted)}
+input:focus,textarea:focus{outline:none;border-color:var(--green)!important;box-shadow:0 0 0 3px rgba(14,92,72,.15)}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--green);display:flex;gap:10px;align-items:center}
+.eyebrow::before{content:"";width:24px;height:1px;background:currentColor;display:inline-block}
+h1,h2,h3{margin:0;font-weight:800}
+h2{font-size:clamp(34px,4.2vw,56px);line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--ink-2);font-size:16px;line-height:1.6;text-wrap:pretty}
+.btn{display:inline-block;padding:16px 26px;border-radius:12px;font-weight:700;font-size:15px;white-space:nowrap}
+.btn-primary{background:var(--green);color:#fff}.btn-primary:hover{background:var(--ink);color:#fff}
+.btn-ghost{border:1.5px solid var(--line-2);font-weight:600;padding:16px 22px}.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+.chip{padding:6px 10px;border:1px solid rgba(18,33,28,.15);border-radius:999px}
+.sec{padding:var(--sec) var(--pad);display:flex;flex-direction:column;gap:44px}
+.sec-head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;align-items:end}
+.sec-head .lead{max-width:440px;justify-self:end}
+@media(max-width:700px){.sec-head .lead{justify-self:start}}
 
-  #nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:all .3s}
-  .nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:26px 32px;transition:all .3s}
-  #nav.scrolled .nav-inner{padding:16px 32px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-  .logo{font-family:var(--display);font-weight:500;font-size:1.3rem;letter-spacing:-.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
-  .logo .mark{width:13px;height:13px;border:2px solid var(--ink);border-radius:3px;display:inline-block;transform:rotate(45deg)}
-  .nav-links{display:flex;gap:36px;align-items:center}
-  .nav-links a{color:var(--ink-soft);text-decoration:none;font-size:.93rem;transition:color .2s}
-  .nav-links a:hover{color:var(--ink)}
-  .nav-cta{border:1.5px solid var(--ink);color:var(--ink)!important;padding:9px 20px;border-radius:2px;font-weight:500!important;transition:all .25s}
-  .nav-cta:hover{background:var(--ink);color:#fff!important}
-  .burger{display:none;background:none;border:none;cursor:pointer;color:var(--ink)}
+/* NAV */
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px var(--pad);background:rgba(251,250,247,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(18,33,28,.1)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.02em}
+.logo b{width:26px;height:26px;border-radius:8px;background:var(--green);display:inline-flex;align-items:center;justify-content:center;color:var(--bg);font-size:13px}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:600}
+.nav-cta{background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;white-space:nowrap}
+.nav-cta:hover{background:var(--green);color:#fff}
+@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
 
-  header{padding:200px 0 110px;position:relative}
-  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:500;margin-bottom:34px;opacity:0;animation:fadeUp .7s .1s forwards}
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--ink-soft)}
-  h1{font-family:var(--display);font-weight:300;font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.03em;margin-bottom:30px}
-  h1 em{font-style:italic;font-weight:400}
-  h1 .l{display:block;opacity:0;animation:fadeUp .8s forwards}
-  h1 .l:nth-child(1){animation-delay:.2s}h1 .l:nth-child(2){animation-delay:.34s}h1 .l:nth-child(3){animation-delay:.48s}
-  .lead{font-size:clamp(1.05rem,1.7vw,1.25rem);color:var(--ink-soft);max-width:540px;margin-bottom:42px;opacity:0;animation:fadeUp .8s .62s forwards}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .76s forwards}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:2px;font-weight:500;font-size:.98rem;text-decoration:none;cursor:pointer;border:1.5px solid var(--ink);transition:all .25s;font-family:var(--body)}
-  .btn-primary{background:var(--ink);color:#fff}
-  .btn-primary:hover{background:#fff;color:var(--ink)}
-  .btn-ghost{background:transparent;color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:#fff}
-  .btn .ar{width:16px;height:16px;transition:transform .25s}
-  .btn:hover .ar{transform:translateX(4px)}
-  .trust{display:flex;gap:48px;flex-wrap:wrap;margin-top:80px;padding-top:36px;border-top:1px solid var(--line);opacity:0;animation:fadeUp .8s .95s forwards}
-  .trust div{display:flex;flex-direction:column}
-  .trust .num{font-family:var(--display);font-size:1.9rem;font-weight:400;line-height:1}
-  .trust .lbl{font-size:.82rem;color:var(--ink-soft);margin-top:8px}
+/* HERO */
+.hero{padding:clamp(56px,8vw,120px) var(--pad) clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:48px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:26px}
+.hero h1{font-size:clamp(44px,6.4vw,92px);line-height:1;letter-spacing:-.04em;text-wrap:balance}
+.hl{color:var(--green);position:relative;display:inline-block;z-index:0}
+.hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--sand);z-index:-1;border-radius:2px}
+.hero .lead{font-size:clamp(17px,1.35vw,19px);max-width:500px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.chips{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
 
-  section{padding:120px 0;position:relative}
-  .sec-head{max-width:620px;margin-bottom:70px}
-  .sec-tag{font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
-  .sec-tag::before{content:"";width:24px;height:1px;background:var(--ink-soft)}
-  h2{font-family:var(--display);font-weight:300;font-size:clamp(2.1rem,4.2vw,3.3rem);line-height:1.08;letter-spacing:-.025em;margin-bottom:22px}
-  h2 em{font-style:italic;font-weight:400}
-  .sec-head p{color:var(--ink-soft);font-size:1.08rem}
+.collage{position:relative;min-height:520px}
+.collage .plate{position:absolute;left:12%;right:0;top:12%;bottom:6%;background:var(--mint);border-radius:32px}
+.browser{background:#fff;border-radius:14px;border:1px solid rgba(18,33,28,.1);box-shadow:0 40px 80px -30px rgba(18,33,28,.35),0 2px 6px rgba(18,33,28,.06);overflow:hidden}
+.browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(18,33,28,.08);font-family:var(--mono);font-size:11px;color:#6E7A74;white-space:nowrap;overflow:hidden}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:#E4E7E3;flex:none}
+.browser-bar span{margin-left:6px;overflow:hidden;text-overflow:ellipsis}
+.shot{position:relative;background:#F1F4F2;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.collage .browser{position:absolute;left:0;top:0;width:min(460px,74%)}
+.collage .browser .shot{aspect-ratio:1400/661}
+.phone{background:var(--ink);border-radius:38px;padding:9px;box-shadow:0 40px 80px -28px rgba(18,33,28,.55);aspect-ratio:9/18.6}
+.phone .screen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#F1F4F2}
+.phone .screen img{width:100%;height:100%;object-fit:cover;object-position:top}
+.phone .screen::after{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:34%;height:20px;border-radius:12px;background:var(--ink)}
+.collage .phone{position:absolute;right:2%;bottom:0;width:min(220px,44%)}
+.proof{position:absolute;left:0;bottom:8%;background:#fff;border-radius:14px;padding:14px 18px 14px 14px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 40px -20px rgba(18,33,28,.35);border:1px solid rgba(18,33,28,.08)}
+.proof:hover{transform:translateY(-3px);color:var(--ink)}
+.avatars{display:flex}
+.avatars img{width:40px;height:40px;border:2px solid #fff;border-radius:50%;object-fit:cover;object-position:center}
+.avatars img+img{margin-left:-12px}
+.proof strong{font-size:15px;letter-spacing:-.02em;display:block}
+.proof small{font-family:var(--mono);font-size:12px;color:var(--green)}
+@media(max-width:480px){.collage{min-height:400px}}
 
-  #services{background:var(--bg-alt)}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
-  .card{background:var(--bg);padding:44px 38px;transition:background .3s;border-right:1px solid var(--line)}
-  .card:last-child{border-right:none}
-  .card:hover{background:var(--ink);color:#fff}
-  .card:hover .ic-box{border-color:rgba(255,255,255,.3)}
-  .card:hover p,.card:hover li{color:rgba(255,255,255,.7)}
-  .card:hover li::before{background:#fff}
-  .ic-box{width:56px;height:56px;border:1.5px solid var(--line-2);border-radius:3px;display:flex;align-items:center;justify-content:center;margin-bottom:28px;transition:border-color .3s}
-  .card h3{font-family:var(--display);font-weight:500;font-size:1.4rem;margin-bottom:14px}
-  .card p{color:var(--ink-soft);font-size:.97rem;margin-bottom:24px}
-  .card ul{list-style:none}
-  .card li{font-size:.92rem;color:var(--ink-soft);padding:8px 0;padding-left:22px;position:relative}
-  .card li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:1.5px;background:var(--ink)}
+/* TICKER */
+.ticker{border-top:1px solid rgba(18,33,28,.1);border-bottom:1px solid rgba(18,33,28,.1);padding:14px 0;overflow:hidden;white-space:nowrap;font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+.ticker-track{display:inline-flex;animation:ticker 32s linear infinite}
+.ticker-track span{padding:0 22px}.ticker-track span::after{content:"✦";margin-left:44px;color:var(--sand)}
+@keyframes ticker{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
 
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-  .step{padding:34px 28px 34px 0;border-top:2px solid var(--ink);position:relative}
-  .step .n{font-family:var(--display);font-size:.95rem;color:var(--ink-soft);position:absolute;top:14px;right:24px}
-  .step h4{font-family:var(--display);font-weight:500;font-size:1.3rem;margin:18px 0 10px}
-  .step p{color:var(--ink-soft);font-size:.94rem;padding-right:18px}
+/* SERVICES */
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.svc{display:flex;flex-direction:column;gap:18px;padding:30px 28px;border-radius:20px;background:#fff;border:1px solid rgba(18,33,28,.08);min-height:380px;transition:transform .25s}
+.svc:hover{transform:translateY(-4px)}
+.svc.dark{background:var(--green);color:#fff}
+.svc-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;opacity:.75}
+.svc h3{font-size:30px;line-height:1.05;letter-spacing:-.03em}
+.svc p{line-height:1.6;font-size:15px;opacity:.85}
+.dots{list-style:none;margin:auto 0 0;padding:18px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px;font-size:14px;font-weight:600}
+.svc.dark .dots{border-color:rgba(255,255,255,.2)}
+.dots li{display:flex;gap:10px;align-items:flex-start}
+.dots li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--green);margin-top:7px}
+.svc.dark .dots li::before{background:var(--sand)}
 
-  #why{background:var(--ink);color:#fff}
-  #why .split{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
-  #why .sec-tag{color:rgba(255,255,255,.55)}
-  #why .sec-tag::before{background:rgba(255,255,255,.4)}
-  #why h2{color:#fff}
-  .why-list{list-style:none}
-  .why-list li{padding:24px 0;border-bottom:1px solid rgba(255,255,255,.13);display:flex;gap:20px;align-items:flex-start}
-  .why-list li:last-child{border-bottom:none}
-  .why-list .ck{flex-shrink:0;color:#fff;margin-top:2px}
-  .why-list h4{font-family:var(--display);font-weight:500;font-size:1.15rem;margin-bottom:5px}
-  .why-list p{color:rgba(255,255,255,.6);font-size:.95rem}
-  .why-quote{border:1px solid rgba(255,255,255,.18);border-radius:4px;padding:48px}
-  .why-quote .q{font-family:var(--display);font-weight:300;font-style:italic;font-size:clamp(1.5rem,2.5vw,2rem);line-height:1.3;margin-bottom:28px}
-  .why-quote .sig{display:flex;align-items:center;gap:12px;font-size:.95rem;color:rgba(255,255,255,.7)}
-  .why-quote .sig .line{width:28px;height:1px;background:rgba(255,255,255,.4)}
+/* RÉALISATIONS */
+#realisations{background:var(--mint)}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:28px}
+.work{display:flex;flex-direction:column;gap:20px;color:var(--ink)}
+.work:hover{color:var(--ink)}
+.work .browser{transition:transform .3s,box-shadow .3s}
+.work:hover .browser{transform:translateY(-6px);box-shadow:0 50px 90px -30px rgba(18,33,28,.45)}
+.work .shot{aspect-ratio:16/9.6}
+.work-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.work h3{font-size:24px;letter-spacing:-.03em;margin-bottom:6px}
+.work p{color:var(--ink-2);font-size:15px;line-height:1.55;max-width:460px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;font-family:var(--mono);font-size:11px}
+.tags span{padding:5px 9px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.go{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .25s}
+.work:hover .go{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
 
-  .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
-  .price{padding:46px 36px;display:flex;flex-direction:column;border-right:1px solid var(--line);transition:background .3s}
-  .price:last-child{border-right:none}
-  .price.feat{background:var(--ink);color:#fff}
-  .price.feat .pdesc,.price.feat li{color:rgba(255,255,255,.65)}
-  .price.feat li{border-color:rgba(255,255,255,.14)}
-  .price .ptop{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-  .price .pname{font-family:var(--display);font-weight:500;font-size:1.4rem}
-  .price .badge{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.4);padding:4px 10px;border-radius:2px}
-  .price .pdesc{font-size:.9rem;color:var(--ink-soft);margin-bottom:28px;min-height:42px}
-  .price .amt{font-family:var(--display);font-weight:400;font-size:2rem;line-height:1}
-  .price .from{font-size:.78rem;color:var(--ink-soft);margin:6px 0 30px}
-  .price.feat .from{color:rgba(255,255,255,.55)}
-  .price ul{list-style:none;margin-bottom:32px;flex-grow:1}
-  .price li{padding:11px 0;font-size:.93rem;color:var(--ink-2);padding-left:24px;position:relative;border-bottom:1px solid var(--line)}
-  .price li::before{content:"";position:absolute;left:0;top:18px;width:9px;height:9px;border-left:1.4px solid var(--ink);border-bottom:1.4px solid var(--ink);transform:rotate(-45deg) translateY(-2px)}
-  .price.feat li::before{border-color:#fff}
-  .price .btn{width:100%;justify-content:center}
-  .price.feat .btn{background:#fff;color:var(--ink);border-color:#fff}
-  .price.feat .btn:hover{background:transparent;color:#fff}
-  .price-note{text-align:center;margin-top:38px;color:var(--ink-soft);font-size:.9rem}
+/* OFFRES */
+#offres{background:var(--ink);color:var(--bg)}
+#offres .eyebrow{color:var(--sand)}
+#offres .lead{color:#B8C4BE}
+.plan{position:relative;display:flex;flex-direction:column;gap:22px;padding:32px 28px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.plan.feat{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.badge{position:absolute;top:-12px;right:24px;background:var(--sand);color:var(--ink);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px}
+.plan h3{font-size:34px;line-height:1;letter-spacing:-.035em}
+.plan .tl{font-size:15px;line-height:1.5;opacity:.8;margin-top:8px}
+.price{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:16px 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+.plan.feat .price{border-color:var(--line)}
+.price strong{font-size:24px;letter-spacing:-.03em}
+.price span{font-family:var(--mono);font-size:12px;opacity:.75}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:14px;font-weight:600;flex:1}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"✓";flex:none;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.12);display:inline-flex;align-items:center;justify-content:center;font-size:9px;margin-top:2px}
+.plan.feat .checks li::before{background:var(--green);color:#fff}
+.plan-btn{display:block;text-align:center;padding:15px 20px;border-radius:12px;font-weight:700;font-size:15px;background:var(--bg);color:var(--ink)}
+.plan.feat .plan-btn{background:var(--green);color:#fff}
+.plan-btn:hover,.plan.feat .plan-btn:hover{background:var(--sand);color:var(--ink)}
 
-  #contact{background:var(--bg-alt)}
-  .contact-box{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--bg)}
-  .contact-l{padding:56px;border-right:1px solid var(--line)}
-  .contact-r{padding:56px}
-  .contact-l h2{margin-bottom:18px}
-  .contact-l .lead2{color:var(--ink-soft);margin-bottom:36px}
-  .contact-methods{list-style:none}
-  .contact-methods li{display:flex;align-items:center;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
-  .contact-methods li:last-child{border-bottom:1px solid var(--line)}
-  .cm-ic{color:var(--ink);flex-shrink:0}
-  .contact-methods a{color:var(--ink);text-decoration:none;font-weight:500;transition:opacity .2s}
-  .contact-methods a:hover{opacity:.6}
-  .contact-methods .lbl{display:block;font-size:.78rem;color:var(--ink-soft);font-weight:400;margin-bottom:2px}
-  .form-field{margin-bottom:20px}
-  .form-field label{display:block;font-size:.82rem;font-weight:500;margin-bottom:8px}
-  .form-field input,.form-field textarea{width:100%;padding:14px 16px;border:1.5px solid var(--line-2);border-radius:2px;font-family:var(--body);font-size:.96rem;background:var(--bg);color:var(--ink);transition:border-color .2s}
-  .form-field input:focus,.form-field textarea:focus{outline:none;border-color:var(--ink)}
-  .form-field textarea{resize:vertical;min-height:100px}
+/* CONTACT */
+#contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:56px;align-items:start}
+#contact h2{font-size:clamp(36px,4.6vw,64px);line-height:1;letter-spacing:-.04em}
+dl{margin:0;border-top:1px solid var(--line)}
+dl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+dt{font-family:var(--mono);font-size:12px;color:var(--ink-2);padding-top:3px}
+dd{margin:0;font-weight:700}
+form{background:#fff;border-radius:20px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px;border:1px solid rgba(18,33,28,.1);box-shadow:0 30px 60px -40px rgba(18,33,28,.3)}
+.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
+label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:600;color:var(--ink-2)}
+label em{font-style:normal;font-weight:400;color:var(--muted)}
+input,textarea{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14px;background:var(--bg)}
+textarea{resize:vertical;line-height:1.5;min-height:120px}
+button[type=submit]{margin-top:6px;background:var(--green);color:#fff;border:0;padding:17px 24px;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;transition:background .2s}
+button[type=submit]:hover{background:var(--ink)}
+button[disabled]{opacity:.6;cursor:wait}
+.fine{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.sent{background:var(--green);color:#fff;border-radius:20px;padding:44px 36px;display:none;flex-direction:column;gap:16px;min-height:380px;justify-content:center}
+.sent .ok{width:52px;height:52px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--ink)}
+.sent h3{font-size:36px;line-height:1;letter-spacing:-.03em}
+.sent p{font-size:16px;line-height:1.6;color:#CFE3DA;max-width:400px}
+.sent button{align-self:flex-start;margin-top:8px;background:none;border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer}
+#formErr{display:none;color:#b42318;font-size:14px;text-align:center}
 
-  footer{background:var(--ink);color:rgba(255,255,255,.65);padding:70px 0 36px}
-  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:34px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.13)}
-  footer .logo{color:#fff}
-  footer .logo .mark{border-color:#fff}
-  .foot-tag{max-width:290px;font-size:.94rem;margin-top:16px}
-  .foot-links{display:flex;gap:56px;flex-wrap:wrap}
-  .foot-col h5{color:#fff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;font-weight:600}
-  .foot-col a{display:block;color:rgba(255,255,255,.6);text-decoration:none;font-size:.94rem;padding:6px 0;transition:color .2s}
-  .foot-col a:hover{color:#fff}
-  .foot-bot{padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.84rem;color:rgba(255,255,255,.5)}
+footer{border-top:1px solid rgba(18,33,28,.1);padding:28px var(--pad);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+footer div{display:flex;gap:20px;flex-wrap:wrap}
 
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-
-  @media(max-width:900px){
-    .cards,.prices{grid-template-columns:1fr}
-    .card{border-right:none;border-bottom:1px solid var(--line)}.card:last-child{border-bottom:none}
-    .price{border-right:none;border-bottom:1px solid var(--line)}.price:last-child{border-bottom:none}
-    .steps{grid-template-columns:1fr 1fr}
-    #why .split{grid-template-columns:1fr;gap:48px}
-    .contact-box{grid-template-columns:1fr}
-    .contact-l{border-right:none;border-bottom:1px solid var(--line);padding:40px}.contact-r{padding:40px}
-  }
-  @media(max-width:680px){
-    .nav-links{display:none}
-    .nav-links.open{display:flex;flex-direction:column;position:fixed;top:74px;left:24px;right:24px;background:#fff;padding:24px;border:1px solid var(--line);gap:18px}
-    .burger{display:block}
-    header{padding:160px 0 80px}section{padding:84px 0}
-    .steps{grid-template-columns:1fr}.wrap{padding:0 22px}
-  }
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="#" class="logo"><span class="mark"></span>Studio Bonsite</a>
-    <div class="nav-links" id="navLinks">
-      <a href="#services">Services</a>
-      <a href="#process">Méthode</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#why">Pourquoi nous</a>
-      <a href="#pricing">Tarifs</a>
-      <a href="#contact" class="nav-cta">Parlons-en</a>
-    </div>
-    <button class="burger" id="burger" aria-label="Menu">
-      <svg class="ic" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-    </button>
+<nav>
+  <a href="#top" class="logo"><b>b</b>Studio bonsite</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#offres">Offres</a>
+    <a href="#contact" class="nav-cta">Devis gratuit</a>
   </div>
 </nav>
 
-<header>
-  <div class="wrap">
-    <span class="eyebrow">Création de sites web · Aix &amp; Marseille</span>
-    <h1>
-      <span class="l">Votre commerce mérite</span>
-      <span class="l">un <em>bon site</em>.</span>
-      <span class="l">Pas un site de plus.</span>
-    </h1>
-    <p class="lead">Des sites vitrine et e-commerce soignés, rapides et pensés pour vous amener de vrais clients. Conçus à la main, ici en Provence — sans jargon, sans complications.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Discutons de votre projet
-        <svg class="ic ar" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></a>
-      <a href="#services" class="btn btn-ghost">Voir ce que je fais</a>
+<!-- HERO -->
+<header id="top" class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Sites web pour commerces &amp; indépendants — Aix, Marseille &amp; toute la France</div>
+    <h1>Votre site doit<br>faire venir<br><span class="hl">des clients.</span></h1>
+    <p class="lead">Pas une carte de visite oubliée sur Internet. Un site clair, rapide, trouvé sur Google — conçu à la main par une seule personne qui répond au téléphone.</p>
+    <div class="row">
+      <a href="#contact" class="btn btn-primary">Demander un devis</a>
+      <a href="#realisations" class="btn btn-ghost">Voir les réalisations</a>
     </div>
-    <div class="trust">
-      <div><span class="num">48h</span><span class="lbl">Premier aperçu</span></div>
-      <div><span class="num">100%</span><span class="lbl">Sur-mesure</span></div>
-      <div><span class="num">Local</span><span class="lbl">Aix &amp; Marseille</span></div>
+    <div class="chips">
+      <span class="chip">Réponse sous 48h</span>
+      <span class="chip">Devis gratuit</span>
+      <span class="chip">Un seul interlocuteur</span>
     </div>
+  </div>
+
+  <div class="collage" aria-hidden="true">
+    <div class="plate"></div>
+    <div class="browser">
+      <div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div>
+      <div class="shot"><img src="img/easyfly.webp" alt="" width="1400" height="661"></div>
+    </div>
+    <div class="phone"><div class="screen"><img src="img/ailleurs-mobile.webp" alt="" width="500" height="1026"></div></div>
+    <a href="#realisations" class="proof">
+      <div class="avatars">
+        <img src="img/easyfly.webp" alt="">
+        <img src="img/ailleurs.webp" alt="">
+        <img src="img/ko-games.webp" alt="">
+      </div>
+      <div><strong>3 sites en ligne</strong><small>Voir les réalisations →</small></div>
+    </a>
   </div>
 </header>
 
-<section id="services">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-tag">Ce que je fais</span>
-      <h2>Des sites qui <em>travaillent</em> pour vous</h2>
-      <p>Trois façons de mettre votre activité en avant, selon vos besoins et votre budget.</p>
-    </div>
-    <div class="cards">
-      <div class="card reveal">
-        <div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="15" y2="21"/><line x1="12" y1="18" x2="12" y2="21"/></svg></div>
-        <h3>Site vitrine</h3>
-        <p>L'essentiel pour exister en ligne et rassurer vos clients avant même qu'ils poussent votre porte.</p>
-        <ul><li>Présentation de votre activité</li><li>Galerie photos &amp; horaires</li><li>Formulaire de contact</li><li>Référencement Google local</li></ul>
-      </div>
-      <div class="card reveal">
-        <div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12.2a1 1 0 0 0 1 .8h8.6a1 1 0 0 0 1-.8L21 7H6"/></svg></div>
-        <h3>Boutique en ligne</h3>
-        <p>Vendez vos produits 24h/24, encaissez en toute sécurité, gérez tout simplement.</p>
-        <ul><li>Catalogue produits illimité</li><li>Paiement sécurisé (CB, etc.)</li><li>Gestion des commandes</li><li>Compatible mobile</li></ul>
-      </div>
-      <div class="card reveal">
-        <div class="ic-box"><svg class="ic" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>Refonte &amp; SEO</h3>
-        <p>Votre site existe déjà mais vieillit&nbsp;? Je le modernise pour qu'il attire à nouveau.</p>
-        <ul><li>Nouveau design moderne</li><li>Vitesse &amp; mobile optimisés</li><li>Meilleure visibilité Google</li><li>Migration sans perte</li></ul>
-      </div>
-    </div>
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+<!-- SERVICES -->
+<section id="services" class="sec">
+  <div class="sec-head">
+    <h2>Trois façons de<br>vous rendre visible.</h2>
+    <p class="lead">Pas de formule figée : je pars de votre métier, de vos clients, et de ce qui doit se passer quand quelqu'un arrive sur votre site.</p>
+  </div>
+  <div class="cards3">
+    <article class="svc reveal">
+      <div class="svc-top"><span>01</span><span>Vitrine</span></div>
+      <h3>Site vitrine</h3>
+      <p>L'essentiel pour exister en ligne et rassurer vos clients avant même qu'ils poussent votre porte.</p>
+      <ul class="dots"><li>Présentation de votre activité</li><li>Galerie photos &amp; horaires</li><li>Formulaire de contact</li><li>Référencement Google local</li></ul>
+    </article>
+    <article class="svc dark reveal">
+      <div class="svc-top"><span>02</span><span>E-commerce</span></div>
+      <h3>Boutique en ligne</h3>
+      <p>Vendez vos produits 24h/24, encaissez en toute sécurité, gérez tout simplement.</p>
+      <ul class="dots"><li>Catalogue produits illimité</li><li>Paiement sécurisé (CB, etc.)</li><li>Gestion des commandes</li><li>Compatible mobile</li></ul>
+    </article>
+    <article class="svc reveal">
+      <div class="svc-top"><span>03</span><span>Refonte</span></div>
+      <h3>Refonte &amp; SEO</h3>
+      <p>Votre site existe déjà mais vieillit ? Je le modernise pour qu'il attire à nouveau.</p>
+      <ul class="dots"><li>Nouveau design moderne</li><li>Vitesse &amp; mobile optimisés</li><li>Meilleure visibilité Google</li><li>Migration sans perte</li></ul>
+    </article>
   </div>
 </section>
 
-<section id="process">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-tag">Ma méthode</span>
-      <h2>Simple, du début <em>à la fin</em></h2>
-      <p>Pas besoin d'y connaître quoi que ce soit. Je m'occupe de tout, vous validez.</p>
+<!-- RÉALISATIONS -->
+<section id="realisations" class="sec">
+  <div class="sec-head">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow">Réalisations</div>
+      <h2>Des sites déjà<br>en ligne.</h2>
     </div>
-    <div class="steps">
-      <div class="step reveal"><span class="n">01</span><h4>On échange</h4><p>Un appel ou un café pour comprendre votre activité et vos envies.</p></div>
-      <div class="step reveal"><span class="n">02</span><h4>Je conçois</h4><p>Vous recevez une première maquette sous 48h, on l'ajuste ensemble.</p></div>
-      <div class="step reveal"><span class="n">03</span><h4>Je construis</h4><p>Je développe votre site, soigné dans le moindre détail.</p></div>
-      <div class="step reveal"><span class="n">04</span><h4>On lance</h4><p>Mise en ligne, et je reste là si vous avez besoin.</p></div>
-    </div>
+    <p class="lead">Chaque site a sa propre identité : pas de template recyclé. Cliquez pour visiter la version en ligne.</p>
+  </div>
+  <div class="works">
+    <a class="work reveal" href="https://easy-fly-sigma.vercel.app/" target="_blank" rel="noopener">
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div>
+        <div class="shot"><img src="img/easyfly.webp" alt="Capture du site EasyFly — réservation de vols" loading="lazy" width="1400" height="661"></div>
+      </div>
+      <div class="work-meta">
+        <div>
+          <h3>EasyFly</h3>
+          <p>Compagnie aérienne fictive : moteur de recherche aller-retour, destinations populaires, interface claire et rassurante.</p>
+          <div class="tags"><span>Réservation</span><span>Web app</span></div>
+        </div>
+        <span class="go">→</span>
+      </div>
+    </a>
+    <a class="work reveal" href="https://ailleurs-nu.vercel.app/" target="_blank" rel="noopener">
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><span>ailleurs-nu.vercel.app</span></div>
+        <div class="shot"><img src="img/ailleurs.webp" alt="Capture du site Ailleurs — site de voyage" loading="lazy" width="1400" height="875"></div>
+      </div>
+      <div class="work-meta">
+        <div>
+          <h3>Ailleurs</h3>
+          <p>Site de voyage : recherche de n'importe quelle ville du monde, météo et événements en temps réel, hébergements à proximité.</p>
+          <div class="tags"><span>Voyage</span><span>Web app</span></div>
+        </div>
+        <span class="go">→</span>
+      </div>
+    </a>
+    <a class="work reveal" href="https://ko-games.vercel.app/" target="_blank" rel="noopener">
+      <div class="browser">
+        <div class="browser-bar"><i></i><i></i><span>ko-games.vercel.app</span></div>
+        <div class="shot"><img src="img/ko-games.webp" alt="Capture du site K.O Games — boutique rétro-arcade" loading="lazy" width="1400" height="659"></div>
+      </div>
+      <div class="work-meta">
+        <div>
+          <h3>K.O Games</h3>
+          <p>Boutique de jeux vidéo et consoles à l'esthétique rétro-arcade, du pixel-art au synthwave néon.</p>
+          <div class="tags"><span>E-commerce</span><span>Rétro-arcade</span></div>
+        </div>
+        <span class="go">→</span>
+      </div>
+    </a>
   </div>
 </section>
 
-<section id="why">
-  <div class="wrap">
-    <div class="split">
-      <div class="reveal">
-        <span class="sec-tag">Pourquoi Studio Bonsite</span>
-        <h2>Un interlocuteur, <em>pas une agence</em></h2>
-        <ul class="why-list">
-          <li><svg class="ic ck" viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg><div><h4>Vous parlez à la personne qui fait le site</h4><p>Pas de commercial, pas de sous-traitance. Du direct.</p></div></li>
-          <li><svg class="ic ck" viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg><div><h4>Des tarifs clairs et honnêtes</h4><p>Adaptés aux artisans et petites structures. Pas de surprise.</p></div></li>
-          <li><svg class="ic ck" viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg><div><h4>Local, disponible, réactif</h4><p>Basé en Provence. On peut se voir pour de vrai.</p></div></li>
-          <li><svg class="ic ck" viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg><div><h4>Un site qui vous appartient</h4><p>Pas de location à vie. Le site est à vous.</p></div></li>
-        </ul>
-      </div>
-      <div class="why-quote reveal">
-        <div class="q">«&nbsp;Un bon site, c'est un commercial qui travaille même quand vous dormez.&nbsp;»</div>
-        <div class="sig"><span class="line"></span>Eliott — Studio Bonsite</div>
-      </div>
-    </div>
+<!-- OFFRES -->
+<section id="offres" class="sec">
+  <div style="display:flex;flex-direction:column;gap:14px;max-width:620px">
+    <span class="mono" style="font-size:12px;letter-spacing:.06em;color:var(--sand)">Les offres</span>
+    <h2>Un prix juste, sur devis.</h2>
+    <p class="lead">Chaque commerce est différent, chaque devis aussi. Décrivez votre projet, je vous réponds sous 48h avec un prix ferme — sans surprise ensuite.</p>
+  </div>
+  <div class="cards3">
+    <article class="plan reveal">
+      <div><h3>Vitrine</h3><p class="tl">Pour exister en ligne avec élégance.</p></div>
+      <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
+      <ul class="checks"><li>Site une page soigné</li><li>Mobile &amp; rapide</li><li>Formulaire de contact</li><li>Référencement Google</li></ul>
+      <a href="#contact" class="plan-btn">Demander un devis</a>
+    </article>
+    <article class="plan feat reveal">
+      <span class="badge">Le + choisi</span>
+      <div><h3>Pro</h3><p class="tl">Le choix des commerces qui veulent se démarquer.</p></div>
+      <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
+      <ul class="checks"><li>Site multi-pages</li><li>Design entièrement sur-mesure</li><li>Galerie, avis, horaires</li><li>SEO local renforcé</li><li>Suivi 1 mois offert</li></ul>
+      <a href="#contact" class="plan-btn">Demander un devis</a>
+    </article>
+    <article class="plan reveal">
+      <div><h3>Boutique</h3><p class="tl">Pour vendre en ligne sérieusement.</p></div>
+      <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
+      <ul class="checks"><li>E-commerce complet</li><li>Paiement sécurisé</li><li>Gestion des produits</li><li>Formation incluse</li></ul>
+      <a href="#contact" class="plan-btn">Demander un devis</a>
+    </article>
   </div>
 </section>
 
-<section id="pricing">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
-      <span class="sec-tag" style="justify-content:center">Formules</span>
-      <h2>Chaque projet <em>est unique</em></h2>
-      <p>Plutôt qu'un tarif standard qui ne correspond à personne, j'établis un devis sur-mesure, adapté à votre activité et à votre budget. Gratuit et sans engagement.</p>
+<!-- CONTACT -->
+<section id="contact" class="sec">
+  <div style="display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="eyebrow">Parlons-en</div>
+      <h2>Votre projet<br>commence ici.</h2>
+      <p class="lead" style="font-size:17px;max-width:440px">Une question, une idée, ou juste l'envie d'en savoir plus ? Écrivez-moi, je réponds vite et en personne.</p>
     </div>
-    <div class="prices">
-      <div class="price reveal">
-        <div class="ptop"><span class="pname">Vitrine</span></div>
-        <div class="pdesc">Pour exister en ligne avec élégance.</div>
-        <div class="amt">Sur devis</div><div class="from">réponse sous 48h</div>
-        <ul><li>Site une page soigné</li><li>Mobile &amp; rapide</li><li>Formulaire de contact</li><li>Référencement Google</li></ul>
-        <a href="#contact" class="btn btn-ghost">Demander un devis</a>
-      </div>
-      <div class="price feat reveal">
-        <div class="ptop"><span class="pname">Pro</span><span class="badge">Le + choisi</span></div>
-        <div class="pdesc">Le choix des commerces qui veulent se démarquer.</div>
-        <div class="amt">Sur devis</div><div class="from">réponse sous 48h</div>
-        <ul><li>Site multi-pages</li><li>Design entièrement sur-mesure</li><li>Galerie, avis, horaires</li><li>SEO local renforcé</li><li>Suivi 1 mois offert</li></ul>
-        <a href="#contact" class="btn">Demander un devis</a>
-      </div>
-      <div class="price reveal">
-        <div class="ptop"><span class="pname">Boutique</span></div>
-        <div class="pdesc">Pour vendre en ligne sérieusement.</div>
-        <div class="amt">Sur devis</div><div class="from">réponse sous 48h</div>
-        <ul><li>E-commerce complet</li><li>Paiement sécurisé</li><li>Gestion des produits</li><li>Formation incluse</li></ul>
-        <a href="#contact" class="btn btn-ghost">Demander un devis</a>
-      </div>
-    </div>
-    <p class="price-note">Possibilité de paiement en plusieurs fois · Devis gratuit et sans engagement</p>
+    <dl>
+      <div><dt>Email</dt><dd><a href="mailto:contact@studiobon.site">contact@studiobon.site</a></dd></div>
+      <div><dt>Téléphone</dt><dd><a href="tel:+33768019719">07 68 01 97 19</a></dd></div>
+      <div><dt>Zone</dt><dd>Aix-en-Provence, Marseille &amp; toute la France (à distance)</dd></div>
+    </dl>
   </div>
-</section>
 
-<section id="portfolio" style="background:var(--bg-alt)">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="sec-tag">Nos réalisations</span>
-      <h2>Projets <em>réalisés</em></h2>
-      <p>Découvrez quelques sites que nous avons créés pour nos clients, avec chacun sa propre identité visuelle et design.</p>
+  <div>
+    <div class="sent" id="sent">
+      <div class="ok">✓</div>
+      <h3 id="sentTitle">Merci.</h3>
+      <p>Votre demande est bien arrivée. Je vous réponds personnellement sous 48h — en général bien avant.</p>
+      <button type="button" id="again">Envoyer une autre demande</button>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:42px;margin-top:50px">
-      <!-- EasyFly -->
-      <div class="project-card reveal" style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);transition:all .3s;cursor:pointer" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
-        <div style="height:260px;overflow:hidden;background:#1e3a8a;border-bottom:1px solid var(--line);position:relative">
-          <img src="easyfly-preview.png" alt="EasyFly - Site de réservation de vols" style="width:100%;height:100%;object-fit:cover;object-position:top">
-        </div>
-        <div style="padding:28px">
-          <h3 style="font-family:var(--display);font-weight:500;font-size:1.3rem;margin-bottom:8px">EasyFly</h3>
-          <p style="color:var(--ink-soft);font-size:.95rem;margin-bottom:20px">Site factice de réservation de vols pour une compagnie aérienne. Moteur de recherche aller-retour, interface claire et design moderne.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <span style="display:inline-block;background:rgba(37,99,235,0.12);color:#2563eb;padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">Réservation</span>
-            <span style="display:inline-block;background:rgba(0,0,0,0.06);color:var(--ink-2);padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">Web app</span>
-          </div>
-          <a href="https://easy-fly-sigma.vercel.app/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0;border-bottom:2px solid var(--line);transition:all .3s">
-            Voir le site complet →
-          </a>
-        </div>
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="312babf8-f8c0-4550-b4f1-312af5b04ee7">
+      <input type="hidden" name="subject" value="Nouvelle demande via studiobon.site">
+      <input type="hidden" name="from_name" value="Site Studio Bonsite">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="f2">
+        <label>Votre nom<input name="nom" required placeholder="Jean Dupont" autocomplete="name"></label>
+        <label>Votre email<input name="email" type="email" required placeholder="jean@exemple.fr" autocomplete="email"></label>
       </div>
-      <!-- Chez Edmond -->
-      <div class="project-card reveal" style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);transition:all .3s;cursor:pointer" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
-        <div style="height:260px;overflow:hidden;background:#f5f0e8;border-bottom:1px solid var(--line);position:relative">
-          <img src="chez-edmond-preview.png" alt="Chez Edmond - Brasserie Restaurant" style="width:100%;height:100%;object-fit:cover;object-position:center">
-        </div>
-        <div style="padding:28px">
-          <h3 style="font-family:var(--display);font-weight:500;font-size:1.3rem;margin-bottom:8px">Chez Edmond</h3>
-          <p style="color:var(--ink-soft);font-size:.95rem;margin-bottom:20px">Brasserie restaurant à Éguilles. Design sobre et chaleureux avec palette de couleurs moderne.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <span style="display:inline-block;background:rgba(90,139,111,0.12);color:#5A8B6F;padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">Restaurant</span>
-            <span style="display:inline-block;background:rgba(0,0,0,0.06);color:var(--ink-2);padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">Vitrine</span>
-          </div>
-          <a href="https://chez-edmond.vercel.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0;border-bottom:2px solid var(--line);transition:all .3s">
-            Voir le site complet →
-          </a>
-        </div>
-      </div>
-      
-      <!-- K.O Games -->
-      <div class="project-card reveal" style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);transition:all .3s;cursor:pointer" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
-        <div style="height:260px;overflow:hidden;background:#0e0e12;border-bottom:1px solid var(--line);position:relative">
-          <img src="ko-games-preview.png" alt="K.O Games - Boutique de jeux vidéo rétro-arcade" style="width:100%;height:100%;object-fit:cover;object-position:top">
-        </div>
-        <div style="padding:28px">
-          <h3 style="font-family:var(--display);font-weight:500;font-size:1.3rem;margin-bottom:8px">K.O Games</h3>
-          <p style="color:var(--ink-soft);font-size:.95rem;margin-bottom:20px">Boutique de jeux vidéo et consoles à l'esthétique rétro-arcade. Trois directions artistiques explorées, du pixel-art au synthwave néon.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <span style="display:inline-block;background:rgba(255,93,93,0.12);color:#ff5d5d;padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">E-commerce</span>
-            <span style="display:inline-block;background:rgba(0,0,0,0.06);color:var(--ink-2);padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">Rétro-arcade</span>
-          </div>
-          <a href="https://ko-games.vercel.app/" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0;border-bottom:2px solid var(--line);transition:all .3s">
-            Voir le site complet →
-          </a>
-        </div>
-      </div>
-      
-      <!-- Le Toucan -->
-      <div class="project-card reveal" style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);transition:all .3s;cursor:pointer" onmouseover="this.style.boxShadow='0 8px 24px rgba(0,0,0,0.15)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.08)'">
-        <div style="height:260px;overflow:hidden;background:#f5f0e8;border-bottom:1px solid var(--line);position:relative">
-          <img src="le-toucan-preview.png" alt="Le Toucan - Restaurant" style="width:100%;height:100%;object-fit:cover;object-position:center">
-        </div>
-        <div style="padding:28px">
-          <h3 style="font-family:var(--display);font-weight:500;font-size:1.3rem;margin-bottom:8px">Le Toucan</h3>
-          <p style="color:var(--ink-soft);font-size:.95rem;margin-bottom:20px">Site e-commerce ou vitrine avec design vibrant. Présentation de produits avec galerie interactive.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <span style="display:inline-block;background:rgba(255,165,0,0.12);color:#ff9500;padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">E-commerce</span>
-            <span style="display:inline-block;background:rgba(0,0,0,0.06);color:var(--ink-2);padding:6px 12px;border-radius:3px;font-size:.82rem;font-weight:500">Moderne</span>
-          </div>
-          <a href="https://le-toucan.vercel.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--ink);text-decoration:none;font-weight:500;padding:10px 0;border-bottom:2px solid var(--line);transition:all .3s">
-            Voir le site complet →
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-box reveal">
-      <div class="contact-l">
-        <span class="sec-tag">Parlons-en</span>
-        <h2>Votre projet commence <em>ici</em></h2>
-        <p class="lead2">Une question, une idée, ou juste l'envie d'en savoir plus&nbsp;? Écrivez-moi, je réponds vite et en personne.</p>
-        <ul class="contact-methods">
-          <li><svg class="ic cm-ic" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><polyline points="3 7 12 13 21 7"/></svg><div><span class="lbl">Email</span><a href="mailto:contact@studiobon.site">contact@studiobon.site</a></div></li>
-          <li><svg class="ic cm-ic" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l2 5v3a1 1 0 0 1-1 1A17 17 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><div><span class="lbl">Téléphone</span><a href="tel:0768019719">07 68 01 97 19</a></div></li>
-          <li><svg class="ic cm-ic" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><span class="lbl">Zone</span><span>Aix-en-Provence &amp; Marseille</span></div></li>
-        </ul>
-      </div>
-      <div class="contact-r">
-        <form id="contactForm">
-          <input type="hidden" name="access_key" value="312babf8-f8c0-4550-b4f1-312af5b04ee7">
-          <input type="hidden" name="subject" value="Nouvelle demande via studiobon.site">
-          <input type="hidden" name="from_name" value="Site Studio Bonsite">
-          <input type="checkbox" name="botcheck" style="display:none">
-          <div class="form-field"><label for="n">Votre nom</label><input id="n" name="nom" type="text" placeholder="Jean Dupont" required></div>
-          <div class="form-field"><label for="e">Votre email</label><input id="e" name="email" type="email" placeholder="jean@exemple.fr" required></div>
-          <div class="form-field"><label for="t">Votre téléphone <span style="color:var(--ink-soft);font-weight:400">(optionnel)</span></label><input id="t" name="telephone" type="tel" placeholder="06 12 34 56 78"></div>
-          <div class="form-field"><label for="m">Votre projet en quelques mots</label><textarea id="m" name="message" placeholder="J'ai un restaurant et j'aimerais un site..." required></textarea></div>
-          <button class="btn btn-primary" style="width:100%;justify-content:center" type="submit" id="sendBtn">Envoyer ma demande
-            <svg class="ic ar" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></button>
-          <p id="formMsg" style="margin-top:16px;font-size:.92rem;text-align:center;display:none"></p>
-        </form>
-      </div>
-    </div>
+      <label><span>Votre téléphone <em>(optionnel)</em></span><input name="telephone" type="tel" placeholder="06 12 34 56 78" autocomplete="tel"></label>
+      <label>Votre projet en quelques mots<textarea name="message" required rows="4" placeholder="J'ai un restaurant et j'aimerais un site..."></textarea></label>
+      <button type="submit" id="sendBtn">Envoyer ma demande</button>
+      <p id="formErr"></p>
+      <p class="fine">Aucune newsletter, aucun démarchage. Juste une réponse.</p>
+    </form>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <div class="logo"><span class="mark"></span>Studio Bonsite</div>
-        <p class="foot-tag">Création de sites web sur-mesure pour les commerces et artisans de Provence.</p>
-      </div>
-      <div class="foot-links">
-        <div class="foot-col"><h5>Navigation</h5><a href="#services">Services</a><a href="#process">Méthode</a><a href="#portfolio">Portfolio</a><a href="#pricing">Tarifs</a><a href="#contact">Contact</a></div>
-        <div class="foot-col"><h5>Contact</h5><a href="mailto:contact@studiobon.site">contact@studiobon.site</a><a href="tel:0768019719">07 68 01 97 19</a><a href="#">Aix-en-Provence</a></div>
-      </div>
-    </div>
-    <div class="foot-bot"><span>© 2026 Studio Bonsite. Tous droits réservés.</span></div>
-  </div>
+  <span>© 2026 Studio bonsite — Aix-en-Provence · partout en France</span>
+  <div><a href="mailto:contact@studiobon.site">contact@studiobon.site</a><a href="tel:+33768019719">07 68 01 97 19</a></div>
 </footer>
 
 <script>
-  const nav=document.getElementById('nav');
-  window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>30));
-  const burger=document.getElementById('burger'),navLinks=document.getElementById('navLinks');
-  burger.addEventListener('click',()=>navLinks.classList.toggle('open'));
-  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*55);obs.unobserve(e.target)}})},{threshold:.12});
+  // Ticker
+  const items=['Site vitrine','Boutique en ligne','Refonte & SEO','Réponse sous 48h','Aix, Marseille & toute la France','Devis gratuit','Mobile & rapide'];
+  const t=document.getElementById('ticker');
+  t.innerHTML=[...items,...items].map(s=>'<span>'+s.replace('&','&amp;')+'</span>').join('');
+
+  // Apparition au scroll
+  const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);obs.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-  document.getElementById('contactForm').addEventListener('submit',async(ev)=>{
+
+  // Formulaire (Web3Forms)
+  const form=document.getElementById('contactForm'),btn=document.getElementById('sendBtn'),err=document.getElementById('formErr'),sent=document.getElementById('sent');
+  form.addEventListener('submit',async ev=>{
     ev.preventDefault();
-    const form=ev.target, btn=document.getElementById('sendBtn'), msg=document.getElementById('formMsg');
-    btn.disabled=true; btn.style.opacity='.6'; btn.textContent='Envoi en cours…';
+    err.style.display='none';btn.disabled=true;btn.textContent='Envoi en cours…';
+    const data=Object.fromEntries(new FormData(form));
     try{
-      const res=await fetch('https://api.web3forms.com/submit',{
-        method:'POST',
-        headers:{'Content-Type':'application/json',Accept:'application/json'},
-        body:JSON.stringify(Object.fromEntries(new FormData(form)))
-      });
-      const data=await res.json();
-      msg.style.display='block';
-      if(data.success){
-        msg.style.color='#1a7f37';
-        msg.textContent='Merci ! Votre demande a bien été envoyée, je vous réponds très vite.';
-        form.reset();
-        btn.style.display='none';
-      }else{
-        msg.style.color='#b42318';
-        msg.textContent="Oups, une erreur est survenue. Écrivez-moi directement à contact@studiobon.site";
-        btn.disabled=false; btn.style.opacity='1'; btn.innerHTML='Réessayer';
-      }
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+      const json=await res.json();
+      if(!json.success) throw new Error();
+      const first=(data.nom||'').trim().split(' ')[0];
+      document.getElementById('sentTitle').textContent=first?'Merci, '+first+'.':'Merci !';
+      form.reset();form.style.display='none';sent.style.display='flex';
     }catch(e){
-      msg.style.display='block'; msg.style.color='#b42318';
-      msg.textContent="Connexion impossible. Écrivez-moi à contact@studiobon.site";
-      btn.disabled=false; btn.style.opacity='1'; btn.innerHTML='Réessayer';
-    }
+      err.textContent="Oups, l'envoi n'a pas marché. Écrivez-moi directement à contact@studiobon.site";
+      err.style.display='block';
+    }finally{btn.disabled=false;btn.textContent='Envoyer ma demande';}
   });
+  document.getElementById('again').addEventListener('click',()=>{sent.style.display='none';form.style.display='flex'});
 </script>
 </body>
 </html>
