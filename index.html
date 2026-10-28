@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Studio Bonsite — Création de sites web à Aix &amp; Marseille</title>
-<meta name="description" content="Studio Bonsite crée des sites internet vitrine et e-commerce pour les commerces et indépendants d'Aix-en-Provence, Marseille et toute la France.">
+<meta name="description" content="Studio Bonsite crée des sites internet vitrine et e-commerce, et intègre l'IA, pour les commerces et indépendants d'Aix-en-Provence, Marseille et toute la France.">
 <meta property="og:title" content="Studio Bonsite — Votre site doit faire venir des clients">
 <meta property="og:description" content="Sites vitrine, boutiques en ligne et refontes, conçus à la main. Devis gratuit, réponse sous 48h.">
 <meta property="og:image" content="img/easyfly.webp">
@@ -53,16 +53,16 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 @media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
 
 /* HERO */
-.hero{padding:clamp(56px,8vw,120px) var(--pad) clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:48px;align-items:center}
-.hero-copy{display:flex;flex-direction:column;gap:26px}
-.hero h1{font-size:clamp(44px,6.4vw,92px);line-height:1;letter-spacing:-.04em;text-wrap:balance}
+.hero{padding:clamp(24px,5vh,72px) var(--pad) clamp(24px,4vh,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(24px,4vw,48px);align-items:center;min-height:calc(100vh - 71px);min-height:calc(100svh - 71px)}
+.hero-copy{display:flex;flex-direction:column;gap:clamp(14px,2.6vh,26px)}
+.hero h1{font-size:clamp(40px,min(6vw,10.5vh),92px);line-height:1;letter-spacing:-.04em}
 .hl{color:var(--green);position:relative;display:inline-block;z-index:0}
 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--sand);z-index:-1;border-radius:2px}
 .hero .lead{font-size:clamp(17px,1.35vw,19px);max-width:500px}
 .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .chips{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
 
-.collage{position:relative;min-height:520px}
+.collage{position:relative;min-height:clamp(340px,60vh,520px)}
 .collage .plate{position:absolute;left:12%;right:0;top:12%;bottom:6%;background:var(--mint);border-radius:32px}
 .browser{background:#fff;border-radius:14px;border:1px solid rgba(18,33,28,.1);box-shadow:0 40px 80px -30px rgba(18,33,28,.35),0 2px 6px rgba(18,33,28,.06);overflow:hidden}
 .browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(18,33,28,.08);font-family:var(--mono);font-size:11px;color:#6E7A74;white-space:nowrap;overflow:hidden}
@@ -95,6 +95,7 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 
 /* SERVICES */
 .cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.cards4{grid-template-columns:1fr}@media(min-width:640px){.cards4{grid-template-columns:repeat(2,1fr)}}@media(min-width:1180px){.cards4{grid-template-columns:repeat(4,1fr)}}
 .svc{display:flex;flex-direction:column;gap:18px;padding:30px 28px;border-radius:20px;background:#fff;border:1px solid rgba(18,33,28,.08);min-height:380px;transition:transform .25s}
 .svc:hover{transform:translateY(-4px)}
 .svc.dark{background:var(--green);color:#fff}
@@ -229,10 +230,10 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 <!-- SERVICES -->
 <section id="services" class="sec">
   <div class="sec-head">
-    <h2>Trois façons de<br>vous rendre visible.</h2>
+    <h2>Quatre façons de<br>vous rendre visible.</h2>
     <p class="lead">Pas de formule figée : je pars de votre métier, de vos clients, et de ce qui doit se passer quand quelqu'un arrive sur votre site.</p>
   </div>
-  <div class="cards3">
+  <div class="cards3 cards4">
     <article class="svc reveal">
       <div class="svc-top"><span>01</span><span>Vitrine</span></div>
       <h3>Site vitrine</h3>
@@ -250,6 +251,12 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
       <h3>Refonte &amp; SEO</h3>
       <p>Votre site existe déjà mais vieillit ? Je le modernise pour qu'il attire à nouveau.</p>
       <ul class="dots"><li>Nouveau design moderne</li><li>Vitesse &amp; mobile optimisés</li><li>Meilleure visibilité Google</li><li>Migration sans perte</li></ul>
+    </article>
+    <article class="svc dark reveal">
+      <div class="svc-top"><span>04</span><span>IA</span></div>
+      <h3>Intégration IA</h3>
+      <p>Un assistant sur votre site qui répond à vos clients 24h/24 et vous libère des questions répétitives.</p>
+      <ul class="dots"><li>Questions fréquentes 24h/24</li><li>Réservations &amp; RDV</li><li>Pré-tri des demandes de devis</li><li>Basé sur vos infos</li></ul>
     </article>
   </div>
 </section>
@@ -374,7 +381,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
       <label>Votre projet en quelques mots<textarea name="message" required rows="4" placeholder="J'ai un restaurant et j'aimerais un site..."></textarea></label>
       <button type="submit" id="sendBtn">Envoyer ma demande</button>
       <p id="formErr"></p>
-      <p class="fine">Aucune newsletter, aucun démarchage. Juste une réponse.</p>
+      <p class="fine">Vos coordonnées servent uniquement à vous répondre.</p>
     </form>
   </div>
 </section>
@@ -385,8 +392,17 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 </footer>
 
 <script>
+  // Recharger la page ramène toujours en haut (et retire l'ancre #section de l'adresse)
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  const nav0=performance.getEntriesByType('navigation')[0];
+  if(nav0&&nav0.type==='reload'){
+    if(location.hash) history.replaceState(null,'',location.pathname+location.search);
+    window.scrollTo({top:0,behavior:'instant'});
+    addEventListener('load',()=>window.scrollTo({top:0,behavior:'instant'}));
+  }
+
   // Ticker
-  const items=['Site vitrine','Boutique en ligne','Refonte & SEO','Réponse sous 48h','Aix, Marseille & toute la France','Devis gratuit','Mobile & rapide'];
+  const items=['Site vitrine','Boutique en ligne','Refonte & SEO','Intégration IA','Réponse sous 48h','Aix, Marseille & toute la France','Devis gratuit','Mobile & rapide'];
   const t=document.getElementById('ticker');
   t.innerHTML=[...items,...items].map(s=>'<span>'+s.replace('&','&amp;')+'</span>').join('');
 

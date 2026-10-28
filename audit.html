@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit gratuit de votre site — Studio Bonsite</title>
+<meta name="description" content="Recevez gratuitement l'audit complet de votre site internet : ce qui freine vos clients et comment y remédier.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#9AA39F;--green:#0E5C48;--green-2:#24463C;
+  --sand:#F2B880;--mint:#E9EFEA;--line:rgba(18,33,28,.12);--line-2:rgba(18,33,28,.2);
+  --pad:clamp(20px,5vw,80px);--sec:clamp(64px,9vw,120px);
+  --mono:'DM Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Sora,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none;transition:color .2s,background .2s,border-color .2s,transform .25s}
+a:hover{color:var(--green)}
+img{display:block;max-width:100%}
+input,textarea,button{font-family:inherit;color:inherit;font-size:16px}
+input::placeholder,textarea::placeholder{color:var(--muted)}
+input:focus,textarea:focus{outline:none;border-color:var(--green)!important;box-shadow:0 0 0 3px rgba(14,92,72,.15)}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--green);display:flex;gap:10px;align-items:center}
+.eyebrow::before{content:"";width:24px;height:1px;background:currentColor;display:inline-block}
+h1,h2,h3{margin:0;font-weight:800}
+h2{font-size:clamp(34px,4.2vw,56px);line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
+p{margin:0}
+.lead{color:var(--ink-2);font-size:16px;line-height:1.6;text-wrap:pretty}
+.btn{display:inline-block;padding:16px 26px;border-radius:12px;font-weight:700;font-size:15px;white-space:nowrap}
+.btn-primary{background:var(--green);color:#fff}.btn-primary:hover{background:var(--ink);color:#fff}
+.btn-ghost{border:1.5px solid var(--line-2);font-weight:600;padding:16px 22px}.btn-ghost:hover{border-color:var(--ink);color:var(--ink)}
+.chip{padding:6px 10px;border:1px solid rgba(18,33,28,.15);border-radius:999px}
+.sec{padding:var(--sec) var(--pad);display:flex;flex-direction:column;gap:44px}
+.sec-head{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;align-items:end}
+.sec-head .lead{max-width:440px;justify-self:end}
+@media(max-width:700px){.sec-head .lead{justify-self:start}}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px var(--pad);background:rgba(251,250,247,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(18,33,28,.1)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.02em}
+.logo b{width:26px;height:26px;border-radius:8px;background:var(--green);display:inline-flex;align-items:center;justify-content:center;color:var(--bg);font-size:13px}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:600}
+.nav-cta{background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;white-space:nowrap}
+.nav-cta:hover{background:var(--green);color:#fff}
+@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+
+/* HERO */
+.hero{padding:clamp(24px,5vh,72px) var(--pad) clamp(24px,4vh,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(24px,4vw,48px);align-items:center;min-height:calc(100vh - 71px);min-height:calc(100svh - 71px)}
+.hero-copy{display:flex;flex-direction:column;gap:clamp(14px,2.6vh,26px)}
+.hero h1{font-size:clamp(40px,min(6vw,10.5vh),92px);line-height:1;letter-spacing:-.04em}
+.hl{color:var(--green);position:relative;display:inline-block;z-index:0}
+.hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--sand);z-index:-1;border-radius:2px}
+.hero .lead{font-size:clamp(17px,1.35vw,19px);max-width:500px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.chips{display:flex;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+
+.collage{position:relative;min-height:clamp(340px,60vh,520px)}
+.collage .plate{position:absolute;left:12%;right:0;top:12%;bottom:6%;background:var(--mint);border-radius:32px}
+.browser{background:#fff;border-radius:14px;border:1px solid rgba(18,33,28,.1);box-shadow:0 40px 80px -30px rgba(18,33,28,.35),0 2px 6px rgba(18,33,28,.06);overflow:hidden}
+.browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(18,33,28,.08);font-family:var(--mono);font-size:11px;color:#6E7A74;white-space:nowrap;overflow:hidden}
+.browser-bar i{width:9px;height:9px;border-radius:50%;background:#E4E7E3;flex:none}
+.browser-bar span{margin-left:6px;overflow:hidden;text-overflow:ellipsis}
+.shot{position:relative;background:#F1F4F2;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.collage .browser{position:absolute;left:0;top:0;width:min(460px,74%)}
+.collage .browser .shot{aspect-ratio:1400/661}
+.phone{background:var(--ink);border-radius:38px;padding:9px;box-shadow:0 40px 80px -28px rgba(18,33,28,.55);aspect-ratio:9/18.6}
+.phone .screen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#F1F4F2}
+.phone .screen img{width:100%;height:100%;object-fit:cover;object-position:top}
+.phone .screen::after{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:34%;height:20px;border-radius:12px;background:var(--ink)}
+.collage .phone{position:absolute;right:2%;bottom:0;width:min(220px,44%)}
+.proof{position:absolute;left:0;bottom:8%;background:#fff;border-radius:14px;padding:14px 18px 14px 14px;display:flex;gap:14px;align-items:center;box-shadow:0 20px 40px -20px rgba(18,33,28,.35);border:1px solid rgba(18,33,28,.08)}
+.proof:hover{transform:translateY(-3px);color:var(--ink)}
+.avatars{display:flex}
+.avatars img{width:40px;height:40px;border:2px solid #fff;border-radius:50%;object-fit:cover;object-position:center}
+.avatars img+img{margin-left:-12px}
+.proof strong{font-size:15px;letter-spacing:-.02em;display:block}
+.proof small{font-family:var(--mono);font-size:12px;color:var(--green)}
+@media(max-width:480px){.collage{min-height:400px}}
+
+/* TICKER */
+.ticker{border-top:1px solid rgba(18,33,28,.1);border-bottom:1px solid rgba(18,33,28,.1);padding:14px 0;overflow:hidden;white-space:nowrap;font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+.ticker-track{display:inline-flex;animation:ticker 32s linear infinite}
+.ticker-track span{padding:0 22px}.ticker-track span::after{content:"✦";margin-left:44px;color:var(--sand)}
+@keyframes ticker{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
+
+/* SERVICES */
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.cards4{grid-template-columns:1fr}@media(min-width:640px){.cards4{grid-template-columns:repeat(2,1fr)}}@media(min-width:1180px){.cards4{grid-template-columns:repeat(4,1fr)}}
+.svc{display:flex;flex-direction:column;gap:18px;padding:30px 28px;border-radius:20px;background:#fff;border:1px solid rgba(18,33,28,.08);min-height:380px;transition:transform .25s}
+.svc:hover{transform:translateY(-4px)}
+.svc.dark{background:var(--green);color:#fff}
+.svc-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;opacity:.75}
+.svc h3{font-size:30px;line-height:1.05;letter-spacing:-.03em}
+.svc p{line-height:1.6;font-size:15px;opacity:.85}
+.dots{list-style:none;margin:auto 0 0;padding:18px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px;font-size:14px;font-weight:600}
+.svc.dark .dots{border-color:rgba(255,255,255,.2)}
+.dots li{display:flex;gap:10px;align-items:flex-start}
+.dots li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--green);margin-top:7px}
+.svc.dark .dots li::before{background:var(--sand)}
+
+/* RÉALISATIONS */
+#realisations{background:var(--mint)}
+.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:28px}
+.work{display:flex;flex-direction:column;gap:20px;color:var(--ink)}
+.work:hover{color:var(--ink)}
+.work .browser{transition:transform .3s,box-shadow .3s}
+.work:hover .browser{transform:translateY(-6px);box-shadow:0 50px 90px -30px rgba(18,33,28,.45)}
+.work .shot{aspect-ratio:16/9.6}
+.work-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.work h3{font-size:24px;letter-spacing:-.03em;margin-bottom:6px}
+.work p{color:var(--ink-2);font-size:15px;line-height:1.55;max-width:460px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;font-family:var(--mono);font-size:11px}
+.tags span{padding:5px 9px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.go{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .25s}
+.work:hover .go{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
+
+/* OFFRES */
+#offres{background:var(--ink);color:var(--bg)}
+#offres .eyebrow{color:var(--sand)}
+#offres .lead{color:#B8C4BE}
+.plan{position:relative;display:flex;flex-direction:column;gap:22px;padding:32px 28px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12)}
+.plan.feat{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.badge{position:absolute;top:-12px;right:24px;background:var(--sand);color:var(--ink);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px}
+.plan h3{font-size:34px;line-height:1;letter-spacing:-.035em}
+.plan .tl{font-size:15px;line-height:1.5;opacity:.8;margin-top:8px}
+.price{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:16px 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+.plan.feat .price{border-color:var(--line)}
+.price strong{font-size:24px;letter-spacing:-.03em}
+.price span{font-family:var(--mono);font-size:12px;opacity:.75}
+.checks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:14px;font-weight:600;flex:1}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"✓";flex:none;width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.12);display:inline-flex;align-items:center;justify-content:center;font-size:9px;margin-top:2px}
+.plan.feat .checks li::before{background:var(--green);color:#fff}
+.plan-btn{display:block;text-align:center;padding:15px 20px;border-radius:12px;font-weight:700;font-size:15px;background:var(--bg);color:var(--ink)}
+.plan.feat .plan-btn{background:var(--green);color:#fff}
+.plan-btn:hover,.plan.feat .plan-btn:hover{background:var(--sand);color:var(--ink)}
+
+/* CONTACT */
+#contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:56px;align-items:start}
+#contact h2{font-size:clamp(36px,4.6vw,64px);line-height:1;letter-spacing:-.04em}
+dl{margin:0;border-top:1px solid var(--line)}
+dl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+dt{font-family:var(--mono);font-size:12px;color:var(--ink-2);padding-top:3px}
+dd{margin:0;font-weight:700}
+form{background:#fff;border-radius:20px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px;border:1px solid rgba(18,33,28,.1);box-shadow:0 30px 60px -40px rgba(18,33,28,.3)}
+.f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
+label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:600;color:var(--ink-2)}
+label em{font-style:normal;font-weight:400;color:var(--muted)}
+input,textarea{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14px;background:var(--bg)}
+textarea{resize:vertical;line-height:1.5;min-height:120px}
+button[type=submit]{margin-top:6px;background:var(--green);color:#fff;border:0;padding:17px 24px;border-radius:12px;font-weight:700;font-size:15px;cursor:pointer;transition:background .2s}
+button[type=submit]:hover{background:var(--ink)}
+button[disabled]{opacity:.6;cursor:wait}
+.fine{font-family:var(--mono);font-size:11px;color:var(--muted);text-align:center}
+.sent{background:var(--green);color:#fff;border-radius:20px;padding:44px 36px;display:none;flex-direction:column;gap:16px;min-height:380px;justify-content:center}
+.sent .ok{width:52px;height:52px;border-radius:50%;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--ink)}
+.sent h3{font-size:36px;line-height:1;letter-spacing:-.03em}
+.sent p{font-size:16px;line-height:1.6;color:#CFE3DA;max-width:400px}
+.sent button{align-self:flex-start;margin-top:8px;background:none;border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px;cursor:pointer}
+#formErr{display:none;color:#b42318;font-size:14px;text-align:center}
+
+footer{border-top:1px solid rgba(18,33,28,.1);padding:28px var(--pad);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+footer div{display:flex;gap:20px;flex-wrap:wrap}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+<style>
+.audit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,64px);align-items:start;padding:clamp(32px,6vh,80px) var(--pad) var(--sec)}
+.audit h1{font-size:clamp(36px,4.6vw,60px);line-height:1;letter-spacing:-.04em}
+.audit .site{font-family:var(--mono);font-size:14px;color:var(--green);background:var(--mint);padding:8px 12px;border-radius:8px;align-self:flex-start}
+.etapes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.etapes li{display:flex;gap:14px;align-items:flex-start;line-height:1.55;color:var(--ink-2)}
+.etapes b{flex:none;width:28px;height:28px;border-radius:8px;background:var(--green);color:var(--bg);display:inline-flex;align-items:center;justify-content:center;font-size:13px}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+legend{font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:9px;padding:0}
+legend em{font-style:normal;font-weight:400;color:var(--muted)}
+.choix{display:flex;flex-wrap:wrap;gap:8px}
+.choix label{flex-direction:row;gap:0;font-weight:500;font-size:14px;color:var(--ink)}
+.choix input{position:absolute;opacity:0;width:1px;height:1px}
+.choix span{display:inline-block;padding:9px 13px;border:1.5px solid rgba(18,33,28,.15);border-radius:999px;background:var(--bg);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.choix input:checked+span{background:var(--green);border-color:var(--green);color:#fff}
+.choix input:focus-visible+span{box-shadow:0 0 0 3px rgba(14,92,72,.25)}
+select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14px;background:var(--bg);font:inherit;font-size:16px;font-weight:400;color:var(--ink)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo"><b>b</b>Studio bonsite</a>
+  <div class="nav-links">
+    <a href="/#services">Services</a>
+    <a href="/#realisations">Réalisations</a>
+    <a href="/#offres">Offres</a>
+    <a href="/#contact" class="nav-cta">Devis gratuit</a>
+  </div>
+</nav>
+
+<main class="audit">
+  <div style="display:flex;flex-direction:column;gap:22px">
+    <div class="eyebrow">Audit gratuit</div>
+    <h1>Recevez l'audit complet<br>de votre site.</h1>
+    <div class="site" id="siteAffiche" hidden></div>
+    <p class="lead">Je regarde votre site comme un client le ferait, et je vous envoie un compte rendu clair : ce qui freine vos visiteurs, ce qui marche déjà, et ce que je changerais en priorité.</p>
+    <ol class="etapes">
+      <li><b>1</b><span>Vous répondez à ces quelques questions (2 minutes) pour que l'audit colle à vos objectifs.</span></li>
+      <li><b>2</b><span>Je vous envoie l'audit sous 48h, par email.</span></li>
+      <li><b>3</b><span>Si vous le souhaitez, on en parle 15 minutes au téléphone. Sans engagement.</span></li>
+    </ol>
+  </div>
+
+  <div>
+    <div class="sent" id="sent">
+      <div class="ok">✓</div>
+      <h3 id="sentTitle">Merci.</h3>
+      <p>Votre demande est bien arrivée. Je vous envoie l'audit de votre site sous 48h, en général bien avant.</p>
+      <a href="/" style="align-self:flex-start;margin-top:8px;border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px">Découvrir Studio Bonsite</a>
+    </div>
+    <form id="auditForm">
+      <input type="hidden" name="access_key" value="312babf8-f8c0-4550-b4f1-312af5b04ee7">
+      <input type="hidden" name="subject" id="sujet" value="Demande d'audit via studiobon.site">
+      <input type="hidden" name="from_name" value="Audit Studio Bonsite">
+      <input type="hidden" name="reference" id="ref">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+      <label>Votre site<input name="site" id="site" required placeholder="www.votre-site.fr"></label>
+      <div class="f2">
+        <label>Votre nom<input name="nom" required placeholder="Jean Dupont" autocomplete="name"></label>
+        <label>Votre email<input name="email" type="email" required placeholder="jean@exemple.fr" autocomplete="email"></label>
+      </div>
+      <label><span>Votre téléphone <em>(optionnel)</em></span><input name="telephone" type="tel" placeholder="06 12 34 56 78" autocomplete="tel"></label>
+
+      <fieldset><legend>Vous êtes…</legend><div class="choix">
+        <label><input type="radio" name="role" value="Gérant / dirigeant" required><span>Gérant·e / dirigeant·e</span></label>
+        <label><input type="radio" name="role" value="Associé"><span>Associé·e</span></label>
+        <label><input type="radio" name="role" value="Salarié"><span>Salarié·e</span></label>
+        <label><input type="radio" name="role" value="Autre"><span>Autre</span></label>
+      </div></fieldset>
+
+      <fieldset><legend>Ce que vous attendez de votre site <em>(plusieurs choix possibles)</em></legend><div class="choix">
+        <label><input type="checkbox" name="objectifs" value="Plus de clients"><span>Plus de clients</span></label>
+        <label><input type="checkbox" name="objectifs" value="Image plus moderne"><span>Une image plus moderne</span></label>
+        <label><input type="checkbox" name="objectifs" value="Être trouvé sur Google"><span>Être trouvé sur Google</span></label>
+        <label><input type="checkbox" name="objectifs" value="Vendre en ligne"><span>Vendre en ligne</span></label>
+        <label><input type="checkbox" name="objectifs" value="Réservations / RDV en ligne"><span>Réservations / RDV en ligne</span></label>
+        <label><input type="checkbox" name="objectifs" value="Gagner du temps (IA)"><span>Gagner du temps (IA)</span></label>
+      </div></fieldset>
+
+      <fieldset><legend>Quand aimeriez-vous avancer ?</legend><div class="choix">
+        <label><input type="radio" name="echeance" value="Dès que possible" required><span>Dès que possible</span></label>
+        <label><input type="radio" name="echeance" value="Dans 1 à 3 mois"><span>Dans 1 à 3 mois</span></label>
+        <label><input type="radio" name="echeance" value="Dans l'année"><span>Dans l'année</span></label>
+        <label><input type="radio" name="echeance" value="Je me renseigne"><span>Je me renseigne</span></label>
+      </div></fieldset>
+
+      <label>Budget envisagé pour votre site
+        <select name="budget" required>
+          <option value="" disabled selected>Choisir une fourchette</option>
+          <option>Moins de 800 €</option>
+          <option>800 à 1 500 €</option>
+          <option>1 500 à 3 000 €</option>
+          <option>Plus de 3 000 €</option>
+          <option>Je ne sais pas encore</option>
+        </select>
+      </label>
+
+      <fieldset><legend>Aujourd'hui, votre site est géré par…</legend><div class="choix">
+        <label><input type="radio" name="gestion" value="Moi-même"><span>Moi-même</span></label>
+        <label><input type="radio" name="gestion" value="Une agence / un prestataire"><span>Une agence / un prestataire</span></label>
+        <label><input type="radio" name="gestion" value="Personne"><span>Personne</span></label>
+        <label><input type="radio" name="gestion" value="Je ne sais pas"><span>Je ne sais pas</span></label>
+      </div></fieldset>
+
+      <label><span>Un point précis à regarder ? <em>(optionnel)</em></span><textarea name="message" rows="3" placeholder="Ex. : on ne nous trouve pas sur Google, on voudrait prendre les commandes en ligne…"></textarea></label>
+      <button type="submit" id="sendBtn">Recevoir mon audit gratuit</button>
+      <p id="formErr"></p>
+      <p class="fine">Vos réponses servent uniquement à préparer votre audit et à vous répondre.</p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Studio bonsite — Aix-en-Provence</span>
+  <div><a href="mailto:contact@studiobon.site">contact@studiobon.site</a><a href="tel:+33768019719">07 68 01 97 19</a></div>
+</footer>
+
+<script>
+  // Le lien du mail transmet le site et une référence : ?site=exemple.fr&ref=123
+  const qs = new URLSearchParams(location.search);
+  const siteParam = (qs.get('site') || '').trim();
+  const refParam = (qs.get('ref') || '').trim();
+  if (siteParam) {
+    document.getElementById('site').value = siteParam;
+    const s = document.getElementById('siteAffiche'); s.textContent = siteParam; s.hidden = false;
+  }
+  document.getElementById('ref').value = refParam;
+
+  const form = document.getElementById('auditForm'), btn = document.getElementById('sendBtn'),
+        err = document.getElementById('formErr'), sent = document.getElementById('sent');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    err.style.display = 'none';
+    btn.disabled = true; btn.textContent = 'Envoi…';
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+    data.objectifs = fd.getAll('objectifs').join(', ') || 'Non précisé';
+    data.gestion = data.gestion || 'Non précisé';
+    data.subject = "Demande d'audit — " + (data.site || 'site non précisé') + (data.reference ? ' [ref ' + data.reference + ']' : '');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {method: 'POST',
+        headers: {'Content-Type': 'application/json', Accept: 'application/json'}, body: JSON.stringify(data)});
+      const json = await res.json();
+      if (!json.success) throw new Error();
+      const first = (data.nom || '').trim().split(' ')[0];
+      document.getElementById('sentTitle').textContent = first ? 'Merci, ' + first + '.' : 'Merci !';
+      form.style.display = 'none'; sent.style.display = 'flex';
+    } catch (e) {
+      err.textContent = "Oups, l'envoi n'a pas marché. Écrivez-moi directement à contact@studiobon.site";
+      err.style.display = 'block';
+    } finally { btn.disabled = false; btn.textContent = 'Recevoir mon audit gratuit'; }
+  });
+</script>
+</body>
+</html>
