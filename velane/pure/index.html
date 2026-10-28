@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>VÉLANE Pure — Le pull, repensé.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="../commun/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-accueil">
+<main>
+  <section class="hero"><div class="wrap">
+    <small class="apparait">Nouveau</small>
+    <h1 class="apparait d1">Le pull Vélane.</h1>
+    <p class="apparait d2">Laine recyclée. Coupe parfaite. Fait pour durer.</p>
+    <div class="actions apparait d3"><a class="pill bleu" href="produit.html?id=pull-ecru">Acheter</a><a class="lien" href="#teintes">Choisir sa teinte</a></div>
+  </div>
+  <div class="photo scene" id="scene"><img src="https://images.unsplash.com/photo-1621198059871-0d5f9b449233?auto=format&fit=crop&w=2200&q=80" alt="Pull en maille écru posé à plat" onerror="this.classList.add('ko')"></div></section>
+
+  <section class="duo">
+    <a class="tuile-g sombre" href="produit.html?id=manteau-bleu"><div class="photo"><img src="https://images.unsplash.com/photo-1685464670752-e4b571ea1464?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" onerror="this.classList.add('ko')"></div><h2>Manteau bleu roi</h2><p>La pièce maîtresse de l'hiver.</p><div class="liens"><span class="lien">En savoir plus</span><span class="lien">Acheter</span></div></a>
+    <a class="tuile-g" href="produit.html?id=baskets"><div class="photo"><img src="https://images.unsplash.com/photo-1656164753657-8ff832063a71?auto=format&fit=crop&w=1400&q=80" alt="" loading="lazy" onerror="this.classList.add('ko')"></div><h2>Baskets cuir blanc</h2><p>Cousues. Pas collées.</p><div class="liens"><span class="lien">En savoir plus</span><span class="lien">Acheter</span></div></a>
+  </section>
+
+  <section class="sec teintes" id="teintes"><div class="wrap">
+    <h2 class="titre-sec reveal">Deux teintes.<br><em>Un seul pull à avoir.</em></h2>
+    <div class="photo scene-c" id="sceneC">
+      <img class="on" src="https://images.unsplash.com/photo-1621198059871-0d5f9b449233?auto=format&fit=crop&w=1600&q=80" alt="Pull écru" loading="lazy" onerror="this.classList.add('ko')">
+      <img src="https://images.unsplash.com/photo-1622648147611-e817249f3b73?auto=format&fit=crop&w=1600&q=80" alt="Pull orange brûlée" loading="lazy" onerror="this.classList.add('ko')">
+    </div>
+    <div class="sel-coul"><button class="on" style="background:#efe8dc" data-i="0" data-n="Écru" aria-label="Écru"></button><button style="background:#d9682b" data-i="1" data-n="Orange brûlée" aria-label="Orange brûlée"></button></div>
+    <p class="nom-teinte" id="nomTeinte">Écru</p>
+  </div></section>
+
+  <section class="sec grise" style="padding-bottom:60px"><div class="wrap"><h2 class="titre-sec reveal">Les essentiels.<br><em>Pour toute la saison.</em></h2></div>
+    <div class="defileur" id="defileur"></div>
+    <div class="fleches"><button data-dir="-1" aria-label="Précédents">‹</button><button data-dir="1" aria-label="Suivants">›</button></div>
+  </section>
+
+  <section class="sec eclaire"><div class="wrap"><p id="eclaire">Chaque pièce est coupée dans des matières que l'on choisit une à une, cousue dans des ateliers que l'on connaît par leur prénom, puis portée des mois avant d'arriver chez vous. Moins de pièces, mieux faites.</p></div></section>
+
+  <section class="sec grise"><div class="wrap">
+    <h2 class="titre-sec reveal">Pourquoi VÉLANE.<br><em>En quatre chiffres.</em></h2>
+    <div class="bento">
+      <div class="b b2 reveal"><span class="gros">70 %</span><div><h3>de laine recyclée</h3><p>dans nos mailles, sans perdre en douceur.</p></div></div>
+      <div class="b b4 photo-b reveal"><div class="photo"><img src="https://images.unsplash.com/photo-1603400521630-9f2de124b33b?auto=format&fit=crop&w=1400&q=80" alt="Portant de vêtements aux tons neutres" loading="lazy" onerror="this.classList.add('ko')"></div><div class="txt"><h3>Une collection courte.</h3><p>Quinze pièces, pas cent cinquante. Chacune a sa raison d'être.</p></div></div>
+      <div class="b b3 reveal"><span class="gros">2 ans</span><div><h3>de garantie couture</h3><p>Une couture lâche ? On la répare, gratuitement.</p></div></div>
+      <div class="b b3 reveal"><span class="gros">30 j</span><div><h3>pour changer d'avis</h3><p>Retours gratuits, remboursement en 48 h.</p></div></div>
+    </div>
+  </div></section>
+</main>
+<script src="../commun/data.js"></script>
+<script src="theme.js"></script>
+<script src="../commun/moteur.js"></script>
+<script>
+  layout('accueil');
+  const scene=$('#scene'),eclaire=$('#eclaire');
+  eclaire.innerHTML=eclaire.textContent.split(' ').map(w=>'<span>'+w+'</span>').join(' ');
+  const mots=$$('#eclaire span');
+  function defile(){
+    const h=innerHeight;
+    if(!calme){const r=scene.getBoundingClientRect(),p=Math.max(0,Math.min(1,1-(r.top-h*.1)/(h*.8)));scene.style.setProperty('--sc',(.88+.12*p).toFixed(4));scene.style.setProperty('--r',(1-.6*p).toFixed(3))}
+    const er=eclaire.getBoundingClientRect(),q=Math.max(0,Math.min(1,(h*.8-er.top)/(er.height+h*.2))),n=Math.round(q*mots.length);
+    mots.forEach((m,i)=>m.classList.toggle('on',calme||i<n));
+  }
+  addEventListener('scroll',defile,{passive:true});addEventListener('resize',defile);defile();
+  $$('.sel-coul button').forEach(b=>b.onclick=()=>{$$('#sceneC img').forEach((im,k)=>im.classList.toggle('on',k===+b.dataset.i));$$('.sel-coul button').forEach(x=>x.classList.toggle('on',x===b));$('#nomTeinte').textContent=b.dataset.n});
+  remplir('#defileur',['pull-ecru','manteau-bleu','hoodie-gris','jean-brut','blouse-rose','baskets','sac','montre']);
+  $$('.fleches button').forEach(b=>b.onclick=()=>$('#defileur').scrollBy({left:+b.dataset.dir*320,behavior:'smooth'}));
+</script>
+</body>
+</html>

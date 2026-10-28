@@ -242,8 +242,8 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 .pj-carte{position:absolute;left:3%;right:4%;top:50%;margin:0;transform:translateY(calc(-50% + var(--y,0px))) rotate(var(--rot)) scale(var(--sc,1));transition:filter .4s;will-change:transform}
 .pj-carte.dessous{filter:brightness(.94)}
 .pj-carte .browser{box-shadow:0 40px 80px -30px rgba(18,33,28,.45)}
-.pj-carte .shot{aspect-ratio:16/10}
-.pj-carte iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0;transform:scale(var(--s,1));background:#fff}
+.pj-carte .shot{aspect-ratio:var(--r,1.6)}
+.pj-carte iframe{position:absolute;left:0;top:0;width:1280px;height:calc(1280px / var(--r,1.6));border:0;transform-origin:0 0;transform:scale(var(--s,1));background:#fff}
 .pj-carte .phone{position:absolute;right:-4%;bottom:-10%;width:min(150px,24%)}
 @media(max-width:1000px),(max-height:640px),(prefers-reduced-motion:reduce){
   #realisations{height:auto}
@@ -372,7 +372,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
       <div class="avatars">
         <img src="img/easyfly.webp" alt="">
         <img src="img/ailleurs.webp" alt="">
-        <img src="img/ko-games.webp" alt="">
+        <img src="img/velane.webp" alt="">
       </div>
       <div><strong>3 sites en ligne</strong><small>Voir les réalisations →</small></div>
     </a>
@@ -439,33 +439,33 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
         </div>
       </article>
       <article class="pj-texte" data-i="2">
-        <h3><span class="pj-rang">Projet 3 sur 3</span>K.O Games</h3>
-        <p>Boutique de jeux vidéo et consoles à l'esthétique rétro-arcade, du pixel-art au synthwave néon.</p>
-        <div class="tags"><span>E-commerce</span><span>Rétro-arcade</span></div>
+        <h3><span class="pj-rang">Projet 3 sur 3</span>Vélane</h3>
+        <p>Boutique de vêtements fictive déclinée en cinq styles : coloré, épuré, couture, streetwear et vintage. Même catalogue, avec filtres, fiches produit et panier complets.</p>
+        <div class="tags"><span>E-commerce</span><span>5 directions artistiques</span></div>
         <div class="pj-actions">
-          <button type="button" class="btn btn-primary pj-explorer" data-cible="2" data-url="https://ko-games.vercel.app/" style="border:0;cursor:pointer">Explorer ici</button>
-          <a class="btn btn-ghost" href="https://ko-games.vercel.app/" target="_blank" rel="noopener">Ouvrir le site</a>
+          <button type="button" class="btn btn-primary pj-explorer" data-cible="2" data-url="velane/index.html" style="border:0;cursor:pointer">Explorer ici</button>
+          <a class="btn btn-ghost" href="velane/index.html" target="_blank" rel="noopener">Ouvrir le site</a>
         </div>
       </article>
     </div>
     <div class="pj-pile">
-      <figure class="pj-carte" data-i="0" style="--rot:-3deg">
+      <figure class="pj-carte" data-i="0" style="--rot:-3deg;--r:2.118">
         <div class="browser">
           <div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div>
           <div class="shot"><img src="img/easyfly.webp" alt="Capture du site EasyFly — réservation de vols" loading="lazy" width="1400" height="661"></div>
         </div>
       </figure>
-      <figure class="pj-carte" data-i="1" style="--rot:4deg">
+      <figure class="pj-carte" data-i="1" style="--rot:4deg;--r:2.101">
         <div class="browser">
           <div class="browser-bar"><i></i><i></i><span>ailleurs-nu.vercel.app</span></div>
-          <div class="shot"><img src="img/ailleurs.webp" alt="Capture du site Ailleurs — site de voyage" loading="lazy" width="1400" height="875"></div>
+          <div class="shot"><img src="img/ailleurs-hero.webp" alt="Capture du site Ailleurs — site de voyage" loading="lazy" width="1410" height="671"></div>
         </div>
         <div class="phone" aria-hidden="true"><div class="screen"><img src="img/ailleurs-mobile.webp" alt="" loading="lazy" width="500" height="1026"></div></div>
       </figure>
-      <figure class="pj-carte" data-i="2" style="--rot:-2deg">
+      <figure class="pj-carte" data-i="2" style="--rot:-2deg;--r:2.124">
         <div class="browser">
-          <div class="browser-bar"><i></i><i></i><span>ko-games.vercel.app</span></div>
-          <div class="shot"><img src="img/ko-games.webp" alt="Capture du site K.O Games — boutique rétro-arcade" loading="lazy" width="1400" height="659"></div>
+          <div class="browser-bar"><i></i><i></i><span>studiobon.site/velane</span></div>
+          <div class="shot"><img src="img/velane.webp" alt="Capture de Vélane — une boutique de vêtements en cinq styles" loading="lazy" width="1400" height="659"></div>
         </div>
       </figure>
     </div>

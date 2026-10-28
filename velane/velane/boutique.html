@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Boutique — VÉLANE Solaire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-boutique">
+<main>
+  <div class="wrap titre-page"><span class="sur-titre" id="filAriane">Boutique</span><h1 id="titre">Toute la collection</h1></div>
+  <div class="filtres"><div class="wrap">
+    <button class="puce" data-cat="">Tout</button><button class="puce" data-cat="Femme">Femme</button><button class="puce" data-cat="Homme">Homme</button><button class="puce" data-cat="Accessoires">Accessoires</button>
+    <div class="droite">
+      <input type="search" id="recherche" placeholder="Rechercher…" aria-label="Rechercher un article">
+      <select id="tri" aria-label="Trier"><option value="">Mis en avant</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option><option value="promo">Promotions d'abord</option></select>
+      <span class="compte-res" id="nb"></span>
+    </div>
+  </div></div>
+  <div class="wrap zone-grille"><div class="grille" id="grille"></div><p class="vide" id="vide" hidden>Aucun article ne correspond à votre recherche.</p></div>
+</main>
+<script src="../commun/data.js"></script>
+<script src="theme.js"></script>
+<script src="../commun/moteur.js"></script>
+<script>initBoutique()</script>
+</body>
+</html>

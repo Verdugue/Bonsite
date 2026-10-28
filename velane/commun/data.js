@@ -1,0 +1,36 @@
+// VÉLANE — marque fictive, catalogue de démonstration
+const U=(id,w=900)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
+const TAILLES={vet:['XS','S','M','L','XL'],chaussures:['39','40','41','42','43','44'],unique:['Taille unique']};
+const PRODUITS=[
+ {id:'pull-ecru',nom:'Pull maille écru',cat:'Femme',type:'Maille',prix:79,tag:'Nouveau',tailles:'vet',couleurs:[['Écru','#efe8dc'],['Gris chiné','#b9b6b0']],img:['1621198059871-0d5f9b449233','1685464696711-ab28dc5fbd23'],
+  desc:"Une maille épaisse et douce, tricotée au point de riz. Col rond, épaules tombantes, longueur parfaite sur un jean ou une jupe midi.",matiere:'70 % laine recyclée, 30 % coton biologique'},
+ {id:'pull-orange',nom:'Pull côtelé orange brûlée',cat:'Femme',type:'Maille',prix:85,tag:'Best-seller',tailles:'vet',couleurs:[['Orange brûlée','#d9682b'],['Ocre','#c9973c']],img:['1622648147611-e817249f3b73','1650559117747-6dd115383cb7'],
+  desc:"La couleur de la saison, en côtes larges qui tiennent leur forme lavage après lavage.",matiere:'100 % coton biologique'},
+ {id:'manteau-bleu',nom:'Manteau long bleu roi',cat:'Femme',type:'Manteau',prix:189,tag:'Édition limitée',tailles:'vet',couleurs:[['Bleu roi','#2747a8']],img:['1685464670752-e4b571ea1464','1685464646323-b1a5b4d30c7a'],
+  desc:"Coupe droite, épaules structurées, deux poches passepoilées. Le manteau qui fait toute la silhouette.",matiere:'60 % laine, 40 % polyester recyclé'},
+ {id:'blouse-rose',nom:'Blouse nouée rose poudré',cat:'Femme',type:'Chemise',prix:59,tailles:'vet',couleurs:[['Rose poudré','#e8c3c1'],['Blanc','#f4f2ee']],img:['1777462985111-9da64fb2e6e6','1685464583143-f9802b19d98c'],
+  desc:"Fluide, légère, nouée à la taille. Elle se porte rentrée ou ouverte sur un débardeur.",matiere:'100 % viscose EcoVero'},
+ {id:'top-fleuri',nom:'Top fleuri à bretelles',cat:'Femme',type:'Top',prix:39,avant:49,tag:'-20 %',tailles:'vet',couleurs:[['Noir fleuri','#222']],img:['1584061516874-ed56f46d8e13','1608877607460-76db791f44ea'],
+  desc:"Imprimé floral noir et blanc, fines bretelles réglables, dos smocké pour un tombé parfait.",matiere:'100 % coton'},
+ {id:'hoodie-gris',nom:'Hoodie molleton gris chiné',cat:'Homme',type:'Sweat',prix:69,tag:'Best-seller',tailles:'vet',couleurs:[['Gris chiné','#9a9a9a'],['Noir','#1d1d1b']],img:['1556821840-3a63f95609a7','1564557287817-3785e38ec1f5'],
+  desc:"Molleton gratté 380 g, capuche doublée, poche kangourou. Le sweat qu'on ne quitte plus.",matiere:'80 % coton biologique, 20 % polyester recyclé'},
+ {id:'hoodie-blanc',nom:'Hoodie oversize blanc cassé',cat:'Homme',type:'Sweat',prix:65,avant:79,tag:'-18 %',tailles:'vet',couleurs:[['Blanc cassé','#f1eee8']],img:['1620799140188-3b2a02fd9a77','1601063476271-a159c71ab0b3'],
+  desc:"Coupe ample, épaules descendues, bords côtes épais. À porter avec un jean clair pour l'effet le plus simple.",matiere:'100 % coton biologique'},
+ {id:'jean-brut',nom:'Jean droit brut',cat:'Homme',type:'Pantalon',prix:89,tailles:'vet',couleurs:[['Brut','#2b3a55'],['Délavé','#7d93b3']],img:['1593030761757-71fae45fa0e7','1680003266512-eebf9ba167b3'],
+  desc:"Denim 13 oz non lavé qui se patine avec vous. Coupe droite, taille mi-haute.",matiere:'98 % coton, 2 % élasthanne'},
+ {id:'ensemble-terre',nom:'T-shirt terre cuite',cat:'Homme',type:'T-shirt',prix:35,tailles:'vet',couleurs:[['Terre cuite','#8a5a3c'],['Sable','#d6c3a5'],['Blanc','#f4f2ee']],img:['1599012307530-d163bd04ecab','1578768079052-aa76e52ff62e'],
+  desc:"Jersey lourd 220 g, col côtelé qui ne se déforme pas. Teinture minérale aux nuances naturelles.",matiere:'100 % coton biologique'},
+ {id:'baskets',nom:'Baskets cuir blanc',cat:'Accessoires',type:'Chaussures',prix:110,tag:'Nouveau',tailles:'chaussures',couleurs:[['Blanc','#f4f2ee']],img:['1656164753657-8ff832063a71','1608384177866-0bca0d225435'],
+  desc:"Cuir pleine fleur, semelle cousue, première de propreté amovible. Le blanc qui va avec tout.",matiere:'Cuir de veau, semelle caoutchouc naturel'},
+ {id:'mocassins',nom:'Mocassins cuir cognac',cat:'Accessoires',type:'Chaussures',prix:129,tailles:'chaussures',couleurs:[['Cognac','#8a4b22']],img:['1614676471928-2ed0ad1061a4','1479064555552-3ef4979f8908'],
+  desc:"Cousus main, cuir tanné végétal qui fonce joliment avec le temps.",matiere:'Cuir tanné végétal'},
+ {id:'sac',nom:'Sac bandoulière gris perle',cat:'Accessoires',type:'Maroquinerie',prix:95,tailles:'unique',couleurs:[['Gris perle','#a9a8a4']],img:['1559563458-527698bf5295','1506152983158-b4a74a01c721'],
+  desc:"Compact mais logeable, bandoulière réglable, fermoir aimanté. Le format qui passe du jour au soir.",matiere:'Cuir grainé, doublure coton'},
+ {id:'ceinture',nom:'Ceinture cuir noir',cat:'Accessoires',type:'Cuir',prix:49,tailles:'unique',couleurs:[['Noir','#1d1d1b']],img:['1603805752838-aa579d77da72','1614676471928-2ed0ad1061a4'],
+  desc:"Largeur 3,5 cm, boucle en laiton brossé. Une base qui dure des années.",matiere:'Cuir de vachette'},
+ {id:'montre',nom:'Montre dorée maille milanaise',cat:'Accessoires',type:'Bijoux',prix:149,tailles:'unique',couleurs:[['Doré','#c9a24a']],img:['1576053139778-7e32f2ae3cfd','1589557313308-3b0dde4a7103'],
+  desc:"Cadran nacré de 36 mm, bracelet maille milanaise réglable sans outil.",matiere:'Acier inoxydable, finition or'},
+ {id:'lunettes',nom:'Lunettes de soleil écaille',cat:'Accessoires',type:'Lunettes',prix:65,tailles:'unique',couleurs:[['Écaille','#6b4423']],img:['1537832816519-689ad163238b','1612902457652-33aff0a641fa'],
+  desc:"Monture acétate, verres polarisés catégorie 3. Pour les longues journées au soleil.",matiere:'Acétate, verres polarisés'},
+];
+const prixTxt=p=>p.toLocaleString('fr-FR',{style:'currency',currency:'EUR',minimumFractionDigits:0,maximumFractionDigits:2});

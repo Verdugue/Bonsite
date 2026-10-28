@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Article — VÉLANE Drop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="../commun/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-produit">
+<main class="wrap">
+  <nav class="fil" id="fil"></nav>
+  <div class="fiche">
+    <div class="galerie"><div class="vignettes" id="vignettes"></div><div class="photo grande" id="grande"></div></div>
+    <div class="infos">
+      <div><span class="sur-titre" id="type"></span><h1 id="nom"></h1></div>
+      <div class="prix-ligne"><span class="prix" id="prix"></span><span class="note"><b>★★★★★</b> 4,8 · 126 avis</span></div>
+      <div class="choix"><h4><span class="lib">Couleur</span> <span id="nomCouleur" class="val"></span></h4><div class="coul" id="couleurs"></div></div>
+      <div class="choix"><h4><span class="lib">Taille</span><button type="button" class="guide" data-guide>Guide des tailles</button></h4><div class="tailles" id="tailles"></div><p class="alerte" id="alerte" aria-live="polite"></p></div>
+      <div class="achat"><button class="btn btn-noir" id="ajouter">Ajouter au panier</button><button class="fav" id="fav" aria-label="Ajouter aux favoris" aria-pressed="false">♡</button></div>
+      <div class="atouts"><span>🚚 <b>Livraison offerte</b> dès 80 € · expédié sous 24 h</span><span>↺ <b>Retours gratuits</b> pendant 30 jours</span><span>✦ Fabriqué au Portugal, dans un atelier familial</span></div>
+      <div class="accordeon">
+        <details open><summary>Description</summary><p id="desc"></p></details>
+        <details><summary>Matières &amp; entretien</summary><p id="matiere"></p></details>
+        <details><summary>Livraison &amp; retours</summary><p>Livraison standard offerte dès 80 € (48 h), express 24 h à 7,90 €. Retours gratuits sous 30 jours, en point relais ou en boutique.</p></details>
+      </div>
+    </div>
+  </div>
+  <section class="sec aussi-sec"><div class="tete"><h2>Vous aimerez aussi</h2><a href="boutique.html">Toute la collection</a></div><div class="grille" id="aussi"></div></section>
+</main>
+<script src="../commun/data.js"></script>
+<script src="theme.js"></script>
+<script src="../commun/moteur.js"></script>
+<script>initProduit()</script>
+</body>
+</html>

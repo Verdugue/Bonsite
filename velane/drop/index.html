@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>VÉLANE® Drop 07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="../commun/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-accueil">
+<main>
+  <section class="hero-drop"><div class="wrap">
+    <h1 class="geant">Drop 07</h1>
+    <div class="hero-bas">
+      <p>Hoodies, mailles et cuir. Pièces numérotées, quantités limitées, aucun réassort. Quand c'est parti, c'est parti.</p>
+      <div>
+        <div class="decompte" id="decompte" aria-label="Temps avant le prochain drop"><div><b id="j">00</b><span>jours</span></div><div><b id="h">00</b><span>heures</span></div><div><b id="m">00</b><span>min</span></div><div><b id="s">00</b><span>sec</span></div></div>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap"><a class="btn btn-orange" href="boutique.html">Voir le drop →</a><a class="btn btn-ligne" href="#alerte">Être prévenu</a></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="tete"><h2>Le drop</h2><a href="boutique.html">Les 15 pièces →</a></div>
+    <div class="grille" id="drop"></div>
+  </div></section>
+
+  <div class="scotch" aria-hidden="true"></div>
+
+  <section class="sec"><div class="wrap">
+    <div class="tete"><h2>Lookbook</h2><a href="boutique.html">Shopper les looks →</a></div>
+    <div class="looks">
+      <a class="look" href="produit.html?id=hoodie-gris"><div class="photo"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" onerror="this.classList.add('ko')"></div><b>LOOK 01</b><p>Hoodie gris chiné · Jean brut</p></a>
+      <a class="look" href="produit.html?id=hoodie-blanc"><div class="photo"><img src="https://images.unsplash.com/photo-1601063476271-a159c71ab0b3?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" onerror="this.classList.add('ko')"></div><b>LOOK 02</b><p>Hoodie oversize blanc cassé</p></a>
+      <a class="look" href="produit.html?id=ensemble-terre"><div class="photo"><img src="https://images.unsplash.com/photo-1578768079052-aa76e52ff62e?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" onerror="this.classList.add('ko')"></div><b>LOOK 03</b><p>T-shirt terre cuite</p></a>
+      <a class="look" href="produit.html?id=pull-orange"><div class="photo"><img src="https://images.unsplash.com/photo-1650559117747-6dd115383cb7?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" onerror="this.classList.add('ko')"></div><b>LOOK 04</b><p>Pull côtelé orange brûlée</p></a>
+      <a class="look" href="produit.html?id=lunettes"><div class="photo"><img src="https://images.unsplash.com/photo-1685464560220-3a2f81534d18?auto=format&fit=crop&w=900&q=80" alt="" loading="lazy" onerror="this.classList.add('ko')"></div><b>LOOK 05</b><p>Lunettes écaille</p></a>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="tete"><h2>Les règles</h2></div>
+    <div class="regles">
+      <div><b>01</b><h3>Samedi, 12 h pile</h3><p>Le drop ouvre pour tout le monde en même temps. Les inscrits reçoivent le lien dix minutes avant.</p></div>
+      <div><b>02</b><h3>Deux pièces max</h3><p>Par modèle et par personne. Pour que tout le monde ait sa chance.</p></div>
+      <div><b>03</b><h3>Jamais de réassort</h3><p>Chaque pièce est numérotée. Quand le stock tombe à zéro, le modèle disparaît.</p></div>
+    </div>
+  </div></section>
+
+  <section class="alerte-drop" id="alerte"><div class="wrap">
+    <h2>Sois prévenu avant<br>tout le monde.</h2>
+    <form id="lettre"><input type="email" required placeholder="TON@EMAIL.FR" aria-label="Ton adresse email"><button type="submit">Je m'inscris</button></form>
+    <p class="merci" id="merci">C'est noté. (Site de démonstration : aucun email n'est envoyé.)</p>
+  </div></section>
+</main>
+<script src="../commun/data.js"></script>
+<script src="theme.js"></script>
+<script src="../commun/moteur.js"></script>
+<script>
+  layout('accueil');
+  remplir('#drop',['hoodie-gris','hoodie-blanc','pull-orange','baskets','jean-brut','ensemble-terre','lunettes','sac']);
+  // compte à rebours jusqu'au prochain samedi 12 h
+  function cible(){const d=new Date();const c=new Date(d);c.setHours(12,0,0,0);c.setDate(d.getDate()+((6-d.getDay()+7)%7));if(c<=d)c.setDate(c.getDate()+7);return c}
+  const fin=cible(),z=n=>String(n).padStart(2,'0');
+  function tic(){let t=Math.max(0,fin-new Date())/1000;$('#j').textContent=z(Math.floor(t/86400));$('#h').textContent=z(Math.floor(t%86400/3600));$('#m').textContent=z(Math.floor(t%3600/60));$('#s').textContent=z(Math.floor(t%60))}
+  tic();setInterval(tic,1000);
+  $('#lettre').addEventListener('submit',e=>{e.preventDefault();$('#merci').style.display='block';e.target.reset()});
+</script>
+</body>
+</html>

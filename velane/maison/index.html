@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>VÉLANE Maison — Automne-Hiver 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="../commun/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="page-accueil">
+<main>
+  <section class="split">
+    <div class="photo"><img src="https://images.unsplash.com/photo-1685464696711-ab28dc5fbd23?auto=format&fit=crop&w=1400&q=80" alt="Manteau bleu et pantalon blanc" onerror="this.classList.add('ko')"></div>
+    <div class="photo"><img src="https://images.unsplash.com/photo-1680003266512-eebf9ba167b3?auto=format&fit=crop&w=1400&q=80" alt="Homme en manteau et lunettes de soleil" onerror="this.classList.add('ko')"></div>
+    <div class="split-texte"><span class="petit-titre">Automne — Hiver 2026</span><h1>Le vestiaire<br>du temps long</h1><a class="souligne" href="boutique.html">Découvrir la collection</a></div>
+  </section>
+
+  <section class="manifeste wrap"><span class="petit-titre">La maison</span><p class="reveal">Nous dessinons peu, et lentement. Des pièces taillées pour traverser les saisons, cousues dans des ateliers que nous connaissons depuis toujours.</p></section>
+
+  <section class="sec" style="padding-top:0"><div class="wrap">
+    <div class="tete"><h2>Sélection</h2><a href="boutique.html">Toute la collection</a></div>
+    <div class="selection" id="selection"></div>
+  </div></section>
+
+  <section class="plein"><div class="photo" id="parallaxe"><img src="https://images.unsplash.com/photo-1685464646323-b1a5b4d30c7a?auto=format&fit=crop&w=2200&q=80" alt="Manteau bleu, écharpe et sac rouges" loading="lazy" onerror="this.classList.add('ko')"></div>
+    <div class="cartouche"><span class="petit-titre">Chapitre I</span><h2>Le bleu roi</h2><a class="souligne" href="produit.html?id=manteau-bleu">Le manteau long</a></div></section>
+
+  <div class="wrap">
+    <section class="recit"><div class="photo reveal"><img src="https://images.unsplash.com/photo-1621198059871-0d5f9b449233?auto=format&fit=crop&w=1200&q=80" alt="Maille écrue" loading="lazy" onerror="this.classList.add('ko')"></div>
+      <div class="reveal"><span class="petit-titre">Chapitre II</span><h3>Les mailles</h3><p>Une laine recyclée filée au Portugal, tricotée au point de riz, lavée à l'eau froide pour garder sa main douce. Il faut trois jours pour faire un pull. Il en faudra des milliers pour l'user.</p><a class="btn btn-ligne" href="boutique.html?cat=Femme">Les mailles</a></div></section>
+    <section class="recit inverse"><div class="photo reveal"><img src="https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?auto=format&fit=crop&w=1200&q=80" alt="Mocassins et ceinture en cuir" loading="lazy" onerror="this.classList.add('ko')"></div>
+      <div class="reveal"><span class="petit-titre">Chapitre III</span><h3>Le cuir</h3><p>Tanné aux écorces, sans chrome, il fonce et se patine avec vous. Nos mocassins sont cousus à la main, un par un, dans un atelier de onze personnes.</p><a class="btn btn-ligne" href="boutique.html?cat=Accessoires">Les accessoires</a></div></section>
+  </div>
+
+  <section class="lettre wrap"><span class="petit-titre">Correspondance</span><h2>Recevoir la lettre de la maison</h2>
+    <form id="lettre"><input type="email" required placeholder="Adresse email" aria-label="Adresse email"><button type="submit">S'inscrire</button></form>
+    <p class="merci" id="merci">Merci. (Site de démonstration : aucun email n'est envoyé.)</p></section>
+</main>
+<script src="../commun/data.js"></script>
+<script src="theme.js"></script>
+<script src="../commun/moteur.js"></script>
+<script>
+  layout('accueil');
+  remplir('#selection',['manteau-bleu','pull-ecru','mocassins','blouse-rose','jean-brut','montre']);
+  const para=$('#parallaxe');
+  addEventListener('scroll',()=>{if(calme)return;const r=para.parentElement.getBoundingClientRect();para.style.setProperty('--px',(r.top/innerHeight*-70).toFixed(1)+'px')},{passive:true});
+  $('#lettre').addEventListener('submit',e=>{e.preventDefault();$('#merci').style.display='block';e.target.reset()});
+</script>
+</body>
+</html>
