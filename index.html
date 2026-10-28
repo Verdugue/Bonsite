@@ -11,6 +11,62 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Combien coûte un site ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Chaque projet est chiffré sur devis, gratuitement. Vous décrivez votre besoin, je vous réponds sous 48 h avec un prix ferme : le prix annoncé est celui que vous payez."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Mon site existe déjà. Faut-il tout refaire ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Pas forcément. Une refonte garde vos contenus, votre nom de domaine et ce qui fonctionne, et modernise le reste : design, vitesse, affichage sur téléphone et visibilité sur Google. La migration se fait sans perte."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Mon site sera-t-il trouvé sur Google ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Chaque formule inclut le référencement Google, pensé pour les recherches locales du type « boulangerie Aix-en-Provence ». La formule Pro va plus loin avec un référencement local renforcé."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Concrètement, que fait l'intégration IA ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Un assistant sur votre site répond jour et nuit aux questions fréquentes de vos clients (horaires, tarifs, réservations) à partir de vos propres informations, et pré-trie les demandes de devis avant qu'elles vous arrivent."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Travaillez-vous seulement à Aix et à Marseille ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Je suis basé entre Aix-en-Provence et Marseille, et je travaille aussi à distance avec des commerces partout en France."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "À qui vais-je avoir affaire ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "À moi, Eliott, du premier appel à la mise en ligne. Pas de commercial, pas de sous-traitance : la personne qui vous répond est celle qui conçoit et code votre site."
+   }
+  }
+ ]
+}
+</script>
 <style>
 :root{
   --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#9AA39F;--green:#0E5C48;--green-2:#24463C;
@@ -108,22 +164,6 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 .dots li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--green);margin-top:7px}
 .svc.dark .dots li::before{background:var(--sand)}
 
-/* RÉALISATIONS */
-#realisations{background:var(--mint)}
-.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:28px}
-.work{display:flex;flex-direction:column;gap:20px;color:var(--ink)}
-.work:hover{color:var(--ink)}
-.work .browser{transition:transform .3s,box-shadow .3s}
-.work:hover .browser{transform:translateY(-6px);box-shadow:0 50px 90px -30px rgba(18,33,28,.45)}
-.work .shot{aspect-ratio:16/9.6}
-.work-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-.work h3{font-size:24px;letter-spacing:-.03em;margin-bottom:6px}
-.work p{color:var(--ink-2);font-size:15px;line-height:1.55;max-width:460px}
-.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;font-family:var(--mono);font-size:11px}
-.tags span{padding:5px 9px;border-radius:999px;background:#fff;border:1px solid var(--line)}
-.go{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .25s}
-.work:hover .go{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(-45deg)}
-
 /* OFFRES */
 #offres{background:var(--ink);color:var(--bg)}
 #offres .eyebrow{color:var(--sand)}
@@ -172,6 +212,119 @@ button[disabled]{opacity:.6;cursor:wait}
 footer{border-top:1px solid rgba(18,33,28,.1);padding:28px var(--pad);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
 footer div{display:flex;gap:20px;flex-wrap:wrap}
 
+/* SERVICES : quatre colonnes compactes */
+.s4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.6vw,40px)}
+@media(max-width:1100px){.s4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.s4{grid-template-columns:1fr}}
+.s4 article{border-top:2px solid var(--ink);padding-top:20px;display:flex;flex-direction:column;gap:12px}
+.s4 h3{font-size:clamp(24px,2vw,30px);line-height:1.05;letter-spacing:-.03em;transition:color .25s}
+.s4 article:hover h3{color:var(--green)}
+.s4 p{color:var(--ink-2);font-size:15px;line-height:1.55}
+.s4 ul{list-style:none;margin:4px 0 0;padding:0;font-size:14px;font-weight:600;display:flex;flex-direction:column;gap:5px}
+.s4 li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:10px;vertical-align:middle}
+
+.tags{display:flex;gap:8px;flex-wrap:wrap;font-family:var(--mono);font-size:11px}
+.tags span{padding:5px 9px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+
+/* RÉALISATIONS : la présentation à gauche, les cadres s'empilent à droite */
+#realisations{position:relative;height:330vh;background:var(--mint);padding:0;display:block}
+.pj-colle{position:sticky;top:71px;height:calc(100vh - 71px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:center;padding:0 var(--pad)}
+.pj-textes{display:grid}
+.pj-intro{grid-area:1/1;display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.pj-texte{grid-area:2/1;display:flex;flex-direction:column;gap:14px;align-items:flex-start;opacity:0;transform:translateY(16px);transition:opacity .45s,transform .45s;pointer-events:none}
+.pj-texte.active{opacity:1;transform:none;pointer-events:auto}
+.pj-texte h3{font-size:clamp(40px,4.4vw,68px);line-height:1;letter-spacing:-.04em}
+.pj-rang{display:block;font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--green);margin-bottom:10px}
+.pj-texte p{color:var(--ink-2);font-size:16px;line-height:1.6;max-width:30em}
+.pj-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.pj-actions .btn{padding:13px 20px;font-size:14px}
+.pj-pile{position:relative;height:min(64vh,620px)}
+.pj-carte{position:absolute;left:3%;right:4%;top:50%;margin:0;transform:translateY(calc(-50% + var(--y,0px))) rotate(var(--rot)) scale(var(--sc,1));transition:filter .4s;will-change:transform}
+.pj-carte.dessous{filter:brightness(.94)}
+.pj-carte .browser{box-shadow:0 40px 80px -30px rgba(18,33,28,.45)}
+.pj-carte .shot{aspect-ratio:16/10}
+.pj-carte iframe{position:absolute;left:0;top:0;width:1280px;height:800px;border:0;transform-origin:0 0;transform:scale(var(--s,1));background:#fff}
+.pj-carte .phone{position:absolute;right:-4%;bottom:-10%;width:min(150px,24%)}
+@media(max-width:1000px),(max-height:640px),(prefers-reduced-motion:reduce){
+  #realisations{height:auto}
+  .pj-colle{position:static;height:auto;display:flex;flex-direction:column;align-items:stretch;padding:var(--sec) var(--pad);gap:28px}
+  .pj-textes,.pj-pile{display:contents}
+  .pj-intro{order:0;margin:0}
+  .pj-texte{opacity:1;transform:none;pointer-events:auto}
+  .pj-carte{position:relative;left:auto;right:auto;top:auto;transform:rotate(calc(var(--rot) * .5));margin-bottom:24px}
+  .pj-texte[data-i="0"]{order:1}.pj-carte[data-i="0"]{order:2}
+  .pj-texte[data-i="1"]{order:3}.pj-carte[data-i="1"]{order:4}
+  .pj-texte[data-i="2"]{order:5}.pj-carte[data-i="2"]{order:6}
+  .pj-carte .phone{right:2%;bottom:-6%}
+}
+
+/* MÉTHODE : le parcours d'un site, de l'appel à la mise en ligne */
+#methode{position:relative;height:320vh;padding:0;display:block;border-top:1px solid var(--line)}
+.mt-colle{position:sticky;top:71px;height:calc(100vh - 71px);display:flex;flex-direction:column;justify-content:center;gap:clamp(24px,4vh,48px);padding:0 var(--pad);overflow:hidden}
+.mt-trajet{position:relative;--illu-h:clamp(140px,21vh,210px)}
+.mt-route{position:absolute;left:0;right:0;top:calc(var(--illu-h) - 26px);width:100%;height:120px;overflow:visible;pointer-events:none}
+.mt-route path{fill:none;stroke-linecap:round}
+.mt-route .fond{stroke:var(--line-2);stroke-width:3;stroke-dasharray:2 14}
+.mt-route .fait{stroke:var(--green);stroke-width:3;stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--prog,0))}
+.mt-stations{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,36px);position:relative}
+.mt-station{display:flex;flex-direction:column;gap:12px}
+.mt-illu{height:var(--illu-h);display:flex;align-items:flex-end;justify-content:center;transition:filter .5s,opacity .5s}
+.mt-illu svg{height:100%;width:auto;max-width:100%;overflow:visible;filter:drop-shadow(0 14px 22px rgba(18,33,28,.14))}
+.mt-num{align-self:flex-start;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--bg);box-shadow:inset 0 0 0 2px var(--line-2);font-size:17px;font-weight:800;position:relative;z-index:1;transition:background-color .4s,color .4s,box-shadow .4s}
+.mt-station.faite .mt-num{background:var(--green);color:#fff;box-shadow:none}
+.mt-station h3{font-size:clamp(24px,2.2vw,32px);line-height:1.05;letter-spacing:-.03em}
+.mt-station p{color:var(--ink-2);font-size:15px;line-height:1.55;opacity:.45;transition:opacity .5s}
+.mt-station.faite p{opacity:1}
+.mt-illu *{transition:opacity .5s,transform .7s cubic-bezier(.2,.7,.2,1),stroke-dashoffset 1.2s ease}
+.mt-station:not(.faite) .mt-illu{filter:grayscale(1);opacity:.55}
+.onde{opacity:0;transform-box:fill-box;transform-origin:0 50%}
+.faite .onde{animation:onde 1.6s ease-out infinite}
+.faite .onde.o2{animation-delay:.3s}.faite .onde.o3{animation-delay:.6s}
+@keyframes onde{0%{opacity:0;transform:scale(.6)}30%{opacity:1}100%{opacity:0;transform:scale(1.15)}}
+.trait{stroke-dasharray:1;stroke-dashoffset:1}
+.faite .trait{stroke-dashoffset:0}
+.faite .trait.t2{transition-delay:.35s}.faite .trait.t3{transition-delay:.7s}.faite .trait.t4{transition-delay:1s}
+.crayon{transform:translate(-60px,40px) rotate(-8deg);transform-box:view-box}
+.faite .crayon{transform:none}
+.bloc{opacity:0;transform:translateY(-26px);transform-box:fill-box}
+.faite .bloc{opacity:1;transform:none}
+.faite .bloc.b2{transition-delay:.2s}.faite .bloc.b3{transition-delay:.4s}.faite .bloc.b4{transition-delay:.6s}
+.notif{opacity:0;transform:translateY(16px) scale(.9);transform-box:fill-box;transform-origin:50% 100%}
+.faite .notif{opacity:1;transform:none;transition-delay:.5s}
+.point-vert{transform-box:fill-box;transform-origin:center}
+.faite .point-vert{animation:pouls 1.8s ease-in-out infinite}
+@keyframes pouls{50%{transform:scale(1.5);opacity:.6}}
+@media(max-width:900px),(max-height:620px){
+  #methode{height:auto}
+  .mt-colle{position:static;height:auto;padding:var(--sec) var(--pad);overflow:visible}
+  .mt-route{display:none}
+  .mt-stations{grid-template-columns:1fr;gap:44px}
+  .mt-station{display:grid;grid-template-columns:110px 1fr;gap:6px 20px;align-items:start}
+  .mt-illu{grid-row:1 / span 3;height:110px;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){#methode{height:auto}.mt-colle{position:static;height:auto;padding:var(--sec) var(--pad)}.mt-route{display:none}.faite .onde,.faite .point-vert{animation:none}.onde{opacity:1}}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px 80px}
+.faq-tete{position:sticky;top:110px;align-self:start;display:flex;flex-direction:column;gap:14px}
+@media(max-width:900px){.faq{grid-template-columns:1fr}.faq-tete{position:static}}
+.faq-liste{border-top:1px solid var(--line-2)}
+.faq-liste details{border-bottom:1px solid var(--line-2)}
+.faq-liste summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:clamp(17px,1.5vw,20px);font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.faq-liste summary::-webkit-details-marker{display:none}
+.faq-liste summary:hover{color:var(--green)}
+.faq-liste .plus{flex:none;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--line-2);position:relative;transition:transform .35s,background-color .3s}
+.faq-liste .plus::before,.faq-liste .plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--ink);transform:translate(-50%,-50%)}
+.faq-liste .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-liste details[open] .plus{transform:rotate(45deg);background:var(--green);box-shadow:none}
+.faq-liste details[open] .plus::before,.faq-liste details[open] .plus::after{background:#fff}
+.faq-liste p{color:var(--ink-2);font-size:15px;line-height:1.65;padding:0 56px 24px 0;max-width:40em}
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  .faq-liste details::details-content{height:0;overflow:hidden;transition:height .35s ease,content-visibility .35s allow-discrete}
+  .faq-liste details[open]::details-content{height:auto}
+}
+
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
@@ -184,7 +337,9 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#realisations">Réalisations</a>
+    <a href="#methode">Méthode</a>
     <a href="#offres">Offres</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact" class="nav-cta">Devis gratuit</a>
   </div>
 </nav>
@@ -233,86 +388,171 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
     <h2>Quatre façons de<br>vous rendre visible.</h2>
     <p class="lead">Pas de formule figée : je pars de votre métier, de vos clients, et de ce qui doit se passer quand quelqu'un arrive sur votre site.</p>
   </div>
-  <div class="cards3 cards4">
-    <article class="svc reveal">
-      <div class="svc-top"><span>01</span><span>Vitrine</span></div>
+  <div class="s4">
+    <article class="reveal">
       <h3>Site vitrine</h3>
       <p>L'essentiel pour exister en ligne et rassurer vos clients avant même qu'ils poussent votre porte.</p>
-      <ul class="dots"><li>Présentation de votre activité</li><li>Galerie photos &amp; horaires</li><li>Formulaire de contact</li><li>Référencement Google local</li></ul>
+      <ul><li>Présentation de votre activité</li><li>Galerie photos &amp; horaires</li><li>Formulaire de contact</li><li>Référencement Google local</li></ul>
     </article>
-    <article class="svc dark reveal">
-      <div class="svc-top"><span>02</span><span>E-commerce</span></div>
+    <article class="reveal">
       <h3>Boutique en ligne</h3>
       <p>Vendez vos produits 24h/24, encaissez en toute sécurité, gérez tout simplement.</p>
-      <ul class="dots"><li>Catalogue produits illimité</li><li>Paiement sécurisé (CB, etc.)</li><li>Gestion des commandes</li><li>Compatible mobile</li></ul>
+      <ul><li>Catalogue produits illimité</li><li>Paiement sécurisé (CB, etc.)</li><li>Gestion des commandes</li><li>Compatible mobile</li></ul>
     </article>
-    <article class="svc reveal">
-      <div class="svc-top"><span>03</span><span>Refonte</span></div>
+    <article class="reveal">
       <h3>Refonte &amp; SEO</h3>
       <p>Votre site existe déjà mais vieillit ? Je le modernise pour qu'il attire à nouveau.</p>
-      <ul class="dots"><li>Nouveau design moderne</li><li>Vitesse &amp; mobile optimisés</li><li>Meilleure visibilité Google</li><li>Migration sans perte</li></ul>
+      <ul><li>Nouveau design moderne</li><li>Vitesse &amp; mobile optimisés</li><li>Meilleure visibilité Google</li><li>Migration sans perte</li></ul>
     </article>
-    <article class="svc dark reveal">
-      <div class="svc-top"><span>04</span><span>IA</span></div>
+    <article class="reveal">
       <h3>Intégration IA</h3>
       <p>Un assistant sur votre site qui répond à vos clients 24h/24 et vous libère des questions répétitives.</p>
-      <ul class="dots"><li>Questions fréquentes 24h/24</li><li>Réservations &amp; RDV</li><li>Pré-tri des demandes de devis</li><li>Basé sur vos infos</li></ul>
+      <ul><li>Questions fréquentes 24h/24</li><li>Réservations &amp; RDV</li><li>Pré-tri des demandes de devis</li><li>Basé sur vos infos</li></ul>
     </article>
   </div>
 </section>
 
-<!-- RÉALISATIONS -->
-<section id="realisations" class="sec">
-  <div class="sec-head">
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="eyebrow">Réalisations</div>
-      <h2>Des sites déjà<br>en ligne.</h2>
+<!-- RÉALISATIONS : présentation à gauche, cadres empilés à droite -->
+<section id="realisations">
+  <div class="pj-colle" id="pjColle">
+    <div class="pj-textes">
+      <div class="pj-intro">
+        <div class="eyebrow">Réalisations</div>
+        <h2>Trois projets,<br>trois identités.</h2>
+      </div>
+      <article class="pj-texte active" data-i="0">
+        <h3><span class="pj-rang">Projet 1 sur 3</span>EasyFly</h3>
+        <p>Compagnie aérienne fictive : moteur de recherche aller-retour, destinations populaires, interface claire et rassurante.</p>
+        <div class="tags"><span>Réservation</span><span>Web app</span></div>
+        <div class="pj-actions">
+          <button type="button" class="btn btn-primary pj-explorer" data-cible="0" data-url="https://easy-fly-sigma.vercel.app/" style="border:0;cursor:pointer">Explorer ici</button>
+          <a class="btn btn-ghost" href="https://easy-fly-sigma.vercel.app/" target="_blank" rel="noopener">Ouvrir le site</a>
+        </div>
+      </article>
+      <article class="pj-texte" data-i="1">
+        <h3><span class="pj-rang">Projet 2 sur 3</span>Ailleurs</h3>
+        <p>Site de voyage : recherche de n'importe quelle ville du monde, météo et événements en temps réel, hébergements à proximité.</p>
+        <div class="tags"><span>Voyage</span><span>Web app</span></div>
+        <div class="pj-actions">
+          <button type="button" class="btn btn-primary pj-explorer" data-cible="1" data-url="https://ailleurs-nu.vercel.app/" style="border:0;cursor:pointer">Explorer ici</button>
+          <a class="btn btn-ghost" href="https://ailleurs-nu.vercel.app/" target="_blank" rel="noopener">Ouvrir le site</a>
+        </div>
+      </article>
+      <article class="pj-texte" data-i="2">
+        <h3><span class="pj-rang">Projet 3 sur 3</span>K.O Games</h3>
+        <p>Boutique de jeux vidéo et consoles à l'esthétique rétro-arcade, du pixel-art au synthwave néon.</p>
+        <div class="tags"><span>E-commerce</span><span>Rétro-arcade</span></div>
+        <div class="pj-actions">
+          <button type="button" class="btn btn-primary pj-explorer" data-cible="2" data-url="https://ko-games.vercel.app/" style="border:0;cursor:pointer">Explorer ici</button>
+          <a class="btn btn-ghost" href="https://ko-games.vercel.app/" target="_blank" rel="noopener">Ouvrir le site</a>
+        </div>
+      </article>
     </div>
-    <p class="lead">Chaque site a sa propre identité : pas de template recyclé. Cliquez pour visiter la version en ligne.</p>
+    <div class="pj-pile">
+      <figure class="pj-carte" data-i="0" style="--rot:-3deg">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div>
+          <div class="shot"><img src="img/easyfly.webp" alt="Capture du site EasyFly — réservation de vols" loading="lazy" width="1400" height="661"></div>
+        </div>
+      </figure>
+      <figure class="pj-carte" data-i="1" style="--rot:4deg">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><span>ailleurs-nu.vercel.app</span></div>
+          <div class="shot"><img src="img/ailleurs.webp" alt="Capture du site Ailleurs — site de voyage" loading="lazy" width="1400" height="875"></div>
+        </div>
+        <div class="phone" aria-hidden="true"><div class="screen"><img src="img/ailleurs-mobile.webp" alt="" loading="lazy" width="500" height="1026"></div></div>
+      </figure>
+      <figure class="pj-carte" data-i="2" style="--rot:-2deg">
+        <div class="browser">
+          <div class="browser-bar"><i></i><i></i><span>ko-games.vercel.app</span></div>
+          <div class="shot"><img src="img/ko-games.webp" alt="Capture du site K.O Games — boutique rétro-arcade" loading="lazy" width="1400" height="659"></div>
+        </div>
+      </figure>
+    </div>
   </div>
-  <div class="works">
-    <a class="work reveal" href="https://easy-fly-sigma.vercel.app/" target="_blank" rel="noopener">
-      <div class="browser">
-        <div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div>
-        <div class="shot"><img src="img/easyfly.webp" alt="Capture du site EasyFly — réservation de vols" loading="lazy" width="1400" height="661"></div>
+</section>
+
+<section id="methode">
+  <div class="mt-colle">
+    <div class="sec-head">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="eyebrow">Méthode</div>
+        <h2>De l'appel à<br>la mise en ligne.</h2>
       </div>
-      <div class="work-meta">
-        <div>
-          <h3>EasyFly</h3>
-          <p>Compagnie aérienne fictive : moteur de recherche aller-retour, destinations populaires, interface claire et rassurante.</p>
-          <div class="tags"><span>Réservation</span><span>Web app</span></div>
-        </div>
-        <span class="go">→</span>
-      </div>
-    </a>
-    <a class="work reveal" href="https://ailleurs-nu.vercel.app/" target="_blank" rel="noopener">
-      <div class="browser">
-        <div class="browser-bar"><i></i><i></i><span>ailleurs-nu.vercel.app</span></div>
-        <div class="shot"><img src="img/ailleurs.webp" alt="Capture du site Ailleurs — site de voyage" loading="lazy" width="1400" height="875"></div>
-      </div>
-      <div class="work-meta">
-        <div>
-          <h3>Ailleurs</h3>
-          <p>Site de voyage : recherche de n'importe quelle ville du monde, météo et événements en temps réel, hébergements à proximité.</p>
-          <div class="tags"><span>Voyage</span><span>Web app</span></div>
-        </div>
-        <span class="go">→</span>
-      </div>
-    </a>
-    <a class="work reveal" href="https://ko-games.vercel.app/" target="_blank" rel="noopener">
-      <div class="browser">
-        <div class="browser-bar"><i></i><i></i><span>ko-games.vercel.app</span></div>
-        <div class="shot"><img src="img/ko-games.webp" alt="Capture du site K.O Games — boutique rétro-arcade" loading="lazy" width="1400" height="659"></div>
-      </div>
-      <div class="work-meta">
-        <div>
-          <h3>K.O Games</h3>
-          <p>Boutique de jeux vidéo et consoles à l'esthétique rétro-arcade, du pixel-art au synthwave néon.</p>
-          <div class="tags"><span>E-commerce</span><span>Rétro-arcade</span></div>
-        </div>
-        <span class="go">→</span>
-      </div>
-    </a>
+      <p class="lead">Quatre étapes, un seul interlocuteur. Vous savez à chaque moment où en est votre site.</p>
+    </div>
+    <div class="mt-trajet" id="trajet">
+      <svg class="mt-route" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+        <path class="fond" d="M0 70 C120 10 200 10 300 60 S480 110 600 60 S800 10 900 60 S1080 110 1200 50"/>
+        <path class="fait" id="routeFaite" pathLength="1" d="M0 70 C120 10 200 10 300 60 S480 110 600 60 S800 10 900 60 S1080 110 1200 50"/>
+      </svg>
+      <ol class="mt-stations">
+        <li class="mt-station">
+          <div class="mt-illu" aria-hidden="true">
+            <svg viewBox="0 0 200 160">
+              <rect x="62" y="14" width="64" height="124" rx="14" fill="#FFFFFF"/>
+              <rect x="70" y="30" width="48" height="84" rx="6" fill="#F2B880"/>
+              <circle cx="94" cy="72" r="13" fill="#0E5C48"/>
+              <rect x="84" y="122" width="20" height="5" rx="2.5" fill="#12211C"/>
+              <path class="onde o1" d="M138 56 Q150 72 138 88" stroke="#12211C" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path class="onde o2" d="M150 46 Q168 72 150 98" stroke="#12211C" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path class="onde o3" d="M162 36 Q186 72 162 108" stroke="#12211C" stroke-width="5" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="mt-num">1</span>
+          <h3>On en parle</h3>
+          <p>Un appel pour comprendre votre métier, vos clients et ce que votre site doit vous apporter. Vous recevez un devis ferme sous 48 h.</p>
+        </li>
+        <li class="mt-station">
+          <div class="mt-illu" aria-hidden="true">
+            <svg viewBox="0 0 200 160">
+              <rect x="20" y="24" width="150" height="112" rx="10" fill="#FFFFFF"/>
+              <rect x="20" y="24" width="150" height="20" rx="10" fill="#0E5C48"/><rect x="20" y="34" width="150" height="10" fill="#0E5C48"/>
+              <path class="trait t1" pathLength="1" d="M34 62 H90 V100 H34 Z" stroke="#12211C" stroke-width="3" fill="none" stroke-linejoin="round"/>
+              <path class="trait t2" pathLength="1" d="M102 64 H154" stroke="#12211C" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path class="trait t3" pathLength="1" d="M102 80 H144" stroke="#C9D3CE" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <path class="trait t4" pathLength="1" d="M34 118 H154" stroke="#C9D3CE" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <g class="crayon"><path d="M160 100 L188 52 L198 58 L170 106 Z" fill="#F2B880"/><path d="M160 100 L170 106 L158 114 Z" fill="#12211C"/><path d="M188 52 L192 45 L202 51 L198 58 Z" fill="#0E5C48"/></g>
+            </svg>
+          </div>
+          <span class="mt-num">2</span>
+          <h3>Je dessine</h3>
+          <p>Je vous montre la maquette de votre page d'accueil. Vous réagissez, j'ajuste, jusqu'à ce qu'elle vous ressemble.</p>
+        </li>
+        <li class="mt-station">
+          <div class="mt-illu" aria-hidden="true">
+            <svg viewBox="0 0 200 160">
+              <rect x="20" y="20" width="160" height="120" rx="10" fill="#FFFFFF"/>
+              <rect x="20" y="20" width="160" height="20" rx="10" fill="#F2B880"/><rect x="20" y="30" width="160" height="10" fill="#F2B880"/>
+              <rect class="bloc b1" x="34" y="52" width="132" height="22" rx="5" fill="#12211C"/>
+              <rect class="bloc b2" x="34" y="82" width="62" height="44" rx="5" fill="#0E5C48"/>
+              <rect class="bloc b3" x="104" y="82" width="62" height="20" rx="5" fill="#24463C"/>
+              <rect class="bloc b4" x="104" y="108" width="40" height="18" rx="9" fill="#12211C"/>
+              <text x="150" y="152" font-family="ui-monospace,monospace" font-size="18" fill="#F2B880" font-weight="700">&lt;/&gt;</text>
+            </svg>
+          </div>
+          <span class="mt-num">3</span>
+          <h3>Je construis</h3>
+          <p>Code, textes, référencement, et des tests sur ordinateur, tablette et téléphone. Un lien vous permet de suivre l'avancement.</p>
+        </li>
+        <li class="mt-station">
+          <div class="mt-illu" aria-hidden="true">
+            <svg viewBox="0 0 200 160">
+              <rect x="14" y="30" width="150" height="110" rx="10" fill="#FFFFFF"/>
+              <rect x="14" y="30" width="150" height="20" rx="10" fill="#12211C"/><rect x="14" y="40" width="150" height="10" fill="#12211C"/>
+              <circle class="point-vert" cx="30" cy="40" r="4" fill="#7FE0A8"/>
+              <rect x="28" y="64" width="90" height="12" rx="6" fill="#12211C"/>
+              <rect x="28" y="84" width="70" height="8" rx="4" fill="#C9D3CE"/>
+              <rect x="28" y="104" width="54" height="20" rx="10" fill="#0E5C48"/>
+              <g class="notif"><rect x="96" y="8" width="100" height="44" rx="10" fill="#F2B880"/><circle cx="114" cy="30" r="8" fill="#12211C"/><rect x="128" y="20" width="56" height="7" rx="3.5" fill="#12211C"/><rect x="128" y="33" width="40" height="6" rx="3" fill="#12211C" opacity=".6"/></g>
+            </svg>
+          </div>
+          <span class="mt-num">4</span>
+          <h3>On met en ligne</h3>
+          <p>Le site part en ligne, je vous montre comment vous en servir, et je reste joignable pour la suite.</p>
+        </li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -343,6 +583,43 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
       <ul class="checks"><li>E-commerce complet</li><li>Paiement sécurisé</li><li>Gestion des produits</li><li>Formation incluse</li></ul>
       <a href="#contact" class="plan-btn">Demander un devis</a>
     </article>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec">
+  <div class="faq">
+    <div class="faq-tete">
+      <div class="eyebrow">Questions</div>
+      <h2>Vos questions.</h2>
+      <p class="lead">Une autre question ? Appelez-moi au <a href="tel:+33768019719" style="text-decoration:underline">07 68 01 97 19</a>, c'est moi qui décroche.</p>
+    </div>
+    <div class="faq-liste">
+      <details>
+        <summary>Combien coûte un site ?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Chaque projet est chiffré sur devis, gratuitement. Vous décrivez votre besoin, je vous réponds sous 48 h avec un prix ferme : le prix annoncé est celui que vous payez.</p>
+      </details>
+      <details>
+        <summary>Mon site existe déjà. Faut-il tout refaire ?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Pas forcément. Une refonte garde vos contenus, votre nom de domaine et ce qui fonctionne, et modernise le reste : design, vitesse, affichage sur téléphone et visibilité sur Google. La migration se fait sans perte.</p>
+      </details>
+      <details>
+        <summary>Mon site sera-t-il trouvé sur Google ?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Chaque formule inclut le référencement Google, pensé pour les recherches locales du type « boulangerie Aix-en-Provence ». La formule Pro va plus loin avec un référencement local renforcé.</p>
+      </details>
+      <details>
+        <summary>Concrètement, que fait l'intégration IA ?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Un assistant sur votre site répond jour et nuit aux questions fréquentes de vos clients (horaires, tarifs, réservations) à partir de vos propres informations, et pré-trie les demandes de devis avant qu'elles vous arrivent.</p>
+      </details>
+      <details>
+        <summary>Travaillez-vous seulement à Aix et à Marseille ?<span class="plus" aria-hidden="true"></span></summary>
+        <p>Je suis basé entre Aix-en-Provence et Marseille, et je travaille aussi à distance avec des commerces partout en France.</p>
+      </details>
+      <details>
+        <summary>À qui vais-je avoir affaire ?<span class="plus" aria-hidden="true"></span></summary>
+        <p>À moi, Eliott, du premier appel à la mise en ligne. Pas de commercial, pas de sous-traitance : la personne qui vous répond est celle qui conçoit et code votre site.</p>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -409,6 +686,61 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
   // Apparition au scroll
   const obs=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),i*70);obs.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // ---------- Réalisations : présentation à gauche, cadres empilés à droite ----------
+  const calme=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const borne=(v,a,b)=>Math.max(a,Math.min(b,v));
+  (()=>{
+    const sec=document.getElementById('realisations'),colle=document.getElementById('pjColle');
+    const textes=[...sec.querySelectorAll('.pj-texte')],cartes=[...sec.querySelectorAll('.pj-carte')],n=cartes.length;
+    const epingle=()=>getComputedStyle(colle).position==='sticky';
+    const ease=t=>1-Math.pow(1-t,3);
+    function maj(){
+      if(!epingle()){cartes.forEach(c=>{c.style.removeProperty('--y');c.style.removeProperty('--sc');c.classList.remove('dessous')});return}
+      const r=sec.getBoundingClientRect(),course=sec.offsetHeight-innerHeight;
+      const s=borne(-r.top/course,0,1)*(n-1)*1.25;
+      let arrives=0;
+      cartes.forEach((c,i)=>{
+        const t=i===0?1:borne(s-(i-1),0,1);
+        c.style.setProperty('--y',((1-ease(t))*innerHeight*1.1).toFixed(1)+'px');
+        if(t>=.5) arrives=i;
+      });
+      cartes.forEach((c,i)=>{const dessous=arrives-i;c.style.setProperty('--sc',dessous>0?(1-dessous*.04).toFixed(3):1);c.classList.toggle('dessous',dessous>0)});
+      textes.forEach((t,k)=>t.classList.toggle('active',k===arrives));
+    }
+    addEventListener('scroll',maj,{passive:true});addEventListener('resize',maj);maj();
+    // Explorer le vrai site dans son cadre
+    sec.querySelectorAll('.pj-explorer').forEach(b=>{
+      const carte=cartes[+b.dataset.cible],ecran=carte.querySelector('.shot'),img=ecran.querySelector('img');
+      let frame=null;
+      const ajuster=()=>{if(frame) frame.style.setProperty('--s',ecran.clientWidth/1280)};
+      new ResizeObserver(ajuster).observe(ecran);
+      b.addEventListener('click',()=>{
+        if(frame){frame.remove();frame=null;img.hidden=false;b.textContent='Explorer ici';return}
+        frame=document.createElement('iframe');
+        frame.src=b.dataset.url;frame.title='Site '+textes[+b.dataset.cible].querySelector('h3').lastChild.textContent+' en direct';
+        frame.setAttribute('referrerpolicy','no-referrer');
+        ecran.appendChild(frame);img.hidden=true;ajuster();b.textContent='Revenir à l’aperçu';
+      });
+    });
+  })();
+
+  // ---------- Méthode : le parcours avance avec le défilement ----------
+  (()=>{
+    const sec=document.getElementById('methode'),route=document.getElementById('trajet'),stations=[...sec.querySelectorAll('.mt-station')];
+    const epingle=()=>getComputedStyle(sec.querySelector('.mt-colle')).position==='sticky';
+    if(calme){stations.forEach(s=>s.classList.add('faite'));return}
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!epingle()){e.target.classList.add('faite');io.unobserve(e.target)}}),{threshold:.5});
+    stations.forEach(s=>io.observe(s));
+    const maj=()=>{
+      if(!epingle()) return;
+      const r=sec.getBoundingClientRect(),course=sec.offsetHeight-innerHeight;
+      const p=borne(-r.top/course*1.15,0,1);
+      route.style.setProperty('--prog',p.toFixed(3));
+      stations.forEach((s,i)=>s.classList.toggle('faite',p>=i/stations.length+.02));
+    };
+    addEventListener('scroll',maj,{passive:true});addEventListener('resize',maj);maj();
+  })();
 
   // Formulaire (Web3Forms)
   const form=document.getElementById('contactForm'),btn=document.getElementById('sendBtn'),err=document.getElementById('formErr'),sent=document.getElementById('sent');
