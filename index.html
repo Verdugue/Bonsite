@@ -229,7 +229,7 @@ legend em{font-style:normal;font-weight:400;color:var(--muted)}
 .pp-info span{font-family:var(--mono);font-size:12px;color:var(--green)}
 .pp-info b{font-size:17px;letter-spacing:-.02em}
 .pp-barre{height:4px;border-radius:4px;background:var(--mint);overflow:hidden}
-.pp-barre i{display:block;height:100%;width:25%;background:var(--green);border-radius:4px;transition:width .35s ease}
+.pp-barre i{display:block;height:100%;width:33.34%;background:var(--green);border-radius:4px;transition:width .35s ease}
 .etape{display:flex;flex-direction:column;gap:18px}
 .pp-formule{font-size:14px;background:var(--mint);color:var(--green);padding:10px 14px;border-radius:10px;margin:0}
 .pp-note{font-size:13px;color:var(--muted);margin:0}
@@ -669,7 +669,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
     <div style="display:flex;flex-direction:column;gap:14px">
       <div class="eyebrow">Parlons-en</div>
       <h2>Votre projet<br>commence ici.</h2>
-      <p class="lead" style="font-size:17px;max-width:440px">Quatre questions rapides, deux minutes à peine, pour me décrire votre projet. Je vous réponds personnellement sous 48h, avec une proposition claire.</p>
+      <p class="lead" style="font-size:17px;max-width:440px">Trois étapes rapides, une minute à peine, pour me décrire votre projet. Je vous réponds personnellement sous 48h, avec une proposition claire.</p>
     </div>
     <dl>
       <div><dt>Email</dt><dd><a href="mailto:contact@studiobon.site">contact@studiobon.site</a></dd></div>
@@ -693,24 +693,24 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
       <div class="pp-tete" aria-live="polite">
-        <div class="pp-info"><span id="ppNum">Étape 1 sur 4</span><b id="ppTitre">Votre projet</b></div>
+        <div class="pp-info"><span id="ppNum">Étape 1 sur 3</span><b id="ppTitre">Votre projet</b></div>
         <div class="pp-barre"><i id="ppBarre"></i></div>
       </div>
 
       <div class="etape active" data-titre="Votre projet">
         <p class="pp-formule" id="ppFormule" hidden></p>
-        <fieldset><legend>De quoi avez-vous besoin ?</legend><div class="choix">
-          <label><input type="radio" name="besoin" value="Créer mon premier site" required><span>Créer mon premier site</span></label>
-          <label><input type="radio" name="besoin" value="Refaire mon site actuel"><span>Refaire mon site actuel</span></label>
-          <label><input type="radio" name="besoin" value="Vendre en ligne"><span>Vendre en ligne</span></label>
-          <label><input type="radio" name="besoin" value="Ajouter un assistant IA"><span>Ajouter un assistant IA</span></label>
-          <label><input type="radio" name="besoin" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
+        <fieldset data-requis><legend>De quoi avez-vous besoin ? <em>(plusieurs choix possibles)</em></legend><div class="choix">
+          <label><input type="checkbox" name="besoin" value="Créer mon premier site"><span>Créer mon premier site</span></label>
+          <label><input type="checkbox" name="besoin" value="Refaire mon site actuel"><span>Refaire mon site actuel</span></label>
+          <label><input type="checkbox" name="besoin" value="Vendre en ligne"><span>Vendre en ligne</span></label>
+          <label><input type="checkbox" name="besoin" value="Ajouter un assistant IA"><span>Ajouter un assistant IA</span></label>
+          <label><input type="checkbox" name="besoin" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
         </div></fieldset>
         <label id="ppSite" hidden><span>L'adresse de votre site actuel <em>(optionnel)</em></span><input name="site" placeholder="www.votre-site.fr" autocomplete="url"></label>
         <label><span>Votre activité <em>(optionnel)</em></span><input name="activite" placeholder="Ex. : restaurant à Aix, plombier à Marseille…"></label>
       </div>
 
-      <div class="etape" data-titre="Vos objectifs">
+      <div class="etape" data-titre="Objectifs et budget">
         <fieldset><legend>Ce que vous attendez de votre site <em>(plusieurs choix possibles)</em></legend><div class="choix">
           <label><input type="checkbox" name="objectifs" value="Plus de clients"><span>Plus de clients</span></label>
           <label><input type="checkbox" name="objectifs" value="Image plus moderne"><span>Une image plus moderne</span></label>
@@ -719,27 +719,13 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
           <label><input type="checkbox" name="objectifs" value="Réservations / RDV en ligne"><span>Réservations / RDV en ligne</span></label>
           <label><input type="checkbox" name="objectifs" value="Gagner du temps (IA)"><span>Gagner du temps (IA)</span></label>
         </div></fieldset>
-        <fieldset><legend>Quand aimeriez-vous avancer ?</legend><div class="choix">
-          <label><input type="radio" name="echeance" value="Dès que possible" required><span>Dès que possible</span></label>
-          <label><input type="radio" name="echeance" value="Dans 1 à 3 mois"><span>Dans 1 à 3 mois</span></label>
-          <label><input type="radio" name="echeance" value="Dans l'année"><span>Dans l'année</span></label>
-          <label><input type="radio" name="echeance" value="Je me renseigne"><span>Je me renseigne</span></label>
-        </div></fieldset>
-      </div>
-
-      <div class="etape" data-titre="Votre budget">
-        <fieldset><legend>Budget envisagé pour votre site</legend><div class="choix">
-          <label><input type="radio" name="budget" value="Moins de 800 €" required><span>Moins de 800 €</span></label>
-          <label><input type="radio" name="budget" value="800 à 1 500 €"><span>800 à 1 500 €</span></label>
-          <label><input type="radio" name="budget" value="1 500 à 3 000 €"><span>1 500 à 3 000 €</span></label>
-          <label><input type="radio" name="budget" value="Plus de 3 000 €"><span>Plus de 3 000 €</span></label>
+        <fieldset><legend>Budget envisagé</legend><div class="choix">
+          <label><input type="radio" name="budget" value="Moins de 600 €" required><span>Moins de 600 €</span></label>
+          <label><input type="radio" name="budget" value="600 à 900 €"><span>600 à 900 €</span></label>
+          <label><input type="radio" name="budget" value="900 à 1 300 €"><span>900 à 1 300 €</span></label>
+          <label><input type="radio" name="budget" value="1 300 à 2 000 €"><span>1 300 à 2 000 €</span></label>
+          <label><input type="radio" name="budget" value="Plus de 2 000 €"><span>Plus de 2 000 €</span></label>
           <label><input type="radio" name="budget" value="Je ne sais pas encore"><span>Je ne sais pas encore</span></label>
-        </div></fieldset>
-        <fieldset><legend>Vous êtes…</legend><div class="choix">
-          <label><input type="radio" name="role" value="Gérant / dirigeant" required><span>Gérant·e / dirigeant·e</span></label>
-          <label><input type="radio" name="role" value="Associé"><span>Associé·e</span></label>
-          <label><input type="radio" name="role" value="Salarié"><span>Salarié·e</span></label>
-          <label><input type="radio" name="role" value="Autre"><span>Autre</span></label>
         </div></fieldset>
         <p class="pp-note">Pas de mauvaise réponse : ça m'aide à vous proposer la bonne formule, sans surprise.</p>
       </div>
@@ -860,6 +846,9 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
   }
   function etapeValide(i){
     const e=etapes[i];
+    for(const fs of e.querySelectorAll('fieldset[data-requis]')){
+      if(!fs.querySelector('input:checked')){ppErr.textContent='Choisissez au moins une réponse pour « '+fs.querySelector('legend').firstChild.textContent.trim()+' ».';ppErr.style.display='block';return false}
+    }
     for(const g of new Set([...e.querySelectorAll('input[type=radio][required]')].map(x=>x.name))){
       if(!e.querySelector(`input[name="${g}"]:checked`)){
         ppErr.textContent='Choisissez une réponse pour « '+e.querySelector(`input[name="${g}"]`).closest('fieldset').querySelector('legend').firstChild.textContent.trim()+' ».';
@@ -874,7 +863,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
   retour.addEventListener('click',()=>afficher(n-1));
   form.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName!=='TEXTAREA'&&n<etapes.length-1){e.preventDefault();suivant.click()}});
   // champ « adresse du site » seulement pour une refonte
-  form.querySelectorAll('input[name=besoin]').forEach(r=>r.addEventListener('change',()=>{document.getElementById('ppSite').hidden=form.besoin.value!=='Refaire mon site actuel'}));
+  form.querySelectorAll('input[name=besoin]').forEach(r=>r.addEventListener('change',()=>{document.getElementById('ppSite').hidden=!form.querySelector('input[name=besoin][value="Refaire mon site actuel"]').checked}));
   // les boutons « Demander un devis » des offres pré-remplissent la formule
   document.querySelectorAll('.plan-btn[data-formule]').forEach(a=>a.addEventListener('click',()=>{
     document.getElementById('formule').value=a.dataset.formule;
@@ -885,9 +874,10 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
     if(!etapeValide(n)) return;
     err.style.display='none';btn.disabled=true;btn.textContent='Envoi en cours…';
     const fd=new FormData(form),data=Object.fromEntries(fd);
+    data.besoin=fd.getAll('besoin').join(', ');
     data.objectifs=fd.getAll('objectifs').join(', ')||'Non précisé';
     data.formule=data.formule||'Non choisie';
-    data.subject='Demande de devis — '+(data.besoin||'projet')+' — '+(data.nom||'');
+    data.subject='Demande de devis — '+(fd.getAll('besoin')[0]||'projet')+(fd.getAll('besoin').length>1?' (+'+(fd.getAll('besoin').length-1)+')':'')+' — '+(data.nom||'');
     try{
       const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
       const json=await res.json();
