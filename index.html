@@ -3,17 +3,67 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Bonsite — Création de sites web à Aix &amp; Marseille</title>
+<title>Création de site internet à Aix-en-Provence &amp; Marseille | Studio Bonsite</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="Studio Bonsite crée des sites internet vitrine et e-commerce, et intègre l'IA, pour les commerces et indépendants d'Aix-en-Provence, Marseille et toute la France.">
-<meta property="og:title" content="Studio Bonsite — Votre site doit faire venir des clients">
+<meta name="description" content="Création de site internet à Aix-en-Provence et Marseille : site vitrine, boutique en ligne, refonte, IA. Sur-mesure, devis gratuit et prix ferme sous 48h.">
+<link rel="canonical" href="https://www.studiobon.site/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Studio Bonsite">
+<meta property="og:url" content="https://www.studiobon.site/">
+<meta property="og:title" content="Studio Bonsite — Création de sites internet à Aix-en-Provence &amp; Marseille">
 <meta property="og:description" content="Sites vitrine, boutiques en ligne et refontes, conçus à la main. Devis gratuit, réponse sous 48h.">
-<meta property="og:image" content="img/easyfly.webp">
+<meta property="og:image" content="https://www.studiobon.site/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "ProfessionalService",
+   "@id": "https://www.studiobon.site/#entreprise",
+   "name": "Studio Bonsite",
+   "description": "Création de sites internet sur-mesure (vitrine, boutique en ligne, refonte, intégration IA) pour les commerces et indépendants d'Aix-en-Provence, de Marseille et de toute la France.",
+   "url": "https://www.studiobon.site/",
+   "logo": "https://www.studiobon.site/img/brand/icon-512.png",
+   "image": "https://www.studiobon.site/img/og.jpg",
+   "telephone": "+33768019719",
+   "email": "contact@studiobon.site",
+   "founder": {"@type": "Person", "name": "Eliott Bellais"},
+   "address": {"@type": "PostalAddress", "addressLocality": "Éguilles", "postalCode": "13510", "addressRegion": "Provence-Alpes-Côte d'Azur", "addressCountry": "FR"},
+   "areaServed": [
+    {"@type": "City", "name": "Aix-en-Provence"},
+    {"@type": "City", "name": "Marseille"},
+    {"@type": "AdministrativeArea", "name": "Bouches-du-Rhône"},
+    {"@type": "Country", "name": "France"}
+   ],
+   "knowsAbout": ["Création de site internet", "Site vitrine", "Boutique en ligne", "Refonte de site", "Référencement local", "Intégration d'assistant IA"],
+   "makesOffer": [
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Site vitrine"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Boutique en ligne"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Refonte de site et SEO"}},
+    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Intégration IA"}}
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://www.studiobon.site/#site",
+   "url": "https://www.studiobon.site/",
+   "name": "Studio Bonsite",
+   "inLanguage": "fr-FR",
+   "publisher": {"@id": "https://www.studiobon.site/#entreprise"}
+  }
+ ]
+}
+</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -115,7 +165,8 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 /* HERO */
 .hero{padding:clamp(24px,5vh,72px) var(--pad) clamp(24px,4vh,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(24px,4vw,48px);align-items:center;min-height:calc(100vh - 71px);min-height:calc(100svh - 71px)}
 .hero-copy{display:flex;flex-direction:column;gap:clamp(14px,2.6vh,26px)}
-.hero h1{font-size:clamp(40px,min(6vw,10.5vh),92px);line-height:1;letter-spacing:-.04em}
+.hero .slogan{margin:0;font-weight:800;font-size:clamp(40px,min(6vw,10.5vh),92px);line-height:1;letter-spacing:-.04em}
+.hero h1.eyebrow{font-size:12px;font-weight:500;line-height:1.4;letter-spacing:.06em}
 .hl{color:var(--green);position:relative;display:inline-block;z-index:0}
 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--sand);z-index:-1;border-radius:2px}
 .hero .lead{font-size:clamp(17px,1.35vw,19px);max-width:500px}
@@ -188,6 +239,32 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 .plan-btn{display:block;text-align:center;padding:15px 20px;border-radius:12px;font-weight:700;font-size:15px;background:var(--bg);color:var(--ink)}
 .plan.feat .plan-btn{background:var(--green);color:#fff}
 .plan-btn:hover,.plan.feat .plan-btn:hover{background:var(--sand);color:var(--ink)}
+/* Offres : la pile de cartes se déploie une fois, quand la section arrive à l'écran */
+.pile-offres>.po-carte{display:flex;position:relative;--fy:0px;--dx:0px;--dy:0px;--r0:0deg;--r:0deg;will-change:transform,opacity}
+.pile-offres>.po-carte:nth-child(1){z-index:1}.pile-offres>.po-carte:nth-child(2){z-index:3}.pile-offres>.po-carte:nth-child(3){z-index:2}
+.pile-offres>.po-carte>.plan{flex:1;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .4s ease}
+.pile-offres>.po-carte>.plan:hover{transform:translate3d(0,-8px,0);border-color:var(--sand)}
+.pile-offres.rangee>.po-carte:nth-child(2){--fy:-14px;transform:translate3d(0,-14px,0)}
+.po-jauge{height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:-10px}
+.plan.feat .po-jauge{background:rgba(18,33,28,.1)}
+.po-jauge i{display:block;height:100%;background:var(--sand);transform-origin:0 50%;transform:scaleX(var(--j,1))}
+.plan.feat .po-jauge i{background:var(--green)}
+.pile-offres.pret:not(.deploye)>.po-carte{opacity:0}
+.pile-offres.eventail>.po-carte{animation:po-arrivee 1.7s both;animation-delay:calc(var(--k) * .08s)}
+.pile-offres.empile>.po-carte{animation:po-monte .9s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--k) * .1s)}
+.pile-offres.anime .checks li{animation:po-puce .7s cubic-bezier(.16,1,.3,1) both}
+.pile-offres.anime .checks li:nth-child(1){animation-delay:.75s}.pile-offres.anime .checks li:nth-child(2){animation-delay:.82s}.pile-offres.anime .checks li:nth-child(3){animation-delay:.89s}.pile-offres.anime .checks li:nth-child(4){animation-delay:.96s}.pile-offres.anime .checks li:nth-child(5){animation-delay:1.03s}
+.pile-offres.anime .badge{animation:po-badge .6s cubic-bezier(.34,1.45,.64,1) .95s both}
+.pile-offres.anime .po-jauge i{animation:po-jauge 1.2s cubic-bezier(.16,1,.3,1) .7s both}
+@keyframes po-arrivee{
+  0%{opacity:0;transform:translate3d(var(--dx),calc(var(--dy) + 140px),0) rotate(var(--r0));animation-timing-function:cubic-bezier(.22,.61,.36,1)}
+  30%{opacity:1;transform:translate3d(var(--dx),var(--dy),0) rotate(var(--r));animation-timing-function:cubic-bezier(.16,1,.3,1)}
+  100%{opacity:1;transform:translate3d(0,var(--fy),0) rotate(0deg)}}
+@keyframes po-monte{from{opacity:0;transform:translate3d(0,40px,0)}to{opacity:1;transform:translate3d(0,var(--fy),0)}}
+@keyframes po-puce{from{opacity:0;transform:translate3d(-8px,0,0)}to{opacity:1;transform:none}}
+@keyframes po-badge{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes po-jauge{from{transform:scaleX(0)}to{transform:scaleX(var(--j,1))}}
+@media(prefers-reduced-motion:reduce){.pile-offres>.po-carte,.pile-offres .checks li,.pile-offres .badge,.pile-offres .po-jauge i{animation:none!important}.pile-offres.pret:not(.deploye)>.po-carte{opacity:1}.pile-offres>.po-carte>.plan{transition:none}}
 
 /* CONTACT */
 #contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:56px;align-items:start}
@@ -353,6 +430,8 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 .faq-liste summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;font-size:clamp(17px,1.5vw,20px);font-weight:700;letter-spacing:-.02em;line-height:1.3}
 .faq-liste summary::-webkit-details-marker{display:none}
 .faq-liste summary:hover{color:var(--green)}
+.faq-liste details p a,footer a[href^="creation"]{color:var(--green);font-weight:600}
+.faq-liste details p a{text-decoration:underline;text-underline-offset:3px}
 .faq-liste .plus{flex:none;width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--line-2);position:relative;transition:transform .35s,background-color .3s}
 .faq-liste .plus::before,.faq-liste .plus::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2px;background:var(--ink);transform:translate(-50%,-50%)}
 .faq-liste .plus::after{transform:translate(-50%,-50%) rotate(90deg)}
@@ -368,6 +447,10 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* Navigation par la barre : court glissement jusqu'à la section, sans rejouer les animations traversées */
+html.saut body>:not(nav){transition:opacity .15s ease}
+html.saut body>:not(nav) *{transition:none!important}
+html.fondu body>:not(nav){opacity:0}
 </style>
 </head>
 <body>
@@ -387,8 +470,8 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 <!-- HERO -->
 <header id="top" class="hero">
   <div class="hero-copy">
-    <div class="eyebrow">Sites web pour commerces &amp; indépendants — Aix, Marseille &amp; toute la France</div>
-    <h1>Votre site doit<br>faire venir<br><span class="hl">des clients.</span></h1>
+    <h1 class="eyebrow">Création de sites internet à Aix-en-Provence &amp; Marseille</h1>
+    <p class="slogan">Votre site doit<br>faire venir<br><span class="hl">des clients.</span></p>
     <p class="lead">Pas une carte de visite oubliée sur Internet. Un site clair, rapide, trouvé sur Google — conçu à la main par une seule personne qui répond au téléphone.</p>
     <div class="row">
       <a href="#contact" class="btn btn-primary">Demander un devis</a>
@@ -405,7 +488,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
     <div class="plate"></div>
     <div class="browser">
       <div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div>
-      <div class="shot"><img src="img/easyfly.webp" alt="" width="1400" height="661"></div>
+      <div class="shot"><img src="img/easyfly.webp" alt="" width="1400" height="661" fetchpriority="high"></div>
     </div>
     <div class="phone"><div class="screen"><img src="img/ailleurs-mobile.webp" alt="" width="500" height="1026"></div></div>
     <a href="#realisations" class="proof">
@@ -426,7 +509,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 <section id="services" class="sec">
   <div class="sec-head">
     <h2>Quatre façons de<br>vous rendre visible.</h2>
-    <p class="lead">Pas de formule figée : je pars de votre métier, de vos clients, et de ce qui doit se passer quand quelqu'un arrive sur votre site.</p>
+    <p class="lead">Pas de formule figée : je pars de votre métier, de vos clients, et de ce qui doit se passer quand quelqu'un arrive sur votre site, que vous soyez à Aix-en-Provence, à Marseille ou ailleurs.</p>
   </div>
   <div class="s4">
     <article class="reveal">
@@ -603,26 +686,29 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
     <h2>Un prix juste, sur devis.</h2>
     <p class="lead">Chaque commerce est différent, chaque devis aussi. Décrivez votre projet, je vous réponds sous 48h avec un prix ferme — sans surprise ensuite.</p>
   </div>
-  <div class="cards3">
-    <article class="plan reveal">
+  <div class="cards3 pile-offres">
+    <div class="po-carte" style="--k:0;--j:.33"><article class="plan">
       <div><h3>Vitrine</h3><p class="tl">Pour exister en ligne avec élégance.</p></div>
       <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
+      <div class="po-jauge" aria-hidden="true"><i></i></div>
       <ul class="checks"><li>Site une page soigné</li><li>Mobile &amp; rapide</li><li>Formulaire de contact</li><li>Référencement Google</li></ul>
       <a href="#contact" class="plan-btn" data-formule="Vitrine">Demander un devis</a>
-    </article>
-    <article class="plan feat reveal">
+    </article></div>
+    <div class="po-carte" style="--k:1;--j:.66"><article class="plan feat">
       <span class="badge">Le + choisi</span>
       <div><h3>Pro</h3><p class="tl">Le choix des commerces qui veulent se démarquer.</p></div>
       <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
+      <div class="po-jauge" aria-hidden="true"><i></i></div>
       <ul class="checks"><li>Site multi-pages</li><li>Design entièrement sur-mesure</li><li>Galerie, avis, horaires</li><li>SEO local renforcé</li><li>Suivi 1 mois offert</li></ul>
       <a href="#contact" class="plan-btn" data-formule="Pro">Demander un devis</a>
-    </article>
-    <article class="plan reveal">
+    </article></div>
+    <div class="po-carte" style="--k:2;--j:1"><article class="plan">
       <div><h3>Boutique</h3><p class="tl">Pour vendre en ligne sérieusement.</p></div>
       <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
+      <div class="po-jauge" aria-hidden="true"><i></i></div>
       <ul class="checks"><li>E-commerce complet</li><li>Paiement sécurisé</li><li>Gestion des produits</li><li>Formation incluse</li></ul>
       <a href="#contact" class="plan-btn" data-formule="Boutique">Demander un devis</a>
-    </article>
+    </article></div>
   </div>
 </section>
 
@@ -653,7 +739,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
       </details>
       <details>
         <summary>Travaillez-vous seulement à Aix et à Marseille ?<span class="plus" aria-hidden="true"></span></summary>
-        <p>Je suis basé entre Aix-en-Provence et Marseille, et je travaille aussi à distance avec des commerces partout en France.</p>
+        <p>Je suis basé entre Aix-en-Provence et Marseille, et je travaille aussi à distance avec des commerces partout en France. Plus de détails : <a href="creation-site-internet-aix-en-provence/">création de site internet à Aix-en-Provence</a> et <a href="creation-site-internet-marseille/">à Marseille</a>.</p>
       </details>
       <details>
         <summary>À qui vais-je avoir affaire ?<span class="plus" aria-hidden="true"></span></summary>
@@ -752,8 +838,8 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 </section>
 
 <footer>
-  <span>© 2026 Studio bonsite — Aix-en-Provence · partout en France</span>
-  <div><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="mailto:contact@studiobon.site">contact@studiobon.site</a><a href="tel:+33768019719">07 68 01 97 19</a></div>
+  <span>© 2026 Studio bonsite — Aix-en-Provence · Marseille · partout en France</span>
+  <div><a href="creation-site-internet-aix-en-provence/">Création de site à Aix-en-Provence</a><a href="creation-site-internet-marseille/">Création de site à Marseille</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="mailto:contact@studiobon.site">contact@studiobon.site</a><a href="tel:+33768019719">07 68 01 97 19</a></div>
 </footer>
 
 <script>
@@ -828,6 +914,86 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
       stations.forEach((s,i)=>s.classList.toggle('faite',p>=i/stations.length+.02));
     };
     addEventListener('scroll',maj,{passive:true});addEventListener('resize',maj);maj();
+  })();
+
+  // ---------- Offres : la pile de cartes se déploie une fois, quand la section arrive à l'écran ----------
+  const pileOffres=document.querySelector('.pile-offres');
+  function deployerOffres(anime){
+    const p=pileOffres;
+    if(!p||p.classList.contains('deploye')) return;
+    const cartes=[...p.children],hauts=cartes.map(c=>c.offsetTop);
+    const rangee=cartes.length===3&&hauts.every(h=>h===hauts[0]);
+    if(anime&&!calme){
+      const empile=cartes.every(c=>c.offsetLeft===cartes[0].offsetLeft);
+      if(!empile){
+        // point de départ : une pile au centre du conteneur, d'où chaque carte rejoint sa place réelle
+        const R=p.getBoundingClientRect(),r0=cartes[0].getBoundingClientRect();
+        const cx=R.left+R.width/2,cy=r0.top+r0.height/2,rot=[[-9,-7],[6,4],[-4,-2]];
+        cartes.forEach((c,k)=>{
+          const r=c.getBoundingClientRect(),[a,b]=rot[k%3];
+          c.style.setProperty('--dx',(cx-(r.left+r.width/2)).toFixed(1)+'px');
+          c.style.setProperty('--dy',(cy-(r.top+r.height/2)).toFixed(1)+'px');
+          c.style.setProperty('--r0',a+'deg');c.style.setProperty('--r',b+'deg');
+        });
+      }
+      p.classList.add(empile?'empile':'eventail','anime');
+    }
+    p.classList.toggle('rangee',rangee);
+    p.classList.add('deploye');
+  }
+  if(pileOffres){
+    pileOffres.classList.add('pret');
+    if(calme) deployerOffres(false);
+    else{
+      const ioOffres=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){ioOffres.disconnect();deployerOffres(true)}},{threshold:.25});
+      ioOffres.observe(pileOffres);
+    }
+  }
+
+  // ---------- Navigation par la barre : on glisse jusqu'à la section sans rejouer les animations ----------
+  // (le scroll manuel, lui, garde toutes les animations)
+  (()=>{
+    if(calme) return; // animations déjà coupées par le système : le défilement natif suffit
+    const racine=document.documentElement;
+    const epingles=[...document.querySelectorAll('#realisations,#methode')];
+    const docY=el=>el.getBoundingClientRect().top+scrollY;
+    let fin=null,viser=null;
+    const terminer=()=>{clearTimeout(fin);viser=null;racine.classList.remove('saut','fondu')};
+    // l'internaute reprend la main pendant le glissement : les animations reviennent aussitôt
+    ['wheel','touchstart','keydown'].forEach(t=>addEventListener(t,()=>{if(viser!==null&&!racine.classList.contains('fondu')) terminer()},{passive:true}));
+    addEventListener('scrollend',()=>{if(viser!==null&&!racine.classList.contains('fondu')&&Math.abs(scrollY-viser)<3) terminer()});
+    document.addEventListener('click',e=>{
+      const a=e.target.closest('a[href^="#"]');
+      if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+      const id=a.getAttribute('href');
+      const cible=id==='#top'?document.body:(id.length>1&&document.getElementById(id.slice(1)));
+      if(!cible) return;
+      e.preventDefault();
+      const max=document.documentElement.scrollHeight-innerHeight;
+      const y=Math.min(max,id==='#top'?0:Math.round(docY(cible)));
+      const haut=Math.min(scrollY,y),bas=Math.max(scrollY,y);
+      racine.classList.add('saut');viser=y;
+      // apparitions jusqu'à l'arrivée : affichées d'office ; celles plus bas restent pour le scroll manuel
+      document.querySelectorAll('.reveal:not(.in)').forEach(el=>{if(docY(el)<y+innerHeight){el.classList.add('in');obs.unobserve(el)}});
+      if(pileOffres&&docY(pileOffres)+pileOffres.offsetHeight<=y) deployerOffres(false);
+      const traverse=epingles.some(s=>{
+        const c=s.querySelector('.pj-colle,.mt-colle'),t=docY(s);
+        return c&&getComputedStyle(c).position==='sticky'&&t<bas&&t+s.offsetHeight>haut;
+      });
+      if(!traverse&&bas-haut<innerHeight*1.5){
+        scrollTo({top:y,behavior:'smooth'}); // section proche : simple défilement
+      }else{
+        // section lointaine : fondu bref, saut juste avant la section, puis court glissement
+        racine.classList.add('fondu');
+        setTimeout(()=>{
+          const elan=Math.round(innerHeight*.35);
+          scrollTo({top:y-elan>=0?y-elan:Math.min(max,y+elan),behavior:'instant'});
+          requestAnimationFrame(()=>{racine.classList.remove('fondu');scrollTo({top:y,behavior:'smooth'})});
+        },150);
+      }
+      if(location.hash!==id) history.pushState(null,'',id);
+      clearTimeout(fin);fin=setTimeout(terminer,1600);
+    });
   })();
 
   // Formulaire de devis pas à pas (Web3Forms)

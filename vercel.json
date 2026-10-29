@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:chemin((?!img/).*)",
+      "has": [{ "type": "host", "value": "bonsite-nine.vercel.app" }],
+      "destination": "https://www.studiobon.site/:chemin",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(img|css)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
+    }
+  ]
+}
