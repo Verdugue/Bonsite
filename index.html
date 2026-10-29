@@ -419,6 +419,24 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
   .mt-station{display:grid;grid-template-columns:110px 1fr;gap:6px 20px;align-items:start}
   .mt-illu{grid-row:1 / span 3;height:110px;align-items:flex-start}
 }
+/* Mobile : Réalisations et Méthode s'animent au scroll normal (sans épingler la section) */
+@media(max-width:1000px),(max-height:640px){
+  #realisations.anim-mobile .pj-carte{opacity:0;transform:translate3d(0,70px,0) rotate(calc(var(--rot) * 1.6)) scale(.96);transition:opacity .8s ease,transform 1.1s cubic-bezier(.16,1,.3,1),filter .4s}
+  #realisations.anim-mobile .pj-carte.vu{opacity:1;transform:rotate(calc(var(--rot) * .5))}
+  #realisations.anim-mobile .pj-texte{opacity:0;transform:translate3d(0,18px,0);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+  #realisations.anim-mobile .pj-texte.vu{opacity:1;transform:none}
+  #realisations.anim-mobile .pj-carte .phone{transform:translate3d(0,var(--par,0px),0);will-change:transform}
+}
+@media(max-width:900px),(max-height:620px){
+  .mt-stations>.mt-station{position:relative;grid-template-columns:44px minmax(0,1fr);column-gap:18px}
+  .mt-station .mt-num{grid-column:1;grid-row:1}
+  .mt-station .mt-illu{grid-column:2;grid-row:1;height:96px;justify-content:flex-start}
+  .mt-station h3{grid-column:2;grid-row:2}
+  .mt-station p{grid-column:2;grid-row:3}
+  .mt-station:not(:last-child)::before,.mt-station:not(:last-child)::after{content:"";position:absolute;left:20.5px;top:22px;width:3px;height:calc(100% + 44px);border-radius:3px;z-index:0;pointer-events:none}
+  .mt-station:not(:last-child)::before{background:repeating-linear-gradient(to bottom,var(--line-2) 0 3px,transparent 3px 12px)}
+  .mt-station:not(:last-child)::after{background:var(--green);transform-origin:50% 0;transform:scaleY(var(--seg,0))}
+}
 @media(prefers-reduced-motion:reduce){#methode{height:auto}.mt-colle{position:static;height:auto;padding:var(--sec) var(--pad)}.mt-route{display:none}.faite .onde,.faite .point-vert{animation:none}.onde{opacity:1}}
 
 /* FAQ */
@@ -870,7 +888,12 @@ html.fondu body>:not(nav){opacity:0}
     const epingle=()=>getComputedStyle(colle).position==='sticky';
     const ease=t=>1-Math.pow(1-t,3);
     function maj(){
-      if(!epingle()){cartes.forEach(c=>{c.style.removeProperty('--y');c.style.removeProperty('--sc');c.classList.remove('dessous')});return}
+      if(!epingle()){
+        cartes.forEach(c=>{
+          c.style.removeProperty('--y');c.style.removeProperty('--sc');c.classList.remove('dessous');
+          if(!calme){const r=c.getBoundingClientRect();if(r.bottom>-200&&r.top<innerHeight+200) c.style.setProperty('--par',(((r.top+r.height/2)-innerHeight/2)/innerHeight*-36).toFixed(1)+'px')}
+        });
+        return}
       const r=sec.getBoundingClientRect(),course=sec.offsetHeight-innerHeight;
       const s=borne(-r.top/course,0,1)*(n-1)*1.25;
       let arrives=0;
@@ -881,6 +904,12 @@ html.fondu body>:not(nav){opacity:0}
       });
       cartes.forEach((c,i)=>{const dessous=arrives-i;c.style.setProperty('--sc',dessous>0?(1-dessous*.04).toFixed(3):1);c.classList.toggle('dessous',dessous>0)});
       textes.forEach((t,k)=>t.classList.toggle('active',k===arrives));
+    }
+    // Mobile (section non épinglée) : chaque projet arrive en se posant, au scroll normal
+    if(!calme){
+      sec.classList.add('anim-mobile');
+      const ioM=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vu');ioM.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+      [...textes,...cartes].forEach(el=>ioM.observe(el));
     }
     addEventListener('scroll',maj,{passive:true});addEventListener('resize',maj);maj();
     // Explorer le vrai site dans son cadre
@@ -903,11 +932,18 @@ html.fondu body>:not(nav){opacity:0}
   (()=>{
     const sec=document.getElementById('methode'),route=document.getElementById('trajet'),stations=[...sec.querySelectorAll('.mt-station')];
     const epingle=()=>getComputedStyle(sec.querySelector('.mt-colle')).position==='sticky';
-    if(calme){stations.forEach(s=>s.classList.add('faite'));return}
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!epingle()){e.target.classList.add('faite');io.unobserve(e.target)}}),{threshold:.5});
-    stations.forEach(s=>io.observe(s));
+    if(calme){stations.forEach(s=>{s.classList.add('faite');s.style.setProperty('--seg',1)});return}
+    // Mobile : la ligne se trace d'une étape à l'autre et chaque étape s'allume quand on l'atteint
+    const majMobile=()=>{
+      const y=stations.map(s=>{const r=s.querySelector('.mt-num').getBoundingClientRect();return r.top+r.height/2});
+      const repere=innerHeight*.62;
+      stations.forEach((s,i)=>{
+        s.classList.toggle('faite',y[i]<repere);
+        if(i<stations.length-1) s.style.setProperty('--seg',borne((repere-y[i])/(y[i+1]-y[i]),0,1).toFixed(3));
+      });
+    };
     const maj=()=>{
-      if(!epingle()) return;
+      if(!epingle()){majMobile();return}
       const r=sec.getBoundingClientRect(),course=sec.offsetHeight-innerHeight;
       const p=borne(-r.top/course*1.15,0,1);
       route.style.setProperty('--prog',p.toFixed(3));
