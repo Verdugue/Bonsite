@@ -167,6 +167,47 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 .hero-copy{display:flex;flex-direction:column;gap:clamp(14px,2.6vh,26px)}
 .hero .slogan{margin:0;font-weight:800;font-size:clamp(40px,min(6vw,10.5vh),92px);line-height:1;letter-spacing:-.04em}
 .hero h1.eyebrow{font-size:12px;font-weight:500;line-height:1.4;letter-spacing:.06em}
+/* Hero : orbites + grille de points lumineuse en arrière-plan, fin du titre qui se réécrit, bouton qui brille */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero>.hero-copy,.hero>.collage{position:relative;z-index:1}
+.hero-fond{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.hf-points,.hf-lum{position:absolute;inset:0;background-size:28px 28px;background-position:14px 14px}
+.hf-points{background-image:radial-gradient(rgba(18,33,28,.12) 1.2px,transparent 1.7px)}
+.hf-lum{background-image:radial-gradient(var(--green) 1.8px,transparent 2.3px);
+  -webkit-mask-image:radial-gradient(circle,#000 0,rgba(0,0,0,.45) 40%,transparent 70%);mask-image:radial-gradient(circle,#000 0,rgba(0,0,0,.45) 40%,transparent 70%);
+  -webkit-mask-size:640px 640px;mask-size:640px 640px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-position:62% 0%;mask-position:62% 0%;animation:hf-balaie 18s ease-in-out infinite alternate}
+@keyframes hf-balaie{
+  33%{-webkit-mask-position:92% 45%;mask-position:92% 45%}
+  66%{-webkit-mask-position:30% 70%;mask-position:30% 70%}
+  100%{-webkit-mask-position:78% 100%;mask-position:78% 100%}}
+.hf-voile{position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0,var(--bg) 36%,rgba(251,250,247,0) 60%)}
+.hf-halo{position:absolute;left:72%;top:52%;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;background:radial-gradient(circle,rgba(14,92,72,.14),rgba(14,92,72,0) 70%);animation:hf-respire 10s ease-in-out infinite}
+@keyframes hf-respire{50%{transform:translate(-40px,30px) scale(1.12)}}
+.hf-orbites{position:absolute;left:72%;top:54%;width:min(980px,95vw);aspect-ratio:1;transform:translate(-50%,-50%) rotate(-16deg) scaleY(.42)}
+.hf-anneau{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(14,92,72,.16)}
+.hf-anneau.a2{inset:12%;border:3px solid rgba(242,184,128,.5)}
+.hf-anneau.a3{inset:25%;border-color:rgba(14,92,72,.1)}
+.hf-tour{position:absolute;inset:0;animation:hf-tour 26s linear infinite}
+.hf-tour.t2{inset:12%;animation-duration:17s;animation-direction:reverse}
+.hf-tour.t3{inset:25%;animation-duration:38s}
+.hf-astre{position:absolute;left:50%;top:-9px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(14,92,72,.12)}
+.t2 .hf-astre{width:14px;height:14px;top:-7px;margin-left:-7px;background:var(--sand);box-shadow:0 0 0 6px rgba(242,184,128,.22)}
+.t3 .hf-astre{width:10px;height:10px;top:-5px;margin-left:-5px;background:var(--green-2)}
+@keyframes hf-tour{to{transform:rotate(360deg)}}
+@media(max-width:880px){
+  .hf-voile{background:linear-gradient(180deg,var(--bg) 0,var(--bg) 42%,rgba(251,250,247,0) 68%)}
+  .hf-orbites{left:50%;top:78%;width:150vw}.hf-halo{left:50%;top:78%}
+}
+.hero .chip,.hero .btn-ghost{background:var(--bg)}
+.hero .btn-primary{position:relative;overflow:hidden;box-shadow:0 12px 28px -12px rgba(14,92,72,.7)}
+.hero .btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.35),rgba(255,255,255,0));transform:skewX(-18deg);animation:hf-reflet 4.2s ease-in-out 1.2s infinite;pointer-events:none}
+@keyframes hf-reflet{0%{left:-60%}35%,100%{left:130%}}
+.tape-curseur{display:inline-block;width:.06em;height:.8em;margin-left:.05em;background:var(--green);vertical-align:-.05em;animation:hf-clign 1s steps(1) infinite}
+.tape.ecrit .tape-curseur{animation:none}
+@keyframes hf-clign{50%{opacity:0}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.hf-lum,.tape-curseur{display:none}.hf-halo,.hf-tour,.hero .btn-primary::after{animation:none}.hero .btn-primary::after{display:none}}
 .hl{color:var(--green);position:relative;display:inline-block;z-index:0}
 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--sand);z-index:-1;border-radius:2px}
 .hero .lead{font-size:clamp(17px,1.35vw,19px);max-width:500px}
@@ -487,9 +528,20 @@ html.fondu body>:not(nav){opacity:0}
 
 <!-- HERO -->
 <header id="top" class="hero">
+  <div class="hero-fond" aria-hidden="true">
+    <div class="hf-points"></div><div class="hf-lum"></div>
+    <div class="hf-halo"></div>
+    <div class="hf-orbites">
+      <div class="hf-anneau"></div><div class="hf-anneau a2"></div><div class="hf-anneau a3"></div>
+      <div class="hf-tour"><span class="hf-astre"></span></div>
+      <div class="hf-tour t2"><span class="hf-astre"></span></div>
+      <div class="hf-tour t3"><span class="hf-astre"></span></div>
+    </div>
+    <div class="hf-voile"></div>
+  </div>
   <div class="hero-copy">
     <h1 class="eyebrow">Création de sites internet à Aix-en-Provence &amp; Marseille</h1>
-    <p class="slogan">Votre site doit<br>faire venir<br><span class="hl">des clients.</span></p>
+    <p class="slogan">Votre site doit<br>faire venir<br><span class="hl tape"><span class="sr-only">des clients.</span><span class="tape-txt" aria-hidden="true">des clients.</span><span class="tape-curseur" aria-hidden="true"></span></span></p>
     <p class="lead">Pas une carte de visite oubliée sur Internet. Un site clair, rapide, trouvé sur Google — conçu à la main par une seule personne qui répond au téléphone.</p>
     <div class="row">
       <a href="#contact" class="btn btn-primary">Demander un devis</a>
@@ -996,6 +1048,29 @@ html.fondu body>:not(nav){opacity:0}
       ioOffres.observe(pileOffres);
     }
   }
+
+  // ---------- Hero : la fin du titre s'efface lettre par lettre, puis se réécrit avec un autre mot ----------
+  (()=>{
+    const zone=document.querySelector('.hero .tape'),txt=zone&&zone.querySelector('.tape-txt');
+    if(!txt||calme) return;
+    const mots=['clients.','appels.','devis.','commandes.'];
+    const attendre=ms=>new Promise(r=>setTimeout(r,ms));
+    let i=0,visible=true;
+    new IntersectionObserver(es=>{visible=es[0].isIntersecting}).observe(zone);
+    (async()=>{
+      await attendre(2600);
+      for(;;){
+        if(!visible||document.hidden){await attendre(700);continue} // en pause hors écran / onglet caché
+        const actuel='des '+mots[i];i=(i+1)%mots.length;const suivant='des '+mots[i];
+        zone.classList.add('ecrit');
+        for(let n=actuel.length-1;n>=4;n--){txt.textContent=actuel.slice(0,n);await attendre(45)}
+        await attendre(260);
+        for(let n=5;n<=suivant.length;n++){txt.textContent=suivant.slice(0,n);await attendre(85)}
+        zone.classList.remove('ecrit');
+        await attendre(2400);
+      }
+    })();
+  })();
 
   // ---------- Navigation par la barre : on glisse jusqu'à la section sans rejouer les animations ----------
   // (le scroll manuel, lui, garde toutes les animations)
