@@ -10,7 +10,7 @@ const CLE='velane-panier-'+THEME.cle;
 let panier=store.get(CLE,[]);
 
 function layout(page){
-  document.body.insertAdjacentHTML('afterbegin',`<div class="demo">Site de démonstration réalisé par <b>Studio Bonsite</b> · marque fictive, aucune commande n'est réellement passée · <a href="../index.html">voir les 5 styles</a></div>`+THEME.entete(page));
+  document.body.insertAdjacentHTML('afterbegin',`<div class="demo">Site de démonstration réalisé par <a href="https://www.studiobon.site/#realisations" target="_top"><b>Studio Bonsite</b></a> · marque fictive, aucune commande n'est réellement passée · <a href="../index.html">voir les 5 styles</a></div>`+THEME.entete(page));
   const t=T();
   document.body.insertAdjacentHTML('beforeend',THEME.pied()+`
   <div class="voile"></div>

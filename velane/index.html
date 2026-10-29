@@ -38,12 +38,17 @@
   .btn{flex:1;text-align:center;font-weight:700;font-size:14px;padding:13px;border-radius:12px;transition:background .15s,border-color .15s}
   .btn.plein{background:var(--ink);color:#111}.btn.plein:hover{background:#fff}
   .btn.ligne{border:1px solid var(--ligne)}.btn.ligne:hover{border-color:#666}
+  .retour{position:absolute;top:22px;left:24px;z-index:5;display:inline-flex;align-items:center;gap:5px;padding:10px 18px;border:1px solid var(--ligne);border-radius:999px;background:var(--panel);color:var(--ink);font-size:14px;font-weight:700;transition:border-color .15s,background .15s}
+  .retour:hover{border-color:#666;background:#232320}
+  .retour b{color:var(--accent)}
   footer{border-top:1px solid var(--ligne);padding:26px 0;text-align:center;color:var(--dim);font-size:14px}
   @media(max-width:1100px){.grille{grid-template-columns:1fr 1fr}}
+  @media(max-width:700px){.retour{position:static;margin:16px 16px 0}header{padding-top:28px}.info{display:block;border-radius:16px;line-height:1.6}}
   @media(max-width:700px){.grille{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
 </style>
 </head>
 <body>
+<a class="retour" href="https://www.studiobon.site/#realisations" target="_top">← Retour sur <b>Studio Bonsite</b></a>
 <header><div class="wrap">
   <span class="logo">VÉLANE</span>
   <h1>Une boutique, <span>cinq styles</span>.</h1>
