@@ -306,6 +306,21 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 @keyframes po-badge{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
 @keyframes po-jauge{from{transform:scaleX(0)}to{transform:scaleX(var(--j,1))}}
 @media(prefers-reduced-motion:reduce){.pile-offres>.po-carte,.pile-offres .checks li,.pile-offres .badge,.pile-offres .po-jauge i{animation:none!important}.pile-offres.pret:not(.deploye)>.po-carte{opacity:1}.pile-offres>.po-carte>.plan{transition:none}}
+/* Offres : un sol quadrillé en perspective avance sous un horizon couleur sable */
+#offres{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#0E1A16 0,var(--ink) 46%,#16291F 100%);--hz:50%}
+#offres>*:not(.of-fond){position:relative;z-index:1}
+.of-fond{position:absolute;inset:0;z-index:0;pointer-events:none}
+.of-lueur{position:absolute;left:50%;top:var(--hz);width:min(900px,140%);height:300px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(242,184,128,.26),rgba(14,92,72,.16) 55%,transparent);animation:of-pulse 8s ease-in-out infinite}
+@keyframes of-pulse{50%{opacity:.7;transform:translate(-50%,-50%) scaleX(1.06)}}
+.of-horizon{position:absolute;left:0;right:0;top:var(--hz);height:2px;margin-top:-1px;background:linear-gradient(90deg,transparent,rgba(242,184,128,.7) 30%,rgba(242,184,128,.9) 50%,rgba(242,184,128,.7) 70%,transparent)}
+.of-sol{position:absolute;left:-40%;right:-40%;top:var(--hz);height:900px;overflow:hidden;transform-origin:50% 0;transform:perspective(520px) rotateX(72deg);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.15),#000 40%);mask-image:linear-gradient(180deg,rgba(0,0,0,.15),#000 40%)}
+.of-grille{position:absolute;left:0;right:0;top:-80px;bottom:0;background-image:linear-gradient(rgba(127,184,165,.35) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(127,184,165,.35) 1.5px,transparent 1.5px);background-size:80px 80px;will-change:transform;animation:of-avance 3.2s linear infinite}
+@keyframes of-avance{to{transform:translate3d(0,80px,0)}}
+@keyframes of-avance-m{to{transform:translate3d(0,64px,0)}}
+#offres:not(.en-vue) .of-grille,#offres:not(.en-vue) .of-lueur{animation-play-state:paused}
+#offres .plan:not(.feat){background:#16261F;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+@media(max-width:760px){.of-sol{height:700px;transform:perspective(420px) rotateX(70deg)}.of-grille{top:-64px;background-size:64px 64px;animation-name:of-avance-m}}
+@media(prefers-reduced-motion:reduce){.of-grille,.of-lueur{animation:none}}
 
 /* CONTACT */
 #contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:56px;align-items:start}
@@ -415,6 +430,23 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
   .pj-texte[data-i="2"]{order:5}.pj-carte[data-i="2"]{order:6}
   .pj-carte .phone{right:2%;bottom:-6%}
 }
+
+/* Réalisations : une ambiance photo/vidéo par projet, tirée de son vrai site, derrière la pile de cartes (ordinateur) */
+.pj-ambiance{position:absolute;top:0;bottom:0;left:30%;right:0;z-index:0;pointer-events:none;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 22%,#000 46%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 22%,#000 46%)}
+.pj-colle>.pj-textes,.pj-colle>.pj-pile{position:relative;z-index:1}
+.pa-couche{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.pa-couche.active{opacity:1}
+.pa-couche video,.pa-couche img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.03)}
+.pa-couche::after{content:"";position:absolute;inset:0}
+.pa-couche[data-i="0"]::after{background:linear-gradient(180deg,rgba(37,56,102,.10),rgba(37,56,102,.38))}
+.pa-couche[data-i="1"]::after{background:linear-gradient(180deg,rgba(54,54,46,.18),rgba(67,80,70,.42))}
+.pa-couche[data-i="2"]::after{background:linear-gradient(180deg,rgba(17,17,17,.12),rgba(17,17,17,.45))}
+.pa-couche.active video{animation:pa-derive 24s ease-in-out infinite alternate}
+.pa-vitrine img{opacity:0;transform:scale(1.08);transition:opacity 1.4s ease,transform 7s ease-out}
+.pa-vitrine img.on{opacity:1;transform:scale(1)}
+@keyframes pa-derive{from{transform:scale(1.06) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-2%,1%,0)}}
+@media(max-width:1000px),(max-height:640px),(prefers-reduced-motion:reduce){.pj-ambiance{display:none}}
 
 /* MÉTHODE : le parcours d'un site, de l'appel à la mise en ligne */
 #methode{position:relative;height:320vh;padding:0;display:block;border-top:1px solid var(--line)}
@@ -608,6 +640,12 @@ html.fondu body>:not(nav){opacity:0}
 <!-- RÉALISATIONS : présentation à gauche, cadres empilés à droite -->
 <section id="realisations">
   <div class="pj-colle" id="pjColle">
+    <!-- Ambiance de chaque projet, tirée de son vrai site (vidéos Mixkit et Pexels, photos Unsplash : licences gratuites) -->
+    <div class="pj-ambiance" aria-hidden="true">
+      <div class="pa-couche active" data-i="0"><video muted loop playsinline preload="none" data-src="https://assets.mixkit.co/videos/4368/4368-720.mp4" data-poster="https://assets.mixkit.co/videos/4368/4368-thumb-720-0.jpg"></video></div>
+      <div class="pa-couche" data-i="1"><video muted loop playsinline preload="none" data-src="https://videos.pexels.com/video-files/1409899/1409899-hd_1280_720_25fps.mp4" data-poster="https://images.pexels.com/videos/1409899/free-video-1409899.jpg?auto=compress&amp;cs=tinysrgb&amp;w=1600"></video></div>
+      <div class="pa-couche pa-vitrine" data-i="2"><img data-src="https://images.unsplash.com/photo-1608877607460-76db791f44ea?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt=""><img data-src="https://images.unsplash.com/photo-1621198059871-0d5f9b449233?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt=""><img data-src="https://images.unsplash.com/photo-1685464696711-ab28dc5fbd23?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt=""><img data-src="https://images.unsplash.com/photo-1622648147611-e817249f3b73?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt=""><img data-src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt=""></div>
+    </div>
     <div class="pj-textes">
       <div class="pj-intro">
         <div class="eyebrow">Réalisations</div>
@@ -751,6 +789,7 @@ html.fondu body>:not(nav){opacity:0}
 
 <!-- OFFRES -->
 <section id="offres" class="sec">
+  <div class="of-fond" aria-hidden="true"><div class="of-lueur"></div><div class="of-sol"><div class="of-grille"></div></div><div class="of-horizon"></div></div>
   <div style="display:flex;flex-direction:column;gap:14px;max-width:620px">
     <span class="mono" style="font-size:12px;letter-spacing:.06em;color:var(--sand)">Les offres</span>
     <h2>Un prix juste, sur devis.</h2>
@@ -948,6 +987,7 @@ html.fondu body>:not(nav){opacity:0}
   (()=>{
     const sec=document.getElementById('realisations'),colle=document.getElementById('pjColle');
     const textes=[...sec.querySelectorAll('.pj-texte')],cartes=[...sec.querySelectorAll('.pj-carte')],n=cartes.length;
+    const couches=[...sec.querySelectorAll('.pa-couche')];let ambianceActive=-1;
     const epingle=()=>getComputedStyle(colle).position==='sticky';
     const ease=t=>1-Math.pow(1-t,3);
     function maj(){
@@ -967,6 +1007,7 @@ html.fondu body>:not(nav){opacity:0}
       });
       cartes.forEach((c,i)=>{const dessous=arrives-i;c.style.setProperty('--sc',dessous>0?(1-dessous*.04).toFixed(3):1);c.classList.toggle('dessous',dessous>0)});
       textes.forEach((t,k)=>t.classList.toggle('active',k===arrives));
+      if(arrives!==ambianceActive){ambianceActive=arrives;choisirAmbiance(arrives)}
     }
     // Mobile (section non épinglée) : chaque projet arrive en se posant, au scroll normal
     if(!calme){
@@ -974,6 +1015,28 @@ html.fondu body>:not(nav){opacity:0}
       const ioM=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vu');ioM.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -8% 0px'});
       [...textes,...cartes].forEach(el=>ioM.observe(el));
     }
+    // Ambiance : rien n'est téléchargé avant que la section approche, et seule la couche visible joue
+    let ambianceChargee=false,vitrineMinuteur=null;
+    function chargerAmbiance(){
+      if(ambianceChargee||calme||getComputedStyle(sec.querySelector('.pj-ambiance')).display==='none') return;
+      ambianceChargee=true;
+      sec.querySelectorAll('.pj-ambiance [data-src]').forEach(el=>{if(el.dataset.poster) el.poster=el.dataset.poster;el.src=el.dataset.src});
+      choisirAmbiance(ambianceActive<0?0:ambianceActive);
+    }
+    function choisirAmbiance(k){
+      couches.forEach((c,i)=>{
+        c.classList.toggle('active',i===k);
+        const v=c.querySelector('video');
+        if(v&&ambianceChargee){if(i===k){v.play().catch(()=>{})}else v.pause()}
+      });
+      clearInterval(vitrineMinuteur);
+      const vit=couches[k]&&couches[k].classList.contains('pa-vitrine')?[...couches[k].querySelectorAll('img')]:null;
+      if(vit&&ambianceChargee){
+        let j=0;const montrer=()=>vit.forEach((im,x)=>im.classList.toggle('on',x===j));
+        montrer();vitrineMinuteur=setInterval(()=>{j=(j+1)%vit.length;montrer()},3600);
+      }
+    }
+    new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)) chargerAmbiance()},{rootMargin:'100% 0px'}).observe(sec);
     addEventListener('scroll',maj,{passive:true});addEventListener('resize',maj);maj();
     // Explorer le vrai site dans son cadre
     sec.querySelectorAll('.pj-explorer').forEach(b=>{
@@ -1191,6 +1254,13 @@ html.fondu body>:not(nav){opacity:0}
     }finally{btn.disabled=false;btn.textContent='Envoyer ma demande';}
   });
   document.getElementById('again').addEventListener('click',()=>{sent.style.display='none';form.style.display='flex';afficher(0)});
+</script>
+<script>
+/* Offres : l'horizon se cale sous le haut des cartes ; le sol ne bouge que quand la section est à l'écran */
+(()=>{const s=document.getElementById('offres');if(!s)return;const c=s.querySelector('.pile-offres');
+const caler=()=>{if(c)s.style.setProperty('--hz',Math.round(innerWidth<=760?c.offsetTop-22:c.offsetTop+Math.min(115,c.offsetHeight*.2))+'px')};
+caler();addEventListener('resize',caler,{passive:true});addEventListener('load',caler);
+if('IntersectionObserver' in window)new IntersectionObserver(es=>s.classList.toggle('en-vue',es[0].isIntersecting)).observe(s);else s.classList.add('en-vue');})();
 </script>
 </body>
 </html>
