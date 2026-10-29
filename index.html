@@ -868,6 +868,17 @@ html.fondu body>:not(nav){opacity:0}
     if(location.hash) history.replaceState(null,'',location.pathname+location.search);
     window.scrollTo({top:0,behavior:'instant'});
     addEventListener('load',()=>window.scrollTo({top:0,behavior:'instant'}));
+  }else if(location.hash.length>1){
+    // Arrivée par un lien vers une section (mail, page Aix/Marseille, Vélane…) :
+    // on amène le visiteur à la section, puis on retire #section de l'adresse
+    const id=decodeURIComponent(location.hash.slice(1)),cible=id==='top'?null:document.getElementById(id);
+    history.replaceState(null,'',location.pathname+location.search);
+    if(cible||id==='top'){
+      const aller=()=>scrollTo({top:cible?Math.round(cible.getBoundingClientRect().top+scrollY):0,behavior:'instant'});
+      let touche=false;
+      ['wheel','touchstart','keydown','mousedown'].forEach(t=>addEventListener(t,()=>{touche=true},{once:true,passive:true}));
+      aller();addEventListener('load',()=>{if(!touche) aller()}); // recalé une fois les images chargées
+    }
   }
 
   // Ticker
@@ -989,7 +1000,18 @@ html.fondu body>:not(nav){opacity:0}
   // ---------- Navigation par la barre : on glisse jusqu'à la section sans rejouer les animations ----------
   // (le scroll manuel, lui, garde toutes les animations)
   (()=>{
-    if(calme) return; // animations déjà coupées par le système : le défilement natif suffit
+    if(calme){ // animations coupées par le système : saut direct à la section, adresse sans #section
+      document.addEventListener('click',e=>{
+        const a=e.target.closest('a[href^="#"]');
+        if(!a||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+        const id=a.getAttribute('href'),c=id.length>1&&id!=='#top'&&document.getElementById(id.slice(1));
+        if(id!=='#top'&&!c) return;
+        e.preventDefault();
+        scrollTo({top:c?Math.round(c.getBoundingClientRect().top+scrollY):0,behavior:'instant'});
+        if(location.hash) history.replaceState(null,'',location.pathname+location.search);
+      });
+      return;
+    }
     const racine=document.documentElement;
     const epingles=[...document.querySelectorAll('#realisations,#methode')];
     const docY=el=>el.getBoundingClientRect().top+scrollY;
@@ -1027,7 +1049,7 @@ html.fondu body>:not(nav){opacity:0}
           requestAnimationFrame(()=>{racine.classList.remove('fondu');scrollTo({top:y,behavior:'smooth'})});
         },150);
       }
-      if(location.hash!==id) history.pushState(null,'',id);
+      if(location.hash) history.replaceState(null,'',location.pathname+location.search); // adresse propre, sans #section
       clearTimeout(fin);fin=setTimeout(terminer,1600);
     });
   })();

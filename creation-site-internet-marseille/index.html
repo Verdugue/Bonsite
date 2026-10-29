@@ -201,6 +201,14 @@
 <script>
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // liens vers une section de cette page : on y va sans ajouter #section à l'adresse
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[href^="#"]');
+    if(!a||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+    const c=document.getElementById(a.getAttribute('href').slice(1));
+    if(!c) return;
+    e.preventDefault();c.scrollIntoView({block:'start'});
+  });
 </script>
 </body>
 </html>
