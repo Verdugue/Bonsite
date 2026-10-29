@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Audit gratuit de votre site — Studio Bonsite</title>
+<title>Audit gratuit de votre site | Studio Bonsite</title>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#9AA39F;--green:#0E5C48;--green-2:#24463C;
+  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#646F69;--green:#0E5C48;--green-2:#24463C;
   --sand:#F2B880;--mint:#E9EFEA;--line:rgba(18,33,28,.12);--line-2:rgba(18,33,28,.2);
   --pad:clamp(20px,5vw,80px);--sec:clamp(64px,9vw,120px);
   --mono:'DM Mono',ui-monospace,monospace;
@@ -27,7 +27,7 @@ a:hover{color:var(--green)}
 img{display:block;max-width:100%}
 input,textarea,button{font-family:inherit;color:inherit;font-size:16px}
 input::placeholder,textarea::placeholder{color:var(--muted)}
-input:focus,textarea:focus{outline:none;border-color:var(--green)!important;box-shadow:0 0 0 3px rgba(14,92,72,.15)}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--green);outline-offset:2px;border-color:var(--green)!important}
 .mono{font-family:var(--mono)}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--green);display:flex;gap:10px;align-items:center}
 .eyebrow::before{content:"";width:24px;height:1px;background:currentColor;display:inline-block}
@@ -67,7 +67,7 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 .collage{position:relative;min-height:clamp(340px,60vh,520px)}
 .collage .plate{position:absolute;left:12%;right:0;top:12%;bottom:6%;background:var(--mint);border-radius:32px}
 .browser{background:#fff;border-radius:14px;border:1px solid rgba(18,33,28,.1);box-shadow:0 40px 80px -30px rgba(18,33,28,.35),0 2px 6px rgba(18,33,28,.06);overflow:hidden}
-.browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(18,33,28,.08);font-family:var(--mono);font-size:11px;color:#6E7A74;white-space:nowrap;overflow:hidden}
+.browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(18,33,28,.08);font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden}
 .browser-bar i{width:9px;height:9px;border-radius:50%;background:#E4E7E3;flex:none}
 .browser-bar span{margin-left:6px;overflow:hidden;text-overflow:ellipsis}
 .shot{position:relative;background:#F1F4F2;overflow:hidden}
@@ -193,7 +193,7 @@ legend em{font-style:normal;font-weight:400;color:var(--muted)}
 .choix input{position:absolute;opacity:0;width:1px;height:1px}
 .choix span{display:inline-block;padding:9px 13px;border:1.5px solid rgba(18,33,28,.15);border-radius:999px;background:var(--bg);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
 .choix input:checked+span{background:var(--green);border-color:var(--green);color:#fff}
-.choix input:focus-visible+span{box-shadow:0 0 0 3px rgba(14,92,72,.25)}
+.choix input:focus-visible+span{outline:2px solid var(--green);outline-offset:2px}
 select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14px;background:var(--bg);font:inherit;font-size:16px;font-weight:400;color:var(--ink)}
 </style>
 </head>
@@ -293,7 +293,7 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
 </main>
 
 <footer>
-  <span>© 2026 Studio bonsite — Aix-en-Provence</span>
+  <span>© 2026 Studio bonsite · Aix-en-Provence</span>
   <div><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="mailto:contact@studiobon.site">contact@studiobon.site</a><a href="tel:+33768019719">07 68 01 97 19</a></div>
 </footer>
 

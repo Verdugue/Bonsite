@@ -14,7 +14,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Studio Bonsite">
 <meta property="og:url" content="https://www.studiobon.site/">
-<meta property="og:title" content="Studio Bonsite — Création de sites internet à Aix-en-Provence &amp; Marseille">
+<meta property="og:title" content="Studio Bonsite | Création de sites internet à Aix-en-Provence &amp; Marseille">
 <meta property="og:description" content="Sites vitrine, boutiques en ligne et refontes, conçus à la main. Devis gratuit, réponse sous 48h.">
 <meta property="og:image" content="https://www.studiobon.site/img/og-2.jpg">
 <meta property="og:image:width" content="1200">
@@ -122,7 +122,7 @@
 </script>
 <style>
 :root{
-  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#9AA39F;--green:#0E5C48;--green-2:#24463C;
+  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#646F69;--green:#0E5C48;--green-2:#24463C;
   --sand:#F2B880;--mint:#E9EFEA;--line:rgba(18,33,28,.12);--line-2:rgba(18,33,28,.2);
   --pad:clamp(20px,5vw,80px);--sec:clamp(64px,9vw,120px);
   --mono:'DM Mono',ui-monospace,monospace;
@@ -135,7 +135,7 @@ a:hover{color:var(--green)}
 img{display:block;max-width:100%}
 input,textarea,button{font-family:inherit;color:inherit;font-size:16px}
 input::placeholder,textarea::placeholder{color:var(--muted)}
-input:focus,textarea:focus{outline:none;border-color:var(--green)!important;box-shadow:0 0 0 3px rgba(14,92,72,.15)}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--green);outline-offset:2px;border-color:var(--green)!important}
 .mono{font-family:var(--mono)}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--green);display:flex;gap:10px;align-items:center}
 .eyebrow::before{content:"";width:24px;height:1px;background:currentColor;display:inline-block}
@@ -207,6 +207,9 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 .tape.ecrit .tape-curseur{animation:none}
 @keyframes hf-clign{50%{opacity:0}}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.saut-contenu{position:absolute;left:12px;top:-80px;z-index:100;background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:10px;font-weight:700;font-size:15px}
+.saut-contenu:focus{top:12px}
+main:focus{outline:none}
 @media(prefers-reduced-motion:reduce){.hf-lum,.tape-curseur{display:none}.hf-halo,.hf-tour,.hero .btn-primary::after{animation:none}.hero .btn-primary::after{display:none}}
 .hl{color:var(--green);position:relative;display:inline-block;z-index:0}
 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;background:var(--sand);z-index:-1;border-radius:2px}
@@ -217,7 +220,7 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 .collage{position:relative;min-height:clamp(340px,60vh,520px)}
 .collage .plate{position:absolute;left:12%;right:0;top:12%;bottom:6%;background:var(--mint);border-radius:32px}
 .browser{background:#fff;border-radius:14px;border:1px solid rgba(18,33,28,.1);box-shadow:0 40px 80px -30px rgba(18,33,28,.35),0 2px 6px rgba(18,33,28,.06);overflow:hidden}
-.browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(18,33,28,.08);font-family:var(--mono);font-size:11px;color:#6E7A74;white-space:nowrap;overflow:hidden}
+.browser-bar{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(18,33,28,.08);font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden}
 .browser-bar i{width:9px;height:9px;border-radius:50%;background:#E4E7E3;flex:none}
 .browser-bar span{margin-left:6px;overflow:hidden;text-overflow:ellipsis}
 .shot{position:relative;background:#F1F4F2;overflow:hidden}
@@ -283,8 +286,8 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 /* Offres : la pile de cartes se déploie une fois, quand la section arrive à l'écran */
 .pile-offres>.po-carte{display:flex;position:relative;--fy:0px;--dx:0px;--dy:0px;--r0:0deg;--r:0deg;will-change:transform,opacity}
 .pile-offres>.po-carte:nth-child(1){z-index:1}.pile-offres>.po-carte:nth-child(2){z-index:3}.pile-offres>.po-carte:nth-child(3){z-index:2}
-.pile-offres>.po-carte>.plan{flex:1;transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .4s ease}
-.pile-offres>.po-carte>.plan:hover{transform:translate3d(0,-8px,0);border-color:var(--sand)}
+.pile-offres>.po-carte>.plan{flex:1;transition:border-color .2s ease}
+.pile-offres>.po-carte>.plan:hover{border-color:var(--sand)}
 .pile-offres.rangee>.po-carte:nth-child(2){--fy:-14px;transform:translate3d(0,-14px,0)}
 .po-jauge{height:4px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:-10px}
 .plan.feat .po-jauge{background:rgba(18,33,28,.1)}
@@ -328,7 +331,7 @@ nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-con
 dl{margin:0;border-top:1px solid var(--line)}
 dl div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
 dt{font-family:var(--mono);font-size:12px;color:var(--ink-2);padding-top:3px}
-dd{margin:0;font-weight:700}
+dd{margin:0;font-weight:700;min-width:0;overflow-wrap:anywhere}
 form{background:#fff;border-radius:20px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:18px;border:1px solid rgba(18,33,28,.1);box-shadow:0 30px 60px -40px rgba(18,33,28,.3)}
 .f2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:16px}
 label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:600;color:var(--ink-2)}
@@ -356,7 +359,7 @@ legend em{font-style:normal;font-weight:400;color:var(--muted)}
 .choix span{display:inline-block;padding:10px 14px;border:1.5px solid rgba(18,33,28,.15);border-radius:999px;background:var(--bg);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
 .choix span:hover{border-color:var(--green)}
 .choix input:checked+span{background:var(--green);border-color:var(--green);color:#fff}
-.choix input:focus-visible+span{box-shadow:0 0 0 3px rgba(14,92,72,.25)}
+.choix input:focus-visible+span{outline:2px solid var(--green);outline-offset:2px}
 .pp-tete{display:none;flex-direction:column;gap:10px}
 .pp-info{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
 .pp-info span{font-family:var(--mono);font-size:12px;color:var(--green)}
@@ -510,7 +513,7 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
   .mt-station:not(:last-child)::before{background:repeating-linear-gradient(to bottom,var(--line-2) 0 3px,transparent 3px 12px)}
   .mt-station:not(:last-child)::after{background:var(--green);transform-origin:50% 0;transform:scaleY(var(--seg,0))}
 }
-@media(prefers-reduced-motion:reduce){#methode{height:auto}.mt-colle{position:static;height:auto;padding:var(--sec) var(--pad)}.mt-route{display:none}.faite .onde,.faite .point-vert{animation:none}.onde{opacity:1}}
+@media(prefers-reduced-motion:reduce){#methode{height:auto}.mt-colle{position:static;height:auto;padding:var(--sec) var(--pad)}.mt-route{display:none}.faite .onde,.faite .point-vert{animation:none}.onde{opacity:1}.mt-illu *{transition:none}}
 
 /* FAQ */
 .faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px 80px}
@@ -542,9 +545,157 @@ footer div{display:flex;gap:20px;flex-wrap:wrap}
 html.saut body>:not(nav){transition:opacity .15s ease}
 html.saut body>:not(nav) *{transition:none!important}
 html.fondu body>:not(nav){opacity:0}
+
+/* ============ TÉLÉPHONE & TABLETTE (≤ 1000 px) : mise en page dédiée ============ */
+.burger,.menu-mobile,.m-bande,.m-preuve,.s4-points,.pj-onglets,.of-onglets,.faq-appel,.ct-voies{display:none}
+@keyframes m-defile{to{transform:translateX(-50%)}}
+@keyframes m-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Barre de navigation : menu en un bouton */
+@media(max-width:820px){
+  nav{gap:10px}
+  .nav-links{margin-left:auto}
+  .burger{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;border-radius:10px;border:0;background:transparent;box-shadow:inset 0 0 0 1.5px var(--line-2);color:var(--ink);cursor:pointer}
+  .menu-mobile:not([hidden]){display:flex;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -30px rgba(18,33,28,.5);padding:4px var(--pad) 14px}
+  .menu-mobile a{display:flex;align-items:center;min-height:52px;font-size:18px;font-weight:700;border-bottom:1px solid var(--line)}
+  .menu-mobile a:last-child{border-bottom:0}
+}
+
+@media(max-width:1000px){
+  /* Haut de page : titre, puis une bande de vrais sites qui défile */
+  .hero{min-height:0;display:flex;flex-direction:column;align-items:stretch;gap:26px;padding-top:34px;padding-bottom:40px}
+  .hero-fond,.collage{display:none}
+  .m-bande{display:block;overflow:hidden;margin:0 calc(-1 * var(--pad));padding:6px 0 12px}
+  .m-piste{display:flex;gap:14px;width:max-content;animation:m-defile 42s linear infinite}
+  .m-piste .browser{flex:none;width:min(64vw,380px);box-shadow:0 24px 48px -30px rgba(18,33,28,.5)}
+  .m-piste .shot{aspect-ratio:1400/661}
+  .m-preuve{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:14px;background:var(--mint);max-width:460px}
+  .m-preuve strong{font-size:15px}
+  .m-preuve span{font-family:var(--mono);font-size:12px;color:var(--green)}
+
+  /* Services : cartes à faire glisser */
+  .s4{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1 * var(--pad));padding:4px var(--pad) 12px;scroll-padding-inline:var(--pad);scrollbar-width:none;counter-reset:svc}
+  .s4::-webkit-scrollbar{display:none}
+  .s4 article,.s4 article.reveal{flex:none;width:min(80vw,340px);min-height:360px;scroll-snap-align:start;opacity:1;transform:none;border-top:0;padding:24px 22px;border-radius:22px;background:#fff;box-shadow:0 0 0 1px var(--line);counter-increment:svc}
+  .s4 article::before{content:counter(svc,decimal-leading-zero) " / 04";font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .s4 article:first-child{background:var(--green);color:#fff;box-shadow:none}
+  .s4 article:first-child p,.s4 article:first-child::before{color:#CFE3DA}
+  .s4 article:first-child li::before{background:var(--sand)}
+  .s4 article:first-child:hover h3{color:#fff}
+  .s4 ul{margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+  .s4 article:first-child ul{border-color:rgba(255,255,255,.2)}
+  .s4-points{display:flex;justify-content:center;gap:6px;margin-top:-24px}
+  .s4-points i{width:7px;height:7px;border-radius:4px;background:var(--line-2);transition:width .2s,background-color .2s}
+  .s4-points i.on{width:20px;background:var(--green)}
+
+  /* Réalisations : un onglet par projet */
+  .pj-colle{gap:20px}
+  .pj-onglets{display:flex;order:1;gap:6px;padding:5px;border-radius:14px;background:rgba(18,33,28,.06)}
+  .pj-onglet{flex:1;min-height:46px;border:0;border-radius:10px;background:transparent;font:inherit;font-weight:700;font-size:14px;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px}
+  .pj-onglet img,.pj-onglet small{display:none}
+  .pj-onglet[aria-pressed="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(18,33,28,.12),0 6px 16px -10px rgba(18,33,28,.4)}
+  .pj-carte,.pj-texte{display:none}
+  .pj-carte.choisi{display:block;order:2;margin:0;transform:none}
+  .pj-texte.choisi{display:flex;order:3}
+  #realisations.anim-mobile .pj-carte.choisi,#realisations.anim-mobile .pj-texte.choisi{opacity:1;transform:none}
+  .pj-carte.choisi,.pj-texte.choisi{animation:m-arrive .5s cubic-bezier(.16,1,.3,1) both}
+  .pj-carte .phone{display:none}
+
+  /* Offres : une formule à la fois */
+  .of-onglets{display:flex;gap:6px;padding:5px;border-radius:14px;background:rgba(255,255,255,.08);max-width:480px}
+  .of-onglets button{flex:1;min-height:46px;border:0;border-radius:10px;background:transparent;font:inherit;font-weight:700;font-size:14px;color:#B8C4BE;cursor:pointer}
+  .of-onglets button[aria-pressed="true"]{background:var(--bg);color:var(--ink)}
+  .pile-offres{display:block}
+  .pile-offres>.po-carte{--fy:0px}
+  .pile-offres>.po-carte:not(.choisi){display:none}
+  .pile-offres.rangee>.po-carte:nth-child(2){--fy:0px;transform:none}
+  .pile-offres>.po-carte.bascule{animation:m-arrive .45s cubic-bezier(.16,1,.3,1) both}
+  .plan-btn{text-align:center}
+
+  /* Questions : surlignées, et une carte pour appeler */
+  .faq-tete .lead{display:none}
+  .faq-liste summary .q-txt{background:linear-gradient(transparent 56%,rgba(242,184,128,.6) 56%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 2px}
+  .faq-liste details[open] summary{color:var(--green)}
+  .faq-liste details[open] summary .q-txt{background:linear-gradient(transparent 56%,rgba(14,92,72,.16) 56%)}
+  .faq-appel{display:flex;flex-direction:column;gap:12px;padding:22px 20px;border-radius:22px;background:var(--green);color:#fff}
+  .faq-appel strong{font-size:20px;letter-spacing:-.02em}
+  .faq-appel p{margin:0;color:#CFE3DA;font-size:15px;line-height:1.55}
+  .faq-appel .btn{background:var(--bg);color:var(--ink);text-align:center}
+
+  /* Contact : appeler ou écrire d'abord */
+  #contact dl{display:none}
+  .ct-voies{display:flex;flex-direction:column;gap:12px}
+  .ct-voie{display:flex;align-items:center;gap:14px;min-height:80px;padding:16px 18px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line-2);color:var(--ink)}
+  .ct-voie.verte{background:var(--green);color:#fff;box-shadow:none}
+  .ct-voie .ico{flex:none;width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--mint);color:var(--green)}
+  .ct-voie.verte .ico{background:rgba(255,255,255,.14);color:#fff}
+  .ct-voie strong{display:block;font-size:17px}
+  .ct-voie small{display:block;font-family:var(--mono);font-size:12px;opacity:.85;margin-top:3px;overflow-wrap:anywhere}
+  .ct-ou,.ct-ouvrir{display:none}
+  .ct-zone{margin:0;font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+}
+
+/* Méthode : frise verticale courte, illustrations en couleur */
+@media(max-width:900px){
+  .mt-stations{gap:30px}
+  .mt-stations>.mt-station{grid-template-columns:44px minmax(0,1fr) 96px;column-gap:16px;row-gap:8px}
+  .mt-station .mt-num{grid-column:1;grid-row:1;align-self:center}
+  .mt-station h3{grid-column:2;grid-row:1;align-self:center;font-size:22px}
+  .mt-station p{grid-column:2 / 4;grid-row:2;opacity:1}
+  .mt-station .mt-illu{grid-column:3;grid-row:1;height:auto;aspect-ratio:5/4;padding:8px;border-radius:16px;align-items:center;justify-content:center}
+  .mt-station:nth-child(odd) .mt-illu{background:#FBEAD8}
+  .mt-station:nth-child(even) .mt-illu{background:var(--mint)}
+  .mt-station:not(.faite) .mt-illu{filter:none;opacity:1}
+  .mt-station:not(.faite) .mt-num{box-shadow:inset 0 0 0 2px var(--sand)}
+  .mt-station:not(:last-child)::before,.mt-station:not(:last-child)::after{height:calc(100% + 30px)}
+}
+
+@media(max-width:700px){
+  .hero .row{flex-direction:column;align-items:stretch;gap:8px}
+  .hero .row .btn-primary{width:100%;text-align:center}
+  .hero .row .btn-ghost{align-self:center;background:none;border:0;padding:10px 6px;color:var(--green);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+  .ct-ou{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  .ct-ou::before,.ct-ou::after{content:"";flex:1;height:1px;background:var(--line)}
+  .ct-ouvrir{display:block;width:100%;text-align:center;cursor:pointer;font:inherit;font-weight:700}
+  #contact:not(.form-ouvert) #ctForm{display:none}
+  #contact.form-ouvert .ct-ouvrir,#contact.form-ouvert .ct-ou{display:none}
+}
+
+/* Tablette : deux colonnes là où la place le permet */
+@media(min-width:701px) and (max-width:1000px){
+  .pj-colle{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px 28px;align-items:start}
+  .pj-intro{grid-column:1 / -1}
+  .pj-onglets{grid-column:1;grid-row:2 / span 2;flex-direction:column;background:none;padding:0;gap:10px}
+  .pj-onglet{justify-content:flex-start;text-align:left;padding:10px;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line);background:rgba(255,255,255,.55)}
+  .pj-onglet img{display:block;flex:none;width:84px;height:56px;object-fit:cover;object-position:left top;border-radius:10px}
+  .pj-onglet b{display:block;font-size:17px}
+  .pj-onglet small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;color:var(--muted);margin-top:3px}
+  .pj-onglet[aria-pressed="true"]{background:#fff;box-shadow:inset 0 0 0 2px var(--green)}
+  .pj-carte.choisi{grid-column:2;grid-row:2}
+  .pj-texte.choisi{grid-column:2;grid-row:3}
+  #offres .plan{padding:34px 32px}
+  #offres .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}
+  .faq{grid-template-columns:250px minmax(0,1fr);gap:24px 40px}
+  .faq-tete{grid-column:1;grid-row:1}
+  .faq-liste{grid-column:2;grid-row:1 / span 2}
+  .faq-appel{grid-column:1;grid-row:2;align-self:start}
+  #contact{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:28px}
+}
+@media(max-width:1000px){
+  .pile-offres>.po-carte.bascule .checks li,.pile-offres>.po-carte.bascule .po-jauge i{animation-delay:.12s!important}
+  #ctForm{scroll-margin-top:84px}
+}
+@media(max-width:440px){
+  .logo{white-space:nowrap;font-size:15px;gap:8px}
+  .logo img{height:28px}
+  nav .nav-cta{padding:10px 12px;font-size:13px}
+}
+@media(max-width:360px){.logo{font-size:0}}
+@media(prefers-reduced-motion:reduce){.m-piste,.pj-carte.choisi,.pj-texte.choisi,.pile-offres>.po-carte.bascule{animation:none}}
 </style>
 </head>
 <body>
+<a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
 <nav>
   <a href="#top" class="logo"><img src="img/brand/bonsite-b.svg" alt="" width="43" height="28">Studio bonsite</a>
@@ -556,8 +707,11 @@ html.fondu body>:not(nav){opacity:0}
     <a href="#faq">FAQ</a>
     <a href="#contact" class="nav-cta">Devis gratuit</a>
   </div>
+  <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menuMobile"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 14h14"/></svg></button>
+  <div class="menu-mobile" id="menuMobile" hidden><a href="#services">Services</a><a href="#realisations">Réalisations</a><a href="#methode">Méthode</a><a href="#offres">Offres</a><a href="#faq">FAQ</a></div>
 </nav>
 
+<main id="contenu" tabindex="-1">
 <!-- HERO -->
 <header id="top" class="hero">
   <div class="hero-fond" aria-hidden="true">
@@ -574,7 +728,7 @@ html.fondu body>:not(nav){opacity:0}
   <div class="hero-copy">
     <h1 class="eyebrow">Création de sites internet à Aix-en-Provence &amp; Marseille</h1>
     <p class="slogan">Votre site doit<br>faire venir<br><span class="hl tape"><span class="sr-only">des clients.</span><span class="tape-txt" aria-hidden="true">des clients.</span><span class="tape-curseur" aria-hidden="true"></span></span></p>
-    <p class="lead">Pas une carte de visite oubliée sur Internet. Un site clair, rapide, trouvé sur Google — conçu à la main par une seule personne qui répond au téléphone.</p>
+    <p class="lead">Un site clair, rapide et trouvé sur Google, conçu à la main par une seule personne qui répond au téléphone.</p>
     <div class="row">
       <a href="#contact" class="btn btn-primary">Demander un devis</a>
       <a href="#realisations" class="btn btn-ghost">Voir les réalisations</a>
@@ -586,6 +740,16 @@ html.fondu body>:not(nav){opacity:0}
     </div>
   </div>
 
+  <div class="m-bande" aria-hidden="true"><div class="m-piste">
+    <div class="browser"><div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div><div class="shot"><img src="img/easyfly.webp" alt="" loading="lazy" width="1400" height="661"></div></div>
+    <div class="browser"><div class="browser-bar"><i></i><i></i><span>ailleurs-nu.vercel.app</span></div><div class="shot"><img src="img/ailleurs-hero.webp" alt="" loading="lazy" width="1410" height="671"></div></div>
+    <div class="browser"><div class="browser-bar"><i></i><i></i><span>studiobon.site/velane</span></div><div class="shot"><img src="img/velane.webp" alt="" loading="lazy" width="1400" height="659"></div></div>
+    <div class="browser"><div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div><div class="shot"><img src="img/easyfly.webp" alt="" loading="lazy" width="1400" height="661"></div></div>
+    <div class="browser"><div class="browser-bar"><i></i><i></i><span>ailleurs-nu.vercel.app</span></div><div class="shot"><img src="img/ailleurs-hero.webp" alt="" loading="lazy" width="1410" height="671"></div></div>
+    <div class="browser"><div class="browser-bar"><i></i><i></i><span>studiobon.site/velane</span></div><div class="shot"><img src="img/velane.webp" alt="" loading="lazy" width="1400" height="659"></div></div>
+  </div></div>
+  <a class="m-preuve" href="#realisations"><strong>3 sites en ligne</strong><span>Voir les réalisations →</span></a>
+
   <div class="collage" aria-hidden="true">
     <div class="plate"></div>
     <div class="browser">
@@ -593,7 +757,7 @@ html.fondu body>:not(nav){opacity:0}
       <div class="shot"><img src="img/easyfly.webp" alt="" width="1400" height="661" fetchpriority="high"></div>
     </div>
     <div class="phone"><div class="screen"><img src="img/ailleurs-mobile.webp" alt="" width="500" height="1026"></div></div>
-    <a href="#realisations" class="proof">
+    <a href="#realisations" class="proof" tabindex="-1">
       <div class="avatars">
         <img src="img/easyfly.webp" alt="">
         <img src="img/ailleurs.webp" alt="">
@@ -611,9 +775,9 @@ html.fondu body>:not(nav){opacity:0}
 <section id="services" class="sec">
   <div class="sec-head">
     <h2>Quatre façons de<br>vous rendre visible.</h2>
-    <p class="lead">Pas de formule figée : je pars de votre métier, de vos clients, et de ce qui doit se passer quand quelqu'un arrive sur votre site, que vous soyez à Aix-en-Provence, à Marseille ou ailleurs.</p>
+    <p class="lead">Je pars de votre métier, de vos clients, et de ce qui doit se passer quand quelqu'un arrive sur votre site, que vous soyez à Aix-en-Provence, à Marseille ou ailleurs.</p>
   </div>
-  <div class="s4">
+  <div class="s4" tabindex="0" role="region" aria-label="Les quatre services">
     <article class="reveal">
       <h3>Site vitrine</h3>
       <p>L'essentiel pour exister en ligne et rassurer vos clients avant même qu'ils poussent votre porte.</p>
@@ -635,6 +799,7 @@ html.fondu body>:not(nav){opacity:0}
       <ul><li>Questions fréquentes 24h/24</li><li>Réservations &amp; RDV</li><li>Pré-tri des demandes de devis</li><li>Basé sur vos infos</li></ul>
     </article>
   </div>
+  <div class="s4-points" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
 </section>
 
 <!-- RÉALISATIONS : présentation à gauche, cadres empilés à droite -->
@@ -651,13 +816,18 @@ html.fondu body>:not(nav){opacity:0}
         <div class="eyebrow">Réalisations</div>
         <h2>Trois projets,<br>trois identités.</h2>
       </div>
-      <article class="pj-texte active" data-i="0">
+      <div class="pj-onglets" role="group" aria-label="Choisir un projet">
+        <button type="button" class="pj-onglet" data-i="0" aria-pressed="true"><img src="img/easyfly.webp" alt="" loading="lazy" width="1400" height="661"><span><b>EasyFly</b><small>Réservation · Web app</small></span></button>
+        <button type="button" class="pj-onglet" data-i="1" aria-pressed="false"><img src="img/ailleurs-hero.webp" alt="" loading="lazy" width="1410" height="671"><span><b>Ailleurs</b><small>Voyage · Web app</small></span></button>
+        <button type="button" class="pj-onglet" data-i="2" aria-pressed="false"><img src="img/velane.webp" alt="" loading="lazy" width="1400" height="659"><span><b>Vélane</b><small>E-commerce · 5 styles</small></span></button>
+      </div>
+      <article class="pj-texte active choisi" data-i="0">
         <h3><span class="pj-rang">Projet 1 sur 3</span>EasyFly</h3>
         <p>Compagnie aérienne fictive : moteur de recherche aller-retour, destinations populaires, interface claire et rassurante.</p>
         <div class="tags"><span>Réservation</span><span>Web app</span></div>
         <div class="pj-actions">
           <button type="button" class="btn btn-primary pj-explorer" data-cible="0" data-url="https://easy-fly-sigma.vercel.app/" style="border:0;cursor:pointer">Explorer ici</button>
-          <a class="btn btn-ghost" href="https://easy-fly-sigma.vercel.app/" target="_blank" rel="noopener">Ouvrir le site</a>
+          <a class="btn btn-ghost" href="https://easy-fly-sigma.vercel.app/" target="_blank" rel="noopener">Ouvrir le site<span class="sr-only"> EasyFly (nouvel onglet)</span></a>
         </div>
       </article>
       <article class="pj-texte" data-i="1">
@@ -666,7 +836,7 @@ html.fondu body>:not(nav){opacity:0}
         <div class="tags"><span>Voyage</span><span>Web app</span></div>
         <div class="pj-actions">
           <button type="button" class="btn btn-primary pj-explorer" data-cible="1" data-url="https://ailleurs-nu.vercel.app/" style="border:0;cursor:pointer">Explorer ici</button>
-          <a class="btn btn-ghost" href="https://ailleurs-nu.vercel.app/" target="_blank" rel="noopener">Ouvrir le site</a>
+          <a class="btn btn-ghost" href="https://ailleurs-nu.vercel.app/" target="_blank" rel="noopener">Ouvrir le site<span class="sr-only"> Ailleurs (nouvel onglet)</span></a>
         </div>
       </article>
       <article class="pj-texte" data-i="2">
@@ -675,28 +845,28 @@ html.fondu body>:not(nav){opacity:0}
         <div class="tags"><span>E-commerce</span><span>5 directions artistiques</span></div>
         <div class="pj-actions">
           <button type="button" class="btn btn-primary pj-explorer" data-cible="2" data-url="velane/index.html" style="border:0;cursor:pointer">Explorer ici</button>
-          <a class="btn btn-ghost" href="velane/index.html" target="_blank" rel="noopener">Ouvrir le site</a>
+          <a class="btn btn-ghost" href="velane/index.html" target="_blank" rel="noopener">Ouvrir le site<span class="sr-only"> Vélane (nouvel onglet)</span></a>
         </div>
       </article>
     </div>
     <div class="pj-pile">
-      <figure class="pj-carte" data-i="0" style="--rot:-3deg;--r:2.118">
+      <figure class="pj-carte choisi" data-i="0" style="--rot:-3deg;--r:2.118">
         <div class="browser">
           <div class="browser-bar"><i></i><i></i><span>easy-fly-sigma.vercel.app</span></div>
-          <div class="shot"><img src="img/easyfly.webp" alt="Capture du site EasyFly — réservation de vols" loading="lazy" width="1400" height="661"></div>
+          <div class="shot"><img src="img/easyfly.webp" alt="Capture du site EasyFly : réservation de vols" loading="lazy" width="1400" height="661"></div>
         </div>
       </figure>
       <figure class="pj-carte" data-i="1" style="--rot:4deg;--r:2.101">
         <div class="browser">
           <div class="browser-bar"><i></i><i></i><span>ailleurs-nu.vercel.app</span></div>
-          <div class="shot"><img src="img/ailleurs-hero.webp" alt="Capture du site Ailleurs — site de voyage" loading="lazy" width="1410" height="671"></div>
+          <div class="shot"><img src="img/ailleurs-hero.webp" alt="Capture du site Ailleurs : site de voyage" loading="lazy" width="1410" height="671"></div>
         </div>
         <div class="phone" aria-hidden="true"><div class="screen"><img src="img/ailleurs-mobile.webp" alt="" loading="lazy" width="500" height="1026"></div></div>
       </figure>
       <figure class="pj-carte" data-i="2" style="--rot:-2deg;--r:2.124">
         <div class="browser">
           <div class="browser-bar"><i></i><i></i><span>studiobon.site/velane</span></div>
-          <div class="shot"><img src="img/velane.webp" alt="Capture de Vélane — une boutique de vêtements en cinq styles" loading="lazy" width="1400" height="659"></div>
+          <div class="shot"><img src="img/velane.webp" alt="Capture de Vélane : une boutique de vêtements en cinq styles" loading="lazy" width="1400" height="659"></div>
         </div>
       </figure>
     </div>
@@ -793,30 +963,31 @@ html.fondu body>:not(nav){opacity:0}
   <div style="display:flex;flex-direction:column;gap:14px;max-width:620px">
     <span class="mono" style="font-size:12px;letter-spacing:.06em;color:var(--sand)">Les offres</span>
     <h2>Un prix juste, sur devis.</h2>
-    <p class="lead">Chaque commerce est différent, chaque devis aussi. Décrivez votre projet, je vous réponds sous 48h avec un prix ferme — sans surprise ensuite.</p>
+    <p class="lead">Chaque commerce est différent, chaque devis aussi. Décrivez votre projet, je vous réponds sous 48h avec un prix ferme, sans surprise ensuite.</p>
   </div>
+  <div class="of-onglets" role="group" aria-label="Choisir une formule"><button type="button" data-i="0" aria-pressed="false">Vitrine</button><button type="button" data-i="1" aria-pressed="true">Pro</button><button type="button" data-i="2" aria-pressed="false">Boutique</button></div>
   <div class="cards3 pile-offres">
     <div class="po-carte" style="--k:0;--j:.33"><article class="plan">
       <div><h3>Vitrine</h3><p class="tl">Pour exister en ligne avec élégance.</p></div>
       <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
       <div class="po-jauge" aria-hidden="true"><i></i></div>
       <ul class="checks"><li>Site une page soigné</li><li>Mobile &amp; rapide</li><li>Formulaire de contact</li><li>Référencement Google</li></ul>
-      <a href="#contact" class="plan-btn" data-formule="Vitrine">Demander un devis</a>
+      <a href="#contact" class="plan-btn" data-formule="Vitrine">Demander un devis<span class="sr-only"> pour la formule Vitrine</span></a>
     </article></div>
-    <div class="po-carte" style="--k:1;--j:.66"><article class="plan feat">
-      <span class="badge">Le + choisi</span>
+    <div class="po-carte choisi" style="--k:1;--j:.66"><article class="plan feat">
+      <span class="badge">Mon conseil</span>
       <div><h3>Pro</h3><p class="tl">Le choix des commerces qui veulent se démarquer.</p></div>
       <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
       <div class="po-jauge" aria-hidden="true"><i></i></div>
-      <ul class="checks"><li>Site multi-pages</li><li>Design entièrement sur-mesure</li><li>Galerie, avis, horaires</li><li>SEO local renforcé</li><li>Suivi 1 mois offert</li></ul>
-      <a href="#contact" class="plan-btn" data-formule="Pro">Demander un devis</a>
+      <ul class="checks"><li>Site multi-pages</li><li>Design entièrement sur-mesure</li><li>Galerie, avis, horaires</li><li>Référencement local renforcé</li><li>Suivi 1 mois offert</li></ul>
+      <a href="#contact" class="plan-btn" data-formule="Pro">Demander un devis<span class="sr-only"> pour la formule Pro</span></a>
     </article></div>
     <div class="po-carte" style="--k:2;--j:1"><article class="plan">
       <div><h3>Boutique</h3><p class="tl">Pour vendre en ligne sérieusement.</p></div>
       <div class="price"><strong>Sur devis</strong><span>réponse sous 48h</span></div>
       <div class="po-jauge" aria-hidden="true"><i></i></div>
       <ul class="checks"><li>E-commerce complet</li><li>Paiement sécurisé</li><li>Gestion des produits</li><li>Formation incluse</li></ul>
-      <a href="#contact" class="plan-btn" data-formule="Boutique">Demander un devis</a>
+      <a href="#contact" class="plan-btn" data-formule="Boutique">Demander un devis<span class="sr-only"> pour la formule Boutique</span></a>
     </article></div>
   </div>
 </section>
@@ -831,30 +1002,31 @@ html.fondu body>:not(nav){opacity:0}
     </div>
     <div class="faq-liste">
       <details>
-        <summary>Combien coûte un site ?<span class="plus" aria-hidden="true"></span></summary>
+        <summary><span class="q"><span class="q-txt">Combien coûte un site ?</span></span><span class="plus" aria-hidden="true"></span></summary>
         <p>Chaque projet est chiffré sur devis, gratuitement. Vous décrivez votre besoin, je vous réponds sous 48 h avec un prix ferme : le prix annoncé est celui que vous payez.</p>
       </details>
       <details>
-        <summary>Mon site existe déjà. Faut-il tout refaire ?<span class="plus" aria-hidden="true"></span></summary>
+        <summary><span class="q"><span class="q-txt">Mon site existe déjà. Faut-il tout refaire ?</span></span><span class="plus" aria-hidden="true"></span></summary>
         <p>Pas forcément. Une refonte garde vos contenus, votre nom de domaine et ce qui fonctionne, et modernise le reste : design, vitesse, affichage sur téléphone et visibilité sur Google. La migration se fait sans perte.</p>
       </details>
       <details>
-        <summary>Mon site sera-t-il trouvé sur Google ?<span class="plus" aria-hidden="true"></span></summary>
+        <summary><span class="q"><span class="q-txt">Mon site sera-t-il trouvé sur Google ?</span></span><span class="plus" aria-hidden="true"></span></summary>
         <p>Chaque formule inclut le référencement Google, pensé pour les recherches locales du type « boulangerie Aix-en-Provence ». La formule Pro va plus loin avec un référencement local renforcé.</p>
       </details>
       <details>
-        <summary>Concrètement, que fait l'intégration IA ?<span class="plus" aria-hidden="true"></span></summary>
+        <summary><span class="q"><span class="q-txt">Concrètement, que fait l'intégration IA ?</span></span><span class="plus" aria-hidden="true"></span></summary>
         <p>Un assistant sur votre site répond jour et nuit aux questions fréquentes de vos clients (horaires, tarifs, réservations) à partir de vos propres informations, et pré-trie les demandes de devis avant qu'elles vous arrivent.</p>
       </details>
       <details>
-        <summary>Travaillez-vous seulement à Aix et à Marseille ?<span class="plus" aria-hidden="true"></span></summary>
+        <summary><span class="q"><span class="q-txt">Travaillez-vous seulement à Aix et à Marseille ?</span></span><span class="plus" aria-hidden="true"></span></summary>
         <p>Je suis basé entre Aix-en-Provence et Marseille, et je travaille aussi à distance avec des commerces partout en France. Plus de détails : <a href="creation-site-internet-aix-en-provence/">création de site internet à Aix-en-Provence</a> et <a href="creation-site-internet-marseille/">à Marseille</a>.</p>
       </details>
       <details>
-        <summary>À qui vais-je avoir affaire ?<span class="plus" aria-hidden="true"></span></summary>
+        <summary><span class="q"><span class="q-txt">À qui vais-je avoir affaire ?</span></span><span class="plus" aria-hidden="true"></span></summary>
         <p>À moi, Eliott, du premier appel à la mise en ligne. Pas de commercial, pas de sous-traitance : la personne qui vous répond est celle qui conçoit et code votre site.</p>
       </details>
     </div>
+    <div class="faq-appel"><strong>Une autre question ?</strong><p>Appelez-moi, c'est moi qui décroche.</p><a class="btn" href="tel:+33768019719">Appeler le 07 68 01 97 19</a></div>
   </div>
 </section>
 
@@ -871,13 +1043,20 @@ html.fondu body>:not(nav){opacity:0}
       <div><dt>Téléphone</dt><dd><a href="tel:+33768019719">07 68 01 97 19</a></dd></div>
       <div><dt>Zone</dt><dd>Aix-en-Provence, Marseille &amp; toute la France (à distance)</dd></div>
     </dl>
+    <div class="ct-voies">
+      <a class="ct-voie verte" href="tel:+33768019719"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><strong>Appeler</strong><small>07 68 01 97 19</small></span></a>
+      <a class="ct-voie" href="mailto:contact@studiobon.site"><span class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><strong>Écrire un email</strong><small>contact@studiobon.site</small></span></a>
+      <p class="ct-zone">Aix-en-Provence, Marseille &amp; toute la France (à distance)</p>
+      <div class="ct-ou">ou</div>
+      <button type="button" class="btn btn-ghost ct-ouvrir" aria-expanded="false" aria-controls="ctForm">Décrire mon projet en 3 étapes</button>
+    </div>
   </div>
 
-  <div>
+  <div id="ctForm">
     <div class="sent" id="sent">
       <div class="ok">✓</div>
       <h3 id="sentTitle">Merci.</h3>
-      <p>Votre demande est bien arrivée. Je vous réponds personnellement sous 48h — en général bien avant.</p>
+      <p>Votre demande est bien arrivée. Je vous réponds personnellement sous 48h, en général bien avant.</p>
       <button type="button" id="again">Envoyer une autre demande</button>
     </div>
     <form id="contactForm" novalidate>
@@ -946,8 +1125,10 @@ html.fondu body>:not(nav){opacity:0}
   </div>
 </section>
 
+</main>
+
 <footer>
-  <span>© 2026 Studio bonsite — Aix-en-Provence · Marseille · partout en France</span>
+  <span>© 2026 Studio bonsite · Aix-en-Provence · Marseille · partout en France</span>
   <div><a href="creation-site-internet-aix-en-provence/">Création de site à Aix-en-Provence</a><a href="creation-site-internet-marseille/">Création de site à Marseille</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="mailto:contact@studiobon.site">contact@studiobon.site</a><a href="tel:+33768019719">07 68 01 97 19</a></div>
 </footer>
 
@@ -1009,6 +1190,12 @@ html.fondu body>:not(nav){opacity:0}
       textes.forEach((t,k)=>t.classList.toggle('active',k===arrives));
       if(arrives!==ambianceActive){ambianceActive=arrives;choisirAmbiance(arrives)}
     }
+    // Clavier : un bouton d'un projet encore caché reçoit le focus, on fait défiler jusqu'à ce projet
+    sec.addEventListener('focusin',e=>{
+      if(!epingle()) return;const k=textes.findIndex(t=>t.contains(e.target));if(k<0||textes[k].classList.contains('active')) return;
+      const course=sec.offsetHeight-innerHeight,f=k===0?0:Math.min(1,(k-.25)/((n-1)*1.25));
+      scrollTo({top:Math.round(sec.getBoundingClientRect().top+scrollY+f*course),behavior:'instant'});maj();
+    });
     // Mobile (section non épinglée) : chaque projet arrive en se posant, au scroll normal
     if(!calme){
       sec.classList.add('anim-mobile');
@@ -1042,14 +1229,16 @@ html.fondu body>:not(nav){opacity:0}
     sec.querySelectorAll('.pj-explorer').forEach(b=>{
       const carte=cartes[+b.dataset.cible],ecran=carte.querySelector('.shot'),img=ecran.querySelector('img');
       let frame=null;
+      const nom=textes[+b.dataset.cible].querySelector('h3').lastChild.textContent.trim();
+      const etiq=t=>{b.textContent=t;b.setAttribute('aria-label',t+' : '+nom)};etiq('Explorer ici');
       const ajuster=()=>{if(frame) frame.style.setProperty('--s',ecran.clientWidth/1280)};
       new ResizeObserver(ajuster).observe(ecran);
       b.addEventListener('click',()=>{
-        if(frame){frame.remove();frame=null;img.hidden=false;b.textContent='Explorer ici';return}
+        if(frame){frame.remove();frame=null;img.hidden=false;etiq('Explorer ici');return}
         frame=document.createElement('iframe');
         frame.src=b.dataset.url;frame.title='Site '+textes[+b.dataset.cible].querySelector('h3').lastChild.textContent+' en direct';
         frame.setAttribute('referrerpolicy','no-referrer');
-        ecran.appendChild(frame);img.hidden=true;ajuster();b.textContent='Revenir à l’aperçu';
+        ecran.appendChild(frame);img.hidden=true;ajuster();etiq('Revenir à l’aperçu');
       });
     });
   })();
@@ -1080,6 +1269,7 @@ html.fondu body>:not(nav){opacity:0}
 
   // ---------- Offres : la pile de cartes se déploie une fois, quand la section arrive à l'écran ----------
   const pileOffres=document.querySelector('.pile-offres');
+  if(pileOffres) pileOffres.addEventListener('focusin',()=>deployerOffres(false),{once:true});
   function deployerOffres(anime){
     const p=pileOffres;
     if(!p||p.classList.contains('deploye')) return;
@@ -1208,16 +1398,17 @@ html.fondu body>:not(nav){opacity:0}
   }
   function etapeValide(i){
     const e=etapes[i];
+    form.querySelectorAll('[aria-invalid]').forEach(x=>{x.removeAttribute('aria-invalid');x.removeAttribute('aria-describedby')});
     for(const fs of e.querySelectorAll('fieldset[data-requis]')){
-      if(!fs.querySelector('input:checked')){ppErr.textContent='Choisissez au moins une réponse pour « '+fs.querySelector('legend').firstChild.textContent.trim()+' ».';ppErr.style.display='block';return false}
+      if(!fs.querySelector('input:checked')){ppErr.textContent='Choisissez au moins une réponse pour « '+fs.querySelector('legend').firstChild.textContent.trim()+' ».';ppErr.style.display='block';fs.querySelector('input').focus();return false}
     }
     for(const g of new Set([...e.querySelectorAll('input[type=radio][required]')].map(x=>x.name))){
       if(!e.querySelector(`input[name="${g}"]:checked`)){
         ppErr.textContent='Choisissez une réponse pour « '+e.querySelector(`input[name="${g}"]`).closest('fieldset').querySelector('legend').firstChild.textContent.trim()+' ».';
-        ppErr.style.display='block';return false}
+        ppErr.style.display='block';e.querySelector(`input[name="${g}"]`).focus();return false}
     }
     for(const c of e.querySelectorAll('input:not([type=radio]):not([type=checkbox]),textarea')){
-      if(!c.checkValidity()){ppErr.textContent=c.type==='email'&&c.value?'Cette adresse email ne semble pas valide.':'Merci de remplir « '+c.closest('label').firstChild.textContent.trim()+' ».';ppErr.style.display='block';c.focus();return false}
+      if(!c.checkValidity()){ppErr.textContent=c.type==='email'&&c.value?'Cette adresse email ne semble pas valide.':'Merci de remplir « '+c.closest('label').firstChild.textContent.trim()+' ».';ppErr.style.display='block';c.setAttribute('aria-invalid','true');c.setAttribute('aria-describedby','ppErr');c.focus();return false}
     }
     return true;
   }
@@ -1256,6 +1447,47 @@ html.fondu body>:not(nav){opacity:0}
   document.getElementById('again').addEventListener('click',()=>{sent.style.display='none';form.style.display='flex';afficher(0)});
 </script>
 <script>
+/* Téléphone & tablette : menu, onglets Réalisations et Offres, points des Services, contact */
+(()=>{
+  // Menu en un bouton
+  const burger=document.querySelector('.burger'),menu=document.getElementById('menuMobile');
+  if(burger&&menu){
+    const fermer=()=>{menu.hidden=true;burger.setAttribute('aria-expanded','false');burger.setAttribute('aria-label','Ouvrir le menu')};
+    burger.addEventListener('click',()=>{const o=menu.hidden;menu.hidden=!o;burger.setAttribute('aria-expanded',String(o));burger.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu')});
+    menu.addEventListener('click',e=>{if(e.target.closest('a'))fermer()});
+    addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){fermer();burger.focus()}});
+    addEventListener('resize',()=>{if(innerWidth>820)fermer()},{passive:true});
+  }
+  // Réalisations : un onglet par projet
+  const sec=document.getElementById('realisations');
+  sec&&sec.querySelectorAll('.pj-onglet').forEach(b=>b.addEventListener('click',()=>{
+    const i=b.dataset.i;
+    sec.querySelectorAll('.pj-onglet').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    sec.querySelectorAll('.pj-texte,.pj-carte').forEach(el=>{const ok=el.dataset.i===i;el.classList.toggle('choisi',ok);if(ok)el.classList.add('vu')});
+  }));
+  // Offres : une formule à la fois
+  const pile=document.querySelector('.pile-offres');
+  pile&&document.querySelectorAll('.of-onglets button').forEach(b=>b.addEventListener('click',()=>{
+    const i=+b.dataset.i;
+    document.querySelectorAll('.of-onglets button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+    [...pile.children].forEach((c,k)=>{c.classList.toggle('choisi',k===i);c.classList.remove('bascule');if(k===i){void c.offsetWidth;c.classList.add('bascule')}});
+  }));
+  // Services : le point actif suit la carte visible
+  const s4=document.querySelector('.s4'),points=[...document.querySelectorAll('.s4-points i')];
+  if(s4&&points.length){
+    const maj=()=>{const cartes=[...s4.children];let k=0,m=1e9;cartes.forEach((c,j)=>{const d=Math.abs(c.getBoundingClientRect().left-s4.getBoundingClientRect().left-parseFloat(getComputedStyle(s4).paddingLeft));if(d<m){m=d;k=j}});points.forEach((p,j)=>p.classList.toggle('on',j===k))};
+    s4.addEventListener('scroll',maj,{passive:true});maj();
+  }
+  // Contact : le formulaire s'ouvre à la demande sur téléphone
+  const contact=document.getElementById('contact'),ouvrir=document.querySelector('.ct-ouvrir');
+  const ouvrirForm=()=>{if(!contact)return;contact.classList.add('form-ouvert');if(ouvrir)ouvrir.setAttribute('aria-expanded','true')};
+  if(ouvrir)ouvrir.addEventListener('click',()=>{ouvrirForm();const f=document.getElementById('ctForm');if(f){f.scrollIntoView({block:'start'});const c=f.querySelector('input:not([type=hidden]):not([name=botcheck])');if(c)c.focus({preventScroll:true})}});
+  document.querySelectorAll('.plan-btn[data-formule]').forEach(a=>a.addEventListener('click',ouvrirForm));
+})();
+</script>
+<script>
+/* Lien d'évitement : envoie le focus clavier au contenu principal */
+document.querySelector('.saut-contenu').addEventListener('click',e=>{e.preventDefault();const m=document.getElementById('contenu');m.focus();m.scrollIntoView({block:'start'})});
 /* Offres : l'horizon se cale sous le haut des cartes ; le sol ne bouge que quand la section est à l'écran */
 (()=>{const s=document.getElementById('offres');if(!s)return;const c=s.querySelector('.pile-offres');
 const caler=()=>{if(c)s.style.setProperty('--hz',Math.round(innerWidth<=760?c.offsetTop-22:c.offsetTop+Math.min(115,c.offsetHeight*.2))+'px')};

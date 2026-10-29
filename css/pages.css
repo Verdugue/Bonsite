@@ -1,6 +1,6 @@
 /* Pages locales Studio Bonsite (Aix-en-Provence, Marseille) — même identité que la page d'accueil */
 :root{
-  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#6E7A74;--green:#0E5C48;--green-2:#24463C;
+  --bg:#FBFAF7;--ink:#12211C;--ink-2:#3E4B46;--muted:#646F69;--green:#0E5C48;--green-2:#24463C;
   --sand:#F2B880;--mint:#E9EFEA;--line:rgba(18,33,28,.12);--line-2:rgba(18,33,28,.2);
   --pad:clamp(20px,5vw,80px);--sec:clamp(56px,8vw,104px);
   --mono:'DM Mono',ui-monospace,monospace;
