@@ -211,13 +211,13 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
 
 <main class="audit">
   <div style="display:flex;flex-direction:column;gap:22px">
-    <div class="eyebrow">Audit gratuit</div>
-    <h1>Recevez l'audit complet<br>de votre site.</h1>
+    <div class="eyebrow" id="surtitre">Audit gratuit</div>
+    <h1 id="titre">Recevez l'audit complet<br>de votre site.</h1>
     <div class="site" id="siteAffiche" hidden></div>
-    <p class="lead">Je regarde votre site comme un client le ferait, et je vous envoie un compte rendu clair : ce qui freine vos visiteurs, ce qui marche déjà, et ce que je changerais en priorité.</p>
+    <p class="lead" id="intro">Je regarde votre site comme un client le ferait, et je vous envoie un compte rendu clair : ce qui freine vos visiteurs, ce qui marche déjà, et ce que je changerais en priorité.</p>
     <ol class="etapes">
-      <li><b>1</b><span>Vous répondez à ces quelques questions (2 minutes) pour que l'audit colle à vos objectifs.</span></li>
-      <li><b>2</b><span>Je vous envoie l'audit sous 48h, par email.</span></li>
+      <li><b>1</b><span id="etape1">Vous répondez à ces quelques questions (2 minutes) pour que l'audit colle à vos objectifs.</span></li>
+      <li><b>2</b><span id="etape2">Je vous envoie l'audit sous 48h, par email.</span></li>
       <li><b>3</b><span>Si vous le souhaitez, on en parle 15 minutes au téléphone. Sans engagement.</span></li>
     </ol>
   </div>
@@ -226,7 +226,7 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
     <div class="sent" id="sent">
       <div class="ok">✓</div>
       <h3 id="sentTitle">Merci.</h3>
-      <p>Votre demande est bien arrivée. Je vous envoie l'audit de votre site sous 48h, en général bien avant.</p>
+      <p id="sentTexte">Votre demande est bien arrivée. Je vous envoie l'audit de votre site sous 48h, en général bien avant.</p>
       <a href="/" style="align-self:flex-start;margin-top:8px;border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px">Découvrir Studio Bonsite</a>
     </div>
     <form id="auditForm">
@@ -234,6 +234,7 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
       <input type="hidden" name="subject" id="sujet" value="Demande d'audit via studiobon.site">
       <input type="hidden" name="from_name" value="Audit Studio Bonsite">
       <input type="hidden" name="reference" id="ref">
+      <input type="hidden" name="offre" id="offre" value="Audit gratuit">
       <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
       <label>Votre site<input name="site" id="site" required placeholder="www.votre-site.fr"></label>
@@ -287,7 +288,7 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
       <label><span>Un point précis à regarder ? <em>(optionnel)</em></span><textarea name="message" rows="3" placeholder="Ex. : on ne nous trouve pas sur Google, on voudrait prendre les commandes en ligne…"></textarea></label>
       <button type="submit" id="sendBtn">Recevoir mon audit gratuit</button>
       <p id="formErr"></p>
-      <p class="fine">Vos réponses servent uniquement à préparer votre audit et à vous répondre (<a href="confidentialite.html" style="text-decoration:underline">confidentialité</a>).</p>
+      <p class="fine">Vos réponses servent uniquement à préparer votre <span id="objetFine">audit</span> et à vous répondre (<a href="confidentialite.html" style="text-decoration:underline">confidentialité</a>).</p>
     </form>
   </div>
 </main>
@@ -308,6 +309,22 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
   }
   document.getElementById('ref').value = refParam;
 
+  // Les mails « maquette offerte » ajoutent &offre=maquette : même formulaire, textes de l'offre maquette
+  const maquette = (qs.get('offre') || '').trim().toLowerCase() === 'maquette';
+  const boutonTexte = maquette ? 'Recevoir ma maquette offerte' : 'Recevoir mon audit gratuit';
+  if (maquette) {
+    document.title = "Maquette offerte de votre site | Studio Bonsite";
+    document.getElementById('surtitre').textContent = 'Maquette offerte';
+    document.getElementById('titre').innerHTML = 'Recevez la maquette<br>de votre nouveau site.';
+    document.getElementById('intro').textContent = "Je prépare une maquette de votre page d'accueil, pensée d'abord pour le téléphone. Vous voyez le résultat avant de décider quoi que ce soit, et vous jugez sur pièce.";
+    document.getElementById('etape1').textContent = "Vous répondez à ces quelques questions (2 minutes) pour que la maquette colle à votre activité.";
+    document.getElementById('etape2').textContent = "Je prépare la maquette et je vous l'envoie par email.";
+    document.getElementById('sentTexte').textContent = "Votre demande est bien arrivée. Je prépare la maquette de votre page d'accueil et je vous l'envoie par email.";
+    document.getElementById('objetFine').textContent = 'maquette';
+    document.getElementById('offre').value = 'Maquette offerte';
+    document.getElementById('sendBtn').textContent = boutonTexte;
+  }
+
   const form = document.getElementById('auditForm'), btn = document.getElementById('sendBtn'),
         err = document.getElementById('formErr'), sent = document.getElementById('sent');
   form.addEventListener('submit', async (e) => {
@@ -318,7 +335,7 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
     const data = Object.fromEntries(fd.entries());
     data.objectifs = fd.getAll('objectifs').join(', ') || 'Non précisé';
     data.gestion = data.gestion || 'Non précisé';
-    data.subject = "Demande d'audit — " + (data.site || 'site non précisé') + (data.reference ? ' [ref ' + data.reference + ']' : '');
+    data.subject = (maquette ? "Demande de maquette — " : "Demande d'audit — ") + (data.site || 'site non précisé') + (data.reference ? ' [ref ' + data.reference + ']' : '');
     try {
       const res = await fetch('https://api.web3forms.com/submit', {method: 'POST',
         headers: {'Content-Type': 'application/json', Accept: 'application/json'}, body: JSON.stringify(data)});
@@ -330,7 +347,7 @@ select{border:1.5px solid rgba(18,33,28,.15);border-radius:10px;padding:13px 14p
     } catch (e) {
       err.textContent = "Oups, l'envoi n'a pas marché. Écrivez-moi directement à contact@studiobon.site";
       err.style.display = 'block';
-    } finally { btn.disabled = false; btn.textContent = 'Recevoir mon audit gratuit'; }
+    } finally { btn.disabled = false; btn.textContent = boutonTexte; }
   });
 </script>
 </body>
