@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copie Canebière · Imprimer, copier, numériser à Marseille (maquette)</title>
+<meta name="description" content="Copie Canebière, reprographie au 103 La Canebière à Marseille depuis 1985 : photocopies, impressions couleur et noir et blanc, numérisation, reliure, plastification, correction professionnelle.">
+<!-- Maquette de démonstration Studio Bonsite : jamais indexée -->
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Copie Canebière · maquette de nouveau site">
+<meta property="og:description" content="Maquette proposée par Studio Bonsite : imprimer, copier, numériser à Marseille.">
+<meta property="og:image" content="https://www.studiobon.site/copie-canebiere/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230C4A55'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='38' fill='%23F7DD4A'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --papier: #F6F3EC;
+  --papier-2: #ECE6D9;
+  --blanc: #FFFDF8;
+  --encre: #14201F;
+  --encre-2: #34433F;
+  --gris: #5A6662;
+  --petrole: #0C4A55;
+  --petrole-2: #08363E;
+  --surligneur: #F7DD4A;
+  --trait: #D8D0BF;
+  /* touches reprises du site actuel (bleu ciel, bleu canard, orange) */
+  --ciel: #E2F1F6;
+  --canard: #418496;
+  --orange: #FFAB45;
+  --rayon-s: 6px;
+  --rayon: 10px;
+  --section: clamp(3.2rem, 6.5vw, 5rem);
+  --marge: clamp(16px, 4vw, 32px);
+  --focus: var(--petrole);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0; background: var(--papier); color: var(--encre);
+  font-family: "Archivo", system-ui, sans-serif; font-size: 17px; line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+a[href^="tel:"] { white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+.conteneur { max-width: 1160px; margin: 0 auto; padding-inline: var(--marge); }
+.conteneur > * { min-width: 0; }
+.section { padding-block: var(--section); }
+.maquette, .pied { --focus: var(--surligneur); }
+.kicker { font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--petrole); margin: 0 0 .9rem; }
+h1, h2, h3 { margin: 0; line-height: 1.05; letter-spacing: -.02em; font-stretch: 112%; }
+h2 { font-size: clamp(1.9rem, 3.8vw, 2.9rem); font-weight: 800; }
+h3 { font-size: 1.2rem; font-weight: 750; letter-spacing: -.01em; font-stretch: 100%; }
+.intro { max-width: 60ch; color: var(--encre-2); margin: 1rem 0 0; }
+.surligne { background: linear-gradient(transparent 56%, var(--surligneur) 56% 90%, transparent 90%); padding: 0 .08em; }
+
+/* Bandeau maquette */
+.maquette { background: var(--encre); color: #E9E4D8; font-size: .82rem; text-align: center; padding: .55rem var(--marge); }
+.maquette a { color: var(--surligneur); }
+
+/* En-tête */
+.entete { position: sticky; top: 0; z-index: 20; background: var(--papier); border-bottom: 1px solid var(--trait); }
+.entete .conteneur { display: flex; align-items: center; gap: 1.5rem; min-height: 68px; }
+.logo { display: inline-flex; align-items: baseline; gap: .45rem; text-decoration: none; line-height: 1; }
+.logo-copie { font-weight: 900; font-stretch: 75%; font-size: 1.85rem; letter-spacing: .02em; }
+.logo-cane { font-style: italic; font-weight: 600; font-size: 1.15rem; color: var(--petrole); }
+.nav { display: flex; gap: 1.6rem; margin-left: auto; }
+.nav a { text-decoration: none; font-weight: 600; font-size: .95rem; color: var(--encre-2); padding: .3rem 0; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; }
+.nav a:hover { color: var(--encre); border-color: var(--canard); }
+.tel-entete { display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; font-weight: 700; padding: .55rem .9rem; border: 1.5px solid var(--encre); border-radius: var(--rayon-s); transition: background .15s, color .15s; }
+.tel-entete:hover { background: var(--encre); color: var(--papier); }
+.menu-btn { display: none; margin-left: auto; background: none; border: 1.5px solid var(--encre); border-radius: var(--rayon-s); font: inherit; font-weight: 700; padding: .45rem .8rem; color: var(--encre); cursor: pointer; }
+
+/* Panorama de Marseille (photo du site actuel) : la devanture vient se poser dessus comme une épreuve */
+.panorama { height: clamp(170px, 21vw, 300px); background: #3FC6E0; overflow: hidden; }
+.panorama img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 72%; }
+
+/* Haut de page */
+.hero { padding-block: clamp(2.2rem, 4.5vw, 3.6rem) var(--section); }
+.hero .conteneur { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.hero h1 { font-size: clamp(2.4rem, 5vw, 4.3rem); font-weight: 850; }
+.hero .chapo { font-size: 1.12rem; color: var(--encre-2); max-width: 52ch; margin: 1.4rem 0 0; }
+.statut { display: inline-flex; align-items: center; gap: .6rem; margin: 1.6rem 0 0; font-weight: 650; font-size: .98rem; }
+.statut::before { content: ""; width: .7rem; height: .7rem; border-radius: 50%; background: var(--gris); flex: none; }
+.statut.ouvert::before { background: #1F8A4C; box-shadow: 0 0 0 4px rgba(31, 138, 76, .16); }
+.statut.ferme::before { background: #B4472F; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; margin-top: 1.8rem; }
+.btn { display: inline-flex; align-items: center; gap: .6rem; background: var(--petrole); color: #fff; text-decoration: none; font-weight: 700; font-size: 1.02rem; padding: .95rem 1.35rem; border-radius: var(--rayon-s); border: 0; cursor: pointer; font-family: inherit; transition: background .15s; }
+.btn:hover { background: var(--petrole-2); }
+.btn svg { width: 1.1em; height: 1.1em; }
+.lien-tel { font-weight: 650; color: var(--encre-2); }
+.lien-tel strong { color: var(--encre); white-space: nowrap; }
+
+.visuel { position: relative; padding: 18px; justify-self: end; width: min(100%, 470px); margin-top: calc(-1 * clamp(110px, 12.5vw, 190px)); background: var(--papier); }
+/* repères de coupe autour de la photo, comme sur une épreuve d'impression */
+.visuel::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  --l: 14px; --c: var(--encre);
+  background:
+    linear-gradient(var(--c), var(--c)) left 0 top 18px / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) left 18px top 0 / 1px var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) right 0 top 18px / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) right 18px top 0 / 1px var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) left 0 bottom 18px / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) left 18px bottom 0 / 1px var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) right 0 bottom 18px / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) right 18px bottom 0 / 1px var(--l) no-repeat;
+}
+.visuel img { width: 100%; aspect-ratio: 4 / 4.3; object-fit: cover; border-radius: 2px; }
+.ticket {
+  position: absolute; left: -46px; bottom: 34px; width: 270px; background: var(--blanc); color: var(--encre);
+  padding: 1.1rem 1.2rem 1rem; border-radius: 4px; transform: rotate(-2deg);
+  box-shadow: 0 1px 2px rgba(20, 32, 31, .12), 0 14px 30px -12px rgba(20, 32, 31, .35);
+}
+.ticket::after { /* bord déchiré du ticket */
+  content: ""; position: absolute; left: 0; right: 0; bottom: -7px; height: 8px;
+  background: radial-gradient(circle at 6px -2px, transparent 6px, var(--blanc) 6.5px) 0 0 / 12px 8px repeat-x;
+}
+.ticket-titre { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); margin: 0 0 .6rem; padding-bottom: .5rem; border-bottom: 1.5px dashed var(--trait); }
+.ticket ul { list-style: none; margin: 0; padding: 0; font-size: .93rem; }
+.ticket li { display: flex; justify-content: space-between; gap: 1rem; padding: .22rem 0; }
+.ticket li b { font-weight: 800; }
+.ticket a { display: inline-block; margin-top: .6rem; font-size: .85rem; font-weight: 700; color: var(--petrole); }
+
+/* Envoyer vos fichiers */
+.fichiers { background: var(--petrole); color: #F3F0E8; --focus: var(--surligneur); }
+.fichiers .kicker { color: var(--surligneur); }
+.fichiers .intro { color: rgba(243, 240, 232, .86); }
+.fichiers .conteneur { display: grid; grid-template-columns: 1fr 420px; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.etapes { list-style: none; counter-reset: e; margin: 1.8rem 0 0; padding: 0; display: grid; gap: 1.1rem; }
+.etapes li { counter-increment: e; display: grid; grid-template-columns: 2.6rem 1fr; gap: 1rem; align-items: start; }
+.etapes li::before { content: counter(e); display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border: 1.5px solid rgba(243, 240, 232, .5); border-radius: 50%; font-weight: 800; }
+.etapes p { margin: .35rem 0 0; }
+.etapes strong { color: #fff; }
+.adresse-mail { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1rem; margin-top: 1.8rem; }
+.adresse-mail .mail { font-size: clamp(1.05rem, 2.4vw, 1.35rem); font-weight: 750; color: #fff; text-underline-offset: 4px; word-break: break-all; }
+.btn-clair { background: var(--surligneur); color: var(--encre); }
+.btn-clair:hover { background: #FFE76B; }
+.btn-contour { background: transparent; color: #F3F0E8; border: 1.5px solid rgba(243, 240, 232, .6); padding: .6rem .9rem; font-size: .9rem; }
+.btn-contour:hover { background: rgba(243, 240, 232, .1); }
+
+/* sur ordinateur l'estimateur est toujours ouvert ; sur téléphone il se déplie (page moins longue) */
+.estim > summary { list-style: none; cursor: pointer; }
+.estim > summary::-webkit-details-marker { display: none; }
+@media (min-width: 1001px) { .estim > summary { display: none; } }
+@media (max-width: 1000px) { .estim[open] > summary { margin-bottom: 1rem; } }
+.estimateur { background: var(--blanc); color: var(--encre); border-radius: var(--rayon); padding: 1.6rem; --focus: var(--petrole); }
+.estimateur h3 { margin-bottom: .3rem; }
+.estimateur .aide { font-size: .88rem; color: var(--gris); margin: 0 0 1.2rem; }
+.champ { display: grid; gap: .35rem; margin-bottom: 1rem; }
+.champ label, .champ legend { font-weight: 650; font-size: .92rem; }
+.champ input[type="number"] { font: inherit; font-size: 1.05rem; padding: .65rem .75rem; border: 1.5px solid #8A9490; border-radius: var(--rayon-s); background: #fff; width: 100%; color: var(--encre); }
+.champ input[type="number"]:focus { border-color: var(--petrole); }
+fieldset.champ { border: 0; padding: 0; margin: 0 0 1rem; }
+.choix { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: .35rem; }
+.choix label { display: flex; align-items: center; justify-content: center; gap: .5rem; padding: .65rem; border: 1.5px solid #8A9490; border-radius: var(--rayon-s); cursor: pointer; font-weight: 600; transition: border-color .15s, background .15s; }
+.choix input { accent-color: var(--petrole); }
+.choix label:has(input:checked) { border-color: var(--petrole); background: #E7EFEF; }
+.total { margin: 1.2rem 0 0; padding-top: 1rem; border-top: 1.5px dashed var(--trait); }
+.total-prix { font-size: 2.2rem; font-weight: 850; font-stretch: 112%; line-height: 1.1; }
+.total-detail { font-size: .88rem; color: var(--gris); margin: .3rem 0 0; }
+.total.invalide .total-prix { font-size: 1.15rem; font-stretch: 100%; font-weight: 700; color: #9A3A26; }
+.estimateur .note { font-size: .8rem; color: var(--gris); margin: .9rem 0 0; }
+
+/* Services et tarifs */
+.tarifs .conteneur { display: grid; grid-template-columns: 1fr 340px; gap: clamp(2rem, 5vw, 4.5rem); }
+.onglets { display: flex; gap: .4rem; margin: 2rem 0 0; box-shadow: inset 0 -1.5px 0 var(--trait); overflow-x: auto; overflow-y: hidden; }
+.onglets button { font: inherit; font-weight: 700; font-size: .98rem; color: var(--gris); background: none; border: 0; border-bottom: 3px solid transparent; padding: .8rem .9rem; cursor: pointer; white-space: nowrap; transition: color .15s, border-color .15s; }
+.onglets button:hover { color: var(--encre); }
+.onglets button[aria-selected="true"] { color: var(--encre); border-color: var(--canard); }
+.panneau { padding-top: 1.2rem; }
+.panneau[hidden] { display: none; }
+.panneau .precision { font-size: .92rem; color: var(--gris); margin: 0 0 .6rem; }
+.lignes { list-style: none; margin: 0; padding: 0; }
+.lignes li { display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: .6rem; padding: .65rem 0; border-bottom: 1px solid var(--trait); }
+.lignes .nom { font-weight: 650; }
+.lignes .nom small { display: block; font-weight: 400; font-size: .85rem; color: var(--gris); }
+.lignes .points { border-bottom: 2px dotted var(--trait); transform: translateY(-.3em); min-width: 1rem; }
+.lignes .prix { font-weight: 800; text-align: right; white-space: nowrap; }
+.lignes .prix small { display: block; font-weight: 500; font-size: .8rem; color: var(--gris); }
+.aussi { margin: 1.4rem 0 0; font-size: .95rem; color: var(--encre-2); }
+.photos { display: grid; gap: 1.2rem; align-content: start; padding-top: .4rem; }
+.photos figure { margin: 0; }
+.photos img { border-radius: var(--rayon); aspect-ratio: 4 / 3.6; object-fit: cover; width: 100%; }
+.photos figcaption { font-size: .85rem; color: var(--gris); margin-top: .5rem; }
+
+/* Étudiants */
+.etudiants { background: var(--surligneur); }
+.etudiants .conteneur { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem 2.5rem; padding-block: clamp(1.8rem, 4vw, 2.6rem); }
+.etudiants p { margin: 0; }
+.etudiants .conteneur > div { max-width: 740px; }
+.etudiants .gros { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 850; font-stretch: 112%; line-height: 1.15; letter-spacing: -.01em; }
+.etudiants .petit { margin-top: .4rem; color: var(--encre-2); }
+.btn-encre { background: var(--encre); color: var(--papier); }
+.btn-encre:hover { background: #000; }
+
+/* Correction */
+.correction .conteneur { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.prestations { margin: 0; display: grid; gap: 0; border-top: 1.5px solid var(--encre); }
+.prestations div { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--trait); }
+.prestations dt { font-weight: 800; }
+.prestations dd { margin: 0; color: var(--encre-2); }
+.carte-correctrice { margin-top: 1.6rem; padding: 1.3rem 1.4rem; background: var(--papier-2); border-radius: var(--rayon); }
+.carte-correctrice p { margin: 0; }
+.carte-correctrice .qui { font-weight: 800; }
+.carte-correctrice .quoi { color: var(--encre-2); font-size: .95rem; margin-top: .2rem; }
+.carte-correctrice .contact { margin-top: .8rem; font-weight: 650; }
+.carte-correctrice a { color: var(--petrole); }
+.devise { margin: 1.4rem 0 0; font-weight: 700; color: var(--petrole); }
+
+/* Nous trouver */
+.trouver { background: var(--blanc); border-block: 1px solid var(--trait); }
+.trouver .conteneur { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.adresse { font-size: 1.15rem; font-weight: 700; margin: 1rem 0 0; line-height: 1.4; }
+.horaires { width: 100%; border-collapse: collapse; margin-top: 1.6rem; font-size: .98rem; }
+.horaires th, .horaires td { text-align: left; padding: .45rem .5rem; border-bottom: 1px solid var(--trait); }
+.horaires th { font-weight: 650; }
+.horaires td { text-align: right; }
+.horaires tr.aujourdhui { background: linear-gradient(transparent 12%, rgba(247, 221, 74, .55) 12% 88%, transparent 88%); }
+.horaires tr.aujourdhui th::after { content: " · aujourd'hui"; font-weight: 500; color: var(--encre-2); font-size: .85rem; }
+.horaires-note { font-size: .82rem; color: var(--gris); margin: .5rem 0 0; }
+.transports { list-style: none; margin: 1.4rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .55rem 1.3rem; }
+.transports li { display: flex; align-items: center; gap: .5rem; white-space: nowrap; }
+.ligne-tc { display: inline-grid; place-items: center; min-width: 2.4rem; height: 1.7rem; padding: 0 .4rem; border-radius: 4px; background: var(--encre); color: var(--papier); font-weight: 800; font-size: .82rem; }
+.carte { width: 100%; height: 380px; border: 0; border-radius: var(--rayon); background: var(--papier-2); }
+.carte-bloc { display: grid; gap: 1rem; align-content: start; }
+.carte-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.btn-ligne { background: transparent; color: var(--encre); border: 1.5px solid var(--encre); }
+.btn-ligne:hover { background: var(--encre); color: var(--papier); }
+
+/* Avis (extraits réels, Pages Jaunes) */
+.avis { background: var(--ciel); }
+.avis-tete { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.2rem 3rem; }
+.avis-liens { display: flex; flex-wrap: wrap; gap: .8rem; }
+.citations { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.citations li { background: var(--blanc); border-radius: var(--rayon); padding: 1.3rem 1.4rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; }
+.citations blockquote { margin: 0; position: relative; padding-top: 1.5rem; font-size: 1.02rem; line-height: 1.5; }
+.citations blockquote::before { content: "«"; position: absolute; top: -.6rem; left: -.1rem; font-size: 2.6rem; font-weight: 900; line-height: 1; color: var(--orange); }
+.citations p { margin: 0; }
+.citations .source { font-size: .85rem; color: var(--gris); }
+.citations .source b { color: var(--encre); }
+.avis-note { font-size: .82rem; color: var(--gris); margin: 1rem 0 0; }
+
+/* Pied de page */
+.pied { background: var(--encre); color: #DAD5C9; padding-block: 3.2rem 2rem; font-size: .95rem; }
+.pied .conteneur { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2rem; }
+.pied .logo-cane { color: var(--surligneur); }
+.pied p { margin: .3rem 0 0; }
+.pied a { color: #fff; }
+.pied h3 { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: #A9B2AD; margin-bottom: .6rem; font-stretch: 100%; }
+.credit { grid-column: 1 / -1; border-top: 1px solid rgba(218, 213, 201, .2); padding-top: 1.2rem; margin-top: 1rem; font-size: .82rem; color: #A9B2AD; }
+
+/* Barre d'actions téléphone */
+.barre-mobile { display: none; }
+
+@media (max-width: 1000px) {
+  .hero .conteneur, .fichiers .conteneur, .tarifs .conteneur, .correction .conteneur, .trouver .conteneur { grid-template-columns: 1fr; }
+  .visuel { justify-self: start; margin-top: 0; }
+  .photos { grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .photos img { aspect-ratio: 1; }
+  .estimateur { max-width: 520px; }
+}
+@media (max-width: 820px) {
+  .menu-btn { display: inline-block; }
+  .tel-entete { display: none; }
+  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--papier); border-bottom: 1px solid var(--trait); padding: .4rem var(--marge) 1rem; }
+  .nav.ouverte { display: flex; }
+  .nav a { padding: .8rem 0; border-bottom: 1px solid var(--trait); }
+  .ticket { position: relative; left: auto; bottom: auto; margin: -2.2rem 0 0 1rem; width: min(270px, 85%); }
+  .visuel { padding: 14px; }
+  .barre-mobile { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: .6rem var(--marge) calc(.6rem + env(safe-area-inset-bottom)); background: var(--papier); border-top: 1px solid var(--trait); }
+  .barre-mobile a { justify-content: center; padding: .8rem; font-size: .95rem; }
+  body { padding-bottom: 76px; }
+  html { scroll-padding-bottom: 90px; }
+  .pied .conteneur { grid-template-columns: 1fr; }
+  .prestations div { grid-template-columns: 1fr; gap: .2rem; }
+  .carte { height: 260px; }
+  .visuel img { aspect-ratio: 4 / 3.3; }
+  .citations { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .4rem; }
+  .citations li { scroll-snap-align: start; }
+}
+@media (max-width: 480px) {
+  .lignes li { grid-template-columns: 1fr auto; }
+  .lignes .points { display: none; }
+  .onglets button { padding: .75rem .5rem; font-size: .9rem; }
+}
+</style>
+</head>
+<body>
+
+<p class="maquette">Maquette de démonstration proposée par <a href="https://www.studiobon.site/">Studio Bonsite</a> à Copie Canebière · site officiel : <a href="https://www.copiecanebiere.fr/">copiecanebiere.fr</a></p>
+
+<header class="entete">
+  <div class="conteneur">
+    <a class="logo" href="#haut" aria-label="Copie Canebière, retour en haut"><span class="logo-copie">COPIE</span><span class="logo-cane">Canebière</span></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#fichiers">Envoyer vos fichiers</a>
+      <a href="#tarifs">Services et tarifs</a>
+      <a href="#correction">Correction</a>
+      <a href="#trouver">Nous trouver</a>
+    </nav>
+    <a class="tel-entete" href="tel:+33491080623">04 91 08 06 23</a>
+  </div>
+</header>
+
+<main id="haut">
+  <div class="panorama">
+    <img src="img/marseille.webp" width="1240" height="411" alt="" fetchpriority="high">
+  </div>
+  <section class="hero" aria-labelledby="titre">
+    <div class="conteneur">
+      <div>
+        <p class="kicker">Reprographie au 103 La Canebière, depuis 1985</p>
+        <h1 id="titre">Imprimer, copier, numériser à Marseille.</h1>
+        <p class="chapo">Photocopies et impressions en couleur ou en noir et blanc, numérisation, reliure et plastification, pour les particuliers, les professionnels, les associations et les étudiants. En plein cœur de Marseille.</p>
+        <p class="statut" id="statut">Ouvert du lundi au vendredi de 8h30 à 19h30, le samedi de 10h à 19h</p>
+        <div class="actions">
+          <a class="btn" href="#fichiers">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9V3h12v6M6 18H4a1 1 0 0 1-1-1v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1h-2M6 14h12v7H6z"/></svg>
+            Envoyer mes fichiers à imprimer
+          </a>
+          <a class="lien-tel" href="tel:+33491080623">ou appelez le <strong>04 91 08 06 23</strong></a>
+        </div>
+      </div>
+      <div class="visuel">
+        <img src="img/devanture.webp" width="960" height="945" alt="La devanture de Copie Canebière, au 103 La Canebière à Marseille">
+        <div class="ticket" role="group" aria-label="Quelques tarifs">
+          <p class="ticket-titre">Tarifs en magasin</p>
+          <ul>
+            <li><span>Photocopie A4 noir et blanc</span><b>0,10 €</b></li>
+            <li><span>Photocopie A4 couleur</span><b>0,50 €</b></li>
+            <li><span>Reliure à spirale</span><b>dès 4 €</b></li>
+          </ul>
+          <a href="#tarifs">Tous les tarifs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fichiers section" id="fichiers" aria-labelledby="t-fichiers">
+    <div class="conteneur">
+      <div>
+        <p class="kicker">Impression de vos fichiers</p>
+        <h2 id="t-fichiers">Envoyez vos fichiers, nous les imprimons.</h2>
+        <p class="intro">PDF, JPG, Word… Envoyez vos documents par e-mail : l'équipe se charge de l'impression.</p>
+        <ol class="etapes">
+          <li><div><strong>Joignez vos fichiers à un e-mail</strong><p>À l'adresse clientcopie@hotmail.com, en PDF, JPG, Word ou autre format courant.</p></div></li>
+          <li><div><strong>Précisez ce qu'il vous faut</strong><p>Noir et blanc ou couleur, recto ou recto verso, nombre d'exemplaires.</p></div></li>
+          <li><div><strong>Nous imprimons vos documents</strong><p>Forfait technique de 1,50 € par lot de 10 fichiers, plus 0,10 € la page en noir et blanc ou 0,50 € la page en couleur.</p></div></li>
+        </ol>
+        <div class="adresse-mail">
+          <a class="btn btn-clair" id="preparer" href="mailto:clientcopie@hotmail.com?subject=Fichiers%20%C3%A0%20imprimer">Préparer mon e-mail</a>
+          <a class="mail" href="mailto:clientcopie@hotmail.com">clientcopie@hotmail.com</a>
+          <button class="btn btn-contour" type="button" id="copier" hidden>Copier l'adresse</button>
+        </div>
+      </div>
+
+      <details class="estim" id="estim" open>
+      <summary class="btn btn-contour">Estimer le prix de mes impressions</summary>
+      <form class="estimateur" id="estimateur" aria-labelledby="t-estim" onsubmit="return false">
+        <h3 id="t-estim">Estimer le prix</h3>
+        <p class="aide">Pour des fichiers envoyés par e-mail.</p>
+        <div class="champ">
+          <label for="nb-fichiers">Nombre de fichiers</label>
+          <input id="nb-fichiers" type="number" inputmode="numeric" min="1" max="500" value="1">
+        </div>
+        <div class="champ">
+          <label for="nb-pages">Pages imprimées au total, exemplaires compris</label>
+          <input id="nb-pages" type="number" inputmode="numeric" min="1" max="5000" value="20">
+        </div>
+        <fieldset class="champ">
+          <legend>Impression</legend>
+          <div class="choix">
+            <label><input type="radio" name="couleur" value="nb" checked> Noir et blanc</label>
+            <label><input type="radio" name="couleur" value="couleur"> Couleur</label>
+          </div>
+        </fieldset>
+        <div class="total" aria-live="polite">
+          <div class="total-prix" id="total">3,50 €</div>
+          <p class="total-detail" id="detail">Forfait 1,50 € (1 lot de fichiers) + 20 pages × 0,10 €</p>
+        </div>
+        <p class="note">Estimation d'après les tarifs affichés. Le prix final est confirmé par l'équipe.</p>
+      </form>
+      </details>
+    </div>
+  </section>
+
+  <section class="tarifs section" id="tarifs" aria-labelledby="t-tarifs">
+    <div class="conteneur">
+      <div>
+        <p class="kicker">Services et tarifs</p>
+        <h2 id="t-tarifs">Nos tarifs.</h2>
+        <p class="intro">Des tarifs attractifs pour tous vos besoins d'impression. Prix en magasin, au format A4 sauf mention contraire.</p>
+
+        <div class="onglets" role="tablist" aria-label="Catégories de tarifs">
+          <button role="tab" id="o-magasin" aria-controls="p-magasin" aria-selected="true">En magasin</button>
+          <button role="tab" id="o-cartes" aria-controls="p-cartes" aria-selected="false" tabindex="-1">Cartes de fidélité</button>
+          <button role="tab" id="o-etudiants" aria-controls="p-etudiants" aria-selected="false" tabindex="-1">Étudiants</button>
+        </div>
+
+        <div class="panneau" id="p-magasin" role="tabpanel" aria-labelledby="o-magasin" tabindex="0">
+          <ul class="lignes">
+            <li><span class="nom">Photocopie noir et blanc</span><span class="points"></span><span class="prix">0,10 €</span></li>
+            <li><span class="nom">Photocopie couleur</span><span class="points"></span><span class="prix">0,50 €</span></li>
+            <li><span class="nom">Impression noir et blanc</span><span class="points"></span><span class="prix">1 €<small>puis 0,10 € / page</small></span></li>
+            <li><span class="nom">Impression couleur</span><span class="points"></span><span class="prix">1,50 €<small>puis 0,50 € / page</small></span></li>
+            <li><span class="nom">Numérisation</span><span class="points"></span><span class="prix">1,50 €<small>puis 0,30 € / page</small></span></li>
+            <li><span class="nom">Plastification A4</span><span class="points"></span><span class="prix">4 €</span></li>
+            <li><span class="nom">Plastification A3</span><span class="points"></span><span class="prix">7 €</span></li>
+            <li><span class="nom">Reliure à spirale</span><span class="points"></span><span class="prix">à partir de 4 €</span></li>
+          </ul>
+          <p class="aussi">Également : formulaires administratifs.</p>
+        </div>
+
+        <div class="panneau" id="p-cartes" role="tabpanel" aria-labelledby="o-cartes" tabindex="0">
+          <p class="precision">Économisez sur vos copies, impressions et numérisations. Cartes auprès de l'équipe, en magasin.</p>
+          <ul class="lignes">
+            <li><span class="nom">100 copies noir et blanc<small>soit 0,08 € la copie</small></span><span class="points"></span><span class="prix">8 €</span></li>
+            <li><span class="nom">500 copies noir et blanc<small>soit 0,06 € la copie</small></span><span class="points"></span><span class="prix">30 €</span></li>
+            <li><span class="nom">1 000 copies noir et blanc<small>soit 0,05 € la copie</small></span><span class="points"></span><span class="prix"><span class="surligne">50 €</span></span></li>
+            <li><span class="nom">200 impressions noir et blanc<small>soit 0,07 € l'impression</small></span><span class="points"></span><span class="prix">14 €</span></li>
+            <li><span class="nom">100 impressions couleur<small>soit 0,40 € l'impression</small></span><span class="points"></span><span class="prix">40 €</span></li>
+            <li><span class="nom">200 impressions couleur<small>soit 0,385 € l'impression</small></span><span class="points"></span><span class="prix">77 €</span></li>
+            <li><span class="nom">100 numérisations A4</span><span class="points"></span><span class="prix">40 €</span></li>
+            <li><span class="nom">200 numérisations A4</span><span class="points"></span><span class="prix">60 €</span></li>
+          </ul>
+        </div>
+
+        <div class="panneau" id="p-etudiants" role="tabpanel" aria-labelledby="o-etudiants" tabindex="0">
+          <p class="precision">Étudiants et scolaires, sur présentation de votre carte étudiant ou d'un certificat de scolarité. Cartes auprès de l'équipe, en magasin.</p>
+          <ul class="lignes">
+            <li><span class="nom">200 impressions noir et blanc<small>soit 0,06 € l'impression</small></span><span class="points"></span><span class="prix">12 €</span></li>
+            <li><span class="nom">100 impressions couleur<small>soit 0,36 € l'impression</small></span><span class="points"></span><span class="prix">36 €</span></li>
+            <li><span class="nom">1 000 copies ou impressions noir et blanc<small>soit 0,05 € la page</small></span><span class="points"></span><span class="prix"><span class="surligne">50 €</span></span></li>
+            <li><span class="nom">100 numérisations A4</span><span class="points"></span><span class="prix">35 €</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="photos">
+        <figure>
+          <img src="img/reliure.webp" width="720" height="857" alt="Une pile de documents reliés à spirale" loading="lazy">
+          <figcaption>Reliure à spirale, à partir de 4 €.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/documents.webp" width="720" height="960" alt="Des documents imprimés sous pochette, posés sur une table" loading="lazy">
+          <figcaption>Menus imprimés et plastifiés.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="etudiants" aria-labelledby="t-etudiants">
+    <div class="conteneur">
+      <div>
+        <p class="gros" id="t-etudiants">Étudiants, scolaires : vos impressions dès 0,05 € la page.</p>
+        <p class="petit">Avec la carte 1 000 copies ou impressions, sur présentation de votre carte étudiant ou d'un certificat de scolarité.</p>
+      </div>
+      <a class="btn btn-encre" href="#tarifs" data-onglet="o-etudiants">Voir les tarifs étudiants</a>
+    </div>
+  </section>
+
+  <section class="correction section" id="correction" aria-labelledby="t-correction">
+    <div class="conteneur">
+      <div>
+        <p class="kicker">Correction professionnelle</p>
+        <h2 id="t-correction">Un texte sans fautes, avant de l'imprimer.</h2>
+        <p class="intro">Rapport de stage, mémoire, thèse, manuscrit, lettre : une correctrice professionnelle relit, corrige et met en page vos écrits.</p>
+        <p class="devise">Correction et impression : tout est prêt au même endroit.</p>
+      </div>
+      <div>
+        <dl class="prestations">
+          <div><dt>Correction</dt><dd>Orthographe, grammaire, syntaxe.</dd></div>
+          <div><dt>Réécriture</dt><dd>Améliorer le style.</dd></div>
+          <div><dt>Mise en page</dt><dd>Sur Word, selon les normes requises.</dd></div>
+        </dl>
+        <div class="carte-correctrice">
+          <p class="qui">Marion Lucas, correctrice professionnelle</p>
+          <p class="quoi">Devis personnalisé, tarifs étudiants. Envoyez un extrait de votre texte pour vérifier.</p>
+          <p class="contact"><a href="mailto:marioncorrige@gmail.com">marioncorrige@gmail.com</a> ou <a href="tel:+33491080623">04 91 08 06 23</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trouver section" id="trouver" aria-labelledby="t-trouver">
+    <div class="conteneur">
+      <div>
+        <p class="kicker">Nous trouver</p>
+        <h2 id="t-trouver">Au 103 La Canebière.</h2>
+        <p class="adresse">13001 Marseille · <a href="tel:+33491080623">04 91 08 06 23</a></p>
+        <table class="horaires" aria-label="Horaires d'ouverture">
+          <tbody>
+            <tr data-jours="1 2 3 4 5"><th scope="row">Lundi au vendredi</th><td>8h30 à 19h30</td></tr>
+            <tr data-jours="6"><th scope="row">Samedi</th><td>10h à 19h</td></tr>
+            <tr data-jours="0"><th scope="row">Dimanche</th><td>Fermé</td></tr>
+          </tbody>
+        </table>
+        <p class="horaires-note">Horaires habituels.</p>
+        <ul class="transports" aria-label="Transports en commun">
+          <li><span class="ligne-tc">M1</span> Réformés-Canebière</li>
+          <li><span class="ligne-tc">M2</span> Noailles</li>
+          <li><span class="ligne-tc">T1</span> Noailles</li>
+          <li><span class="ligne-tc">T2</span> Canebière-Garibaldi</li>
+          <li><span class="ligne-tc">81</span> Bus, arrêt Noailles</li>
+        </ul>
+      </div>
+      <div class="carte-bloc">
+        <iframe class="carte" title="Plan d'accès à Copie Canebière" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=103%20La%20Canebi%C3%A8re%2C%2013001%20Marseille&amp;z=16&amp;output=embed"></iframe>
+        <div class="carte-actions">
+          <a class="btn" href="https://maps.app.goo.gl/uJVrbcDid6yQ631z5" target="_blank" rel="noopener">Itinéraire</a>
+          <a class="btn btn-ligne" href="tel:+33491080623">Appeler le magasin</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="avis section" id="avis" aria-labelledby="t-avis">
+    <div class="conteneur">
+      <div class="avis-tete">
+        <div>
+          <p class="kicker">Avis clients</p>
+          <h2 id="t-avis">Ce qu'en disent nos clients.</h2>
+        </div>
+        <div class="avis-liens">
+          <a class="btn" href="https://maps.app.goo.gl/mDmmZXABF37rUf7f7" target="_blank" rel="noopener">Avis Google</a>
+          <a class="btn btn-ligne" href="https://www.pagesjaunes.fr/pros/00686243" target="_blank" rel="noopener">Pages Jaunes</a>
+          <a class="btn btn-ligne" href="https://www.facebook.com/Copiecanebiere/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <ul class="citations">
+        <li>
+          <blockquote><p>C’est vraiment un endroit où je vais souvent. Je me sens toujours bien accueilli. […] Collectif au top</p></blockquote>
+          <p class="source"><b>Marat</b> · Pages Jaunes, 2024</p>
+        </li>
+        <li>
+          <blockquote><p>J'y vais depuis 4 ans pour mon asso couture, ils sont super sympas, très pro.</p></blockquote>
+          <p class="source"><b>Un client</b> · Pages Jaunes, 2017</p>
+        </li>
+        <li>
+          <blockquote><p>Une équipe super professionnelle, à l'écoute, très sympathique. […] Et les prix sont imbattables.</p></blockquote>
+          <p class="source"><b>Melodie</b> · Pages Jaunes, 2016</p>
+        </li>
+      </ul>
+      <p class="avis-note">Extraits d'avis 5/5 publiés sur Pages Jaunes. Vous êtes passé au magasin ? Laissez le vôtre sur Google.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="conteneur">
+    <div>
+      <a class="logo" href="#haut" aria-label="Copie Canebière, retour en haut"><span class="logo-copie">COPIE</span><span class="logo-cane">Canebière</span></a>
+      <p>Reprographie à Marseille depuis 1985.</p>
+    </div>
+    <div>
+      <h3>Magasin</h3>
+      <p>103 La Canebière, 13001 Marseille</p>
+      <p><a href="tel:+33491080623">04 91 08 06 23</a></p>
+      <p><a href="mailto:clientcopie@hotmail.com">clientcopie@hotmail.com</a></p>
+    </div>
+    <div>
+      <h3>Horaires</h3>
+      <p>Lundi au vendredi : 8h30 à 19h30</p>
+      <p>Samedi : 10h à 19h</p>
+    </div>
+    <p class="credit">Maquette réalisée par <a href="https://www.studiobon.site/">Studio Bonsite</a>, à partir des informations du site copiecanebiere.fr.</p>
+  </div>
+</footer>
+
+<nav class="barre-mobile" aria-label="Actions rapides">
+  <a class="btn btn-ligne" href="tel:+33491080623">Appeler</a>
+  <a class="btn" href="#fichiers">Mes fichiers</a>
+</nav>
+
+<script>
+(() => {
+  // Heure de Marseille, quel que soit le fuseau du visiteur (formatToParts : fiable aussi sous Safari)
+  const HORAIRES = { 0: null, 1: [510, 1170], 2: [510, 1170], 3: [510, 1170], 4: [510, 1170], 5: [510, 1170], 6: [600, 1140] };
+  const JOURS = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+  const COURTS = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  const heure = m => `${Math.floor(m / 60)}h${m % 60 ? String(m % 60).padStart(2, "0") : ""}`;
+  const statut = document.getElementById("statut");
+  const majStatut = () => {
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Paris", weekday: "short",
+      hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date()).map(p => [p.type, p.value]));
+    const jour = COURTS[parts.weekday], minute = Number(parts.hour) % 24 * 60 + Number(parts.minute);
+    if (jour === undefined || Number.isNaN(minute)) return;  // le texte des horaires reste affiché
+    const h = HORAIRES[jour];
+    statut.classList.remove("ouvert", "ferme");
+    if (h && minute >= h[0] && minute < h[1]) {
+      statut.textContent = `Ouvert maintenant, jusqu'à ${heure(h[1])}`;
+      statut.classList.add("ouvert");
+    } else {
+      let texte = "";
+      if (h && minute < h[0]) texte = `ouvre aujourd'hui à ${heure(h[0])}`;
+      else for (let i = 1; i <= 7; i++) {
+        const j = (jour + i) % 7;
+        if (HORAIRES[j]) { texte = `ouvre ${i === 1 ? "demain" : JOURS[j]} à ${heure(HORAIRES[j][0])}`; break; }
+      }
+      statut.textContent = `Fermé pour le moment, ${texte}`;
+      statut.classList.add("ferme");
+    }
+    document.querySelectorAll(".horaires tr").forEach(tr => tr.classList.toggle("aujourdhui", tr.dataset.jours.split(" ").includes(String(jour))));
+  };
+  majStatut();
+  setInterval(majStatut, 60000);
+
+  // Menu téléphone
+  const menuBtn = document.querySelector(".menu-btn"), nav = document.getElementById("nav");
+  const fermerMenu = () => { nav.classList.remove("ouverte"); menuBtn.setAttribute("aria-expanded", "false"); };
+  menuBtn.addEventListener("click", () => {
+    const ouvert = nav.classList.toggle("ouverte");
+    menuBtn.setAttribute("aria-expanded", ouvert);
+  });
+  nav.addEventListener("click", e => { if (e.target.closest("a")) fermerMenu(); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && nav.classList.contains("ouverte")) { fermerMenu(); menuBtn.focus(); }
+  });
+  document.addEventListener("click", e => {
+    if (nav.classList.contains("ouverte") && !e.target.closest(".nav, .menu-btn")) fermerMenu();
+  });
+
+  // Onglets des tarifs (sans JavaScript, les trois listes restent visibles)
+  const onglets = [...document.querySelectorAll('[role="tab"]')];
+  const choisir = (o, focus) => {
+    onglets.forEach(x => {
+      const actif = x === o;
+      x.setAttribute("aria-selected", actif);
+      x.tabIndex = actif ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !actif;
+    });
+    if (focus) o.focus();
+  };
+  choisir(onglets[0], false);
+  onglets.forEach((o, i) => {
+    o.addEventListener("click", () => choisir(o, false));
+    o.addEventListener("keydown", e => {
+      const n = onglets.length;
+      const cible = { ArrowRight: (i + 1) % n, ArrowLeft: (i - 1 + n) % n, Home: 0, End: n - 1 }[e.key];
+      if (cible !== undefined) { e.preventDefault(); choisir(onglets[cible], true); }
+    });
+  });
+  document.querySelectorAll("[data-onglet]").forEach(a =>
+    a.addEventListener("click", () => choisir(document.getElementById(a.dataset.onglet), false)));
+
+  // Estimation : forfait 1,50 € par lot de 10 fichiers + prix à la page
+  const euros = n => n.toLocaleString("fr-FR", { style: "currency", currency: "EUR" });
+  const f = document.getElementById("nb-fichiers"), p = document.getElementById("nb-pages");
+  const total = document.getElementById("total"), detail = document.getElementById("detail");
+  let couleurChoisie = false;  // l'e-mail ne coche rien tant que le visiteur n'a pas choisi
+  const lire = (el, max) => { const n = Number(el.value); return Number.isInteger(n) && n >= 1 && n <= max ? n : null; };
+  const calculer = e => {
+    if (e && e.target.name === "couleur") couleurChoisie = true;
+    const couleur = document.querySelector('input[name="couleur"]:checked').value === "couleur";
+    const fichiers = lire(f, 500), pages = lire(p, 5000);
+    const message = fichiers === null || pages === null ? "Indiquez des nombres entiers (1 à 500 fichiers, 1 à 5 000 pages)."
+      : pages < fichiers ? "Comptez au moins une page par fichier." : "";
+    total.parentElement.classList.toggle("invalide", !!message);
+    if (message) { total.textContent = message; detail.textContent = ""; }
+    else {
+      const lots = Math.ceil(fichiers / 10), prixPage = couleur ? 0.5 : 0.1;
+      total.textContent = euros(lots * 1.5 + pages * prixPage);
+      detail.textContent = `Forfait ${euros(lots * 1.5)} (${lots} lot${lots > 1 ? "s" : ""} de fichiers) + ${pages} page${pages > 1 ? "s" : ""} × ${euros(prixPage)}`;
+    }
+    const corps = ["Bonjour,", "", "Vous trouverez en pièce jointe mes fichiers à imprimer.", "",
+      `Noir et blanc ou couleur : ${couleurChoisie ? (couleur ? "couleur" : "noir et blanc") : ""}`, "Recto ou recto verso : ",
+      "Nombre d'exemplaires : ", "", "Nom : ", "Téléphone : ", "", "Merci,"].join("\r\n");
+    document.getElementById("preparer").href =
+      `mailto:clientcopie@hotmail.com?subject=${encodeURIComponent("Fichiers à imprimer")}&body=${encodeURIComponent(corps)}`;
+  };
+  ["input", "change"].forEach(t => document.getElementById("estimateur").addEventListener(t, calculer));
+  calculer();
+  // téléphone et tablette : estimateur replié au chargement ; ordinateur : toujours ouvert
+  const estim = document.getElementById("estim"), large = matchMedia("(min-width: 1001px)");
+  if (!large.matches) estim.open = false;
+  large.addEventListener("change", e => { if (e.matches) estim.open = true; });
+  estim.addEventListener("toggle", () => { if (large.matches && !estim.open) estim.open = true; });
+
+  // Copier l'adresse (si le presse-papiers est disponible)
+  const copier = document.getElementById("copier");
+  if (navigator.clipboard) {
+    copier.hidden = false;
+    copier.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText("clientcopie@hotmail.com"); copier.textContent = "Adresse copiée"; }
+      catch { copier.textContent = "Copie impossible"; }
+      setTimeout(() => (copier.textContent = "Copier l'adresse"), 2200);
+    });
+  }
+})();
+</script>
+</body>
+</html>
